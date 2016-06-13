@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../helpers/db.js');
 var MENUMODEL = new db.MENUMODEL();
 var _ = require('lodash');
+var async =require('async');
 
 module.exports = function(passport){
 	router.get('/', function(req, res, next) {
@@ -25,6 +26,13 @@ module.exports = function(passport){
 	  res.render('admin/profile', { title: 'Simple CMS',active:"profile"});
 	});
 
+	router.get('/newpage', db.isLoggedIn, function(req, res, next) {
+	  res.render('admin/newpage', { title: 'Simple CMS - Add new page',active:"newpage"});
+	});
+
+	router.get('/settings', db.isLoggedIn, function(req, res, next) {
+	  res.render('admin/settings', { title: 'Simple CMS',active:"settings"});
+	});
 
 	router.post('/',
 	  passport.authenticate('local', { successRedirect: '/admin/dashboard',
@@ -33,10 +41,96 @@ module.exports = function(passport){
 	   )
 	);
 
+	//update menus
+	router.put("/api/menu",db.isLoggedIn,function(req,res,next){
+
+		if(req.body.data){
+			console.log("update menus",req.body.data);
+			var data = JSON.parse(req.body.data);
+			async.map(data, MENUMODEL.update, function(err, results){
+			    // results is now an array of stats for each file
+			    if(err){
+			    	console.log('update menu error ',err);
+			    	res.json({
+			    		success:false,
+			    		message: JSON.stringify(err)
+			    	})
+			    }else{
+
+			    	res.json({
+			    		success:true,
+			    		message: "Update successfully"
+			    	});
+			    }
+			});
+
+		}else{
+			console.log("update menu invalid data");
+			res.json({
+	    		success:false,
+	    		message: "Invalid data"
+	    	});
+		}
+	});
+
 
 	//add new menu
 	router.post("/api/menu",db.isLoggedIn,function(req,res,next){
-		
+		if(req.body){
+			if(req.body.title!=''&&req.body.link!=''){
+				MENUMODEL.add(req.body,function(error){
+					if(error){
+						res.json({
+							success:false,
+							message:"Can not addd menu"
+						});
+						console.log("ERROR add menu api ",error);
+					}else{
+						res.json({
+							success:true,
+							message:"Add menu successfully"
+						});
+					}
+
+				});
+
+			}
+		}else{
+			res.json({
+				success:false,
+				message: "Invalid post data"
+			})
+		}
+
+
+	});
+
+	//add new menu
+	router.delete("/api/menu",db.isLoggedIn,function(req,res,next){
+		var id = req.body.id || '';
+		if(id!=''){
+			MENUMODEL.delete(id,function(error){
+				if(error){
+					res.json({
+						success:false,
+						message:"Can not delete menu"
+					});
+					console.log("ERROR delete menu api ",error);
+				}else{
+					res.json({
+						success:true,
+						message:"Delete menu successfully"
+					});
+				}
+
+			});
+
+		}else{
+			res.json({
+				success:false,
+				message:"Can not delete menu"
+			});
+		}
 
 
 	});
@@ -46,15 +140,15 @@ module.exports = function(passport){
 		var args = {};
 		console.log("request query",req.query);
 		
-		MENUMODEL.find(req.query,function(error,returnData){
+		MENUMODEL.find("id,title,link",req.query,function(error,returnData){
 	    	console.log("MENU ",returnData);
 	    	if(!error){
 	    		res.json(returnData);
 	    	}
 	    	else {
-	    		console.log("ERROR api/menu",error);
+	    		console.log("ERROR get api/menu",error);
 	    		res.json({
-	    			succuess :false,
+	    			success :false,
 	    			error : "Can not get menus"
 	    		})
 	    	}

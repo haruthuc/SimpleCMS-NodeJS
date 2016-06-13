@@ -1,10 +1,12 @@
 <% layout('admin-layout') -%>
 <script>
     var API_URL = "/admin/api/menu";
+    var sortChange = false;
     function getList($args,cb){
         $.get(API_URL,$args).done(function( data ) {
                 if(data.success === false){
-                    alert(data.error);
+                    //alert(data.error);
+                    //toastr["error"](data.message);
                     cb(data.error);
                 }else{
                     cb(null,data);
@@ -14,38 +16,239 @@
           });
     }
 
-    function templateHTML($data){
-        var template = '<div class="row ad-list-item" data-id="'+$data['id']+'">';
+    function enableSort(){
+        var element = ".ad-list-item";
+        var handle = ".drag-btn";
+        var connect = ".ad-list-item";
+        $("#menu-list").sortable(
+            {
+                handle: handle,
+                items: ".ad-list-item:not([data-id='new'])",
+                connectWith: connect,
+                tolerance: 'pointer',
+                forcePlaceholderSize: true,
+                opacity: 0.8,
+                change: function( event, ui ) {
+                    $("#btn-save").attr("disabled",false);
+                    $(".ad-list-item:not([data-id='new'])").each(function(){
+                        $(this).attr("data-status","changed");
+                    });
+                }
+            })
+            .disableSelection();
+
+    }
+
+    function addAPI(args){
+        $.post(API_URL,args,function(data){
+            renderList("#menu-list");
+            if(data.success)
+                toastr["success"](data.message);
+            else
+                toastr["error"](data.message);
+        });
+    }
+
+    function updateAPI(args){
+        var dataPut = {
+            data : JSON.stringify(args)
+        }
+        $.put(API_URL,dataPut,function(data){
+            if(data.success)
+                toastr["success"](data.message);
+            else
+                toastr["error"](data.message);
+
+        });
+    }
+
+    function deleteAPI(id){
+        var args ={id:id};
+        $.delete(API_URL,args,function(data){
+            //TODO : Handle error show message error
+            //refresh list menu
+            renderList("#menu-list");
+        });
+    }
+
+    function templateHTML($data,isNew){
+        var template = '<div class="row ad-list-item"';
+        if($data['order'] != undefined){
+            template += ' data-order='+$data['order'];
+        }
+        template += ' data-id="'+$data['id']+'">';
         template += '<div class="infont col-md-1 text-right">'
-        template += '<span class="margin-top-5px"><i class="fa fa-lg fa-arrows-v"></i></span>';
-        template += '</div>';
+        if(!isNew){
+
+            template += '<span class="margin-top-5px drag-btn"><i class="fa fa-lg fa-arrows-v"></i></span>';
+        
+
+        }
+            template += '</div>';
+       
         template += '<div class="col-md-5">';
-        template += '<input type="text" name="title" placeholder="Title" class="form-control" value="'+$data['title']+'"></input></div>';
-        template += '<div class="col-md-3"> <input type="text" name="link" placeholder="Link" class="form-control" value="'+$data['link']+'"></input>';
-        template += '</div><div class="infont col-md-3 text-left">';
-        template += '<a href="#"> <span class="margin-top-5px"><i class="fa fa-lg fa-trash-o"></i></span></a></div></div>';
+
+        template += '<input type="text" name="title" placeholder="Title" class="';
+        if(!isNew)
+            template += 'item-content ';
+        template +='form-control" value="'+$data['title']+'"></input></div>';
+
+
+        template += '<div class="col-md-3"> <input type="text" name="link" placeholder="Link" class="';
+        if(!isNew)
+            template += 'item-content ';
+        template += 'form-control" value="'+$data['link']+'"></input>';
+        template += '</div><div class="col-md-1 text-left">';
+        if(isNew){
+            template += '<a class="add-btn" href="#"> <span class="margin-top-5px"><i class="fa fa-lg fa-plus"></i></span></a></div></div>';
+        }else{
+            template += '<a class="delete-btn" href="#"> <span class="margin-top-5px"><i class="fa fa-lg fa-trash-o"></i></span></a></div></div>';
+        }
+        
         return template;
     }
 
     function renderList(elementID){
+        $(elementID).html("");
         //call get list menu
-        getList({},function(error,returnData){
+        getList({
+            orderBy:"sortOrder"
+        },function(error,returnData){
             if(!error){
                 var data = returnData.data;
-                console.log("renderList data",data);
+                //console.log("renderList data",data);
                 if(data.length > 0){
                     for(var i=0;i<data.length;i++){
+                        data[i].order = i+1;
                         var template = templateHTML(data[i]);
                         $(elementID).append(template);
                     }
                 }
             }
+            //add new menu box
+            addNewBox(elementID);
+            enableSort();
         });
-        //render html
+
+    }
+
+    function addNewBox(elementID){
+        //append new item
+        var templateNewBox = templateHTML({
+            id:"new",
+            title:"",
+            link:""
+        },true);
+        //append new box html
+        $(elementID).append(templateNewBox);
+    }
+
+    function update(){
+        var args = [];
+        $(".ad-list-item[data-status='changed']").each(function(index,value) {
+            //console.log("update",$(this).val());
+            var me = $(this);
+            var link = me.find("input[name='link']").val();
+            var title = me.find("input[name='title']").val();
+            var sort = index;
+            var id = me.attr("data-id");
+            if(link!='' && title != ''){
+                var objBuff = {
+                            id : id,
+                            title:title,
+                            link:link,
+                            level:0,
+                            parentid:0,
+                            sortOrder:sort,
+                            position: "main"
+                };
+                args.push(objBuff);
+            }
+        });
+
+        //console.log("update function ",args);
+        updateAPI(args);
+        $("#btn-save").attr("disabled",true);
     }
 
     $(document).ready(function(){
+        $("#btn-save").attr("disabled",true);
         renderList("#menu-list");
+
+        //listen delete btn click
+        $(document).on("click",'.delete-btn', function(event) {
+            event.preventDefault();
+            var me = this;
+            $.confirm({
+                text: "Are you sure you want to delete that menu?",
+                title: "Confirmation required",
+                confirm: function(button) {
+                    var parent = $(me).parents(".ad-list-item");
+                    var id = parent.data("id");
+                    deleteAPI(id);
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes I am",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-default",
+                dialogClass: "modal-dialog modal-lg"
+            });
+        });
+
+        $(document).on("keypress",".item-content",function(event){
+            
+            //check status of button save
+            //change status from disable to enable
+            var disableStatus = $("#btn-save").attr("disabled");
+            if(disableStatus){
+                $("#btn-save").attr("disabled",false);
+            }
+            
+            //change parent data to change
+            var parent = $(this).parents(".ad-list-item");
+            //change parent status 
+            parent.attr("data-status","changed");
+
+            if (event.ctrlKey && event.keyCode == 13) {
+               update();
+            }
+
+        });
+
+        //hanle save change event
+        $("#btn-save").on("click",function(event){
+            event.preventDefault();
+            //call update api
+            update();
+
+        });
+
+        //listen add btn click
+        $(document).on("click",'.add-btn', function(event) {
+            var me = this;
+            var parent = $(me).parents(".ad-list-item");
+            var link = parent.find("input[name='link']").val();
+            var title = parent.find("input[name='title']").val();
+            if(link!='' && title != ''){
+                //call add api
+                var args = {
+                            title:title,
+                            link:link,
+                            level:0,
+                            parentid:0,
+                            sortOrder:0,
+                            position: "main"
+                            };
+                addAPI(args);
+
+            }
+
+        });
+
     });
 </script>
 
@@ -54,7 +257,7 @@
         <h2>Menu</h2>
     </div>
     <div class="text-right col-lg-2">
-        <button class="btn btn-lg btn-primary margin-top-20px" type="submit">Save Changes</button>
+        <button id="btn-save" disabled="true" class="btn btn-xd btn-primary margin-top-20px" type="submit">Save Changes</button>
     </div>
 </div>
 <div class="row">

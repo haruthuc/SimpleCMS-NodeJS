@@ -13,6 +13,109 @@ var db =null;
 var crypto = require('crypto');
 var PAGE_LIMIT = 10;
 
+var MenuSchema = {
+	id : {
+		type : "TEXT",
+		default : function(){
+			return uuid.v4();
+		}
+		//required : true
+	},
+	title:{
+		type:"TEXT"
+	},
+	link : {
+		type:"TEXT"
+	},
+	level : {
+		type:"INTEGER",
+		default:0
+	},
+	parentid:{
+		type:"TEXT",
+		default:""
+	},
+	sortOrder :{
+		type:"INTEGER"
+	},
+	position: {
+		type:"TEXT"
+	},
+	dateCreated: {
+		type:"NUMERIC",
+		default: function (){
+			return new Date();
+		}
+	},
+	status:{
+		type:"INTEGER",
+		default:1
+	}
+};
+
+var UserSchema = {
+	"id": {
+		type:"TEXT",
+		default: function(){
+			return uuid.v4();
+		}
+	},
+	"username": "TEXT",
+	"password": "TEXT",
+	"fullname": "TEXT",
+	"email": "TEXT",
+	"role" :"TEXT",
+	"dateCreated":{
+		type:"NUMERIC",
+		default: function () {
+			return new Date();
+		}
+	},
+	"status":{
+		type:"INTEGER",
+		default:1
+	}
+};
+var ContentSchema = {
+	id:{
+		type:"TEXT",
+		default: function() {
+			return uuid.v4();
+		}
+	},
+	title:"TEXT",
+	picture:"TEXT",
+	content:"TEXT",
+	meta_head:"TEXT",
+	meta_search:"TEXT",
+	tags:"TEXT",
+	datePublish: {
+		type:"NUMERIC",
+		default: function () { 
+			return new Date();
+		}
+	},
+	dateCreated:{
+		type:"NUMERIC",
+		default: function(){
+			return new Date();
+		} 
+	},
+	status:{
+		type:"INTEGER"
+	}
+};
+
+
+
+
+var dbSchema = {
+	menu : MenuSchema,
+	user : UserSchema,
+	content : ContentSchema
+};
+
+
 function initTable(){
 	//init table user
 	/*
@@ -24,34 +127,72 @@ function initTable(){
 	*/
 
 	//create table USER
-	db.run("CREATE TABLE IF NOT EXISTS user (id TEXT,username TEXT, password TEXT, fullname TEXT, email TEXT, role TEXT,dateCreated NUMERIC, status INTEGER)");
+	//db.run("CREATE TABLE IF NOT EXISTS user (id TEXT,username TEXT, password TEXT, fullname TEXT, email TEXT, role TEXT,dateCreated NUMERIC, status INTEGER)");
+	db.run("CREATE TABLE IF NOT EXISTS user ("+schemaToColumnString(UserSchema)+")");
 
 	//create table MENU
-	db.run("CREATE TABLE IF NOT EXISTS menu (id TEXT,title TEXT, link TEXT,level INTEGER, parentid INTEGER, sortOrder INTEGER, position TEXT, dateCreated NUMERIC, status INTEGER)");
+	db.run("CREATE TABLE IF NOT EXISTS menu ("+schemaToColumnString(MenuSchema)+")");
 
 	//create table content
-	db.run("CREATE TABLE IF NOT EXISTS content(id TEXT,title TEXT, picture TEXT, content TEXT,meta_head TEXT,meta_search TEXT,dateCreated NUMERIC, datePublish NUMERIC, tags TEXT, status TEXT)")
+	db.run("CREATE TABLE IF NOT EXISTS content("+schemaToColumnString(ContentSchema)+")")
+
+
 	console.log("INIT TABLE");
 };
 
-function objectToParams(obj){
-
-	if(typeof obj.dateCreated == "undefined"){
-		obj.dateCreated = new Date();
-	}
-
-	if(typeof obj.status == "undefined")
-		obj.status = 1; // STATUS == 1 NORMAL, 2 == DELETED 
-
-	if(typeof obj.id == "undefined")
-		obj.id = uuid.v4();
-
-
-
-	obj = _.mapKeys(obj, function(value, key) {
-	  return "$"+key;
+function schemaToColumnString(objSchema){
+	//_.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
+	//create obj with {key:fieldtype}
+	var objBuff = _.mapValues(objSchema, function(o) {
+		 if(_.isObject(o) && o.type != undefined){
+		 	return o.type || "TEXT"; 
+		 }else{
+		 	return o;
+		 }
 	});
-	return obj;
+	var keys = _.keys(objBuff);
+	var strColumn = '';
+	for(var i = 0; i < keys.length; i++){
+		strColumn+=keys[i]+" "+objBuff[keys[i]];
+		if(i<keys.length-1)
+			strColumn+=', ';
+
+	}
+	return strColumn;
+}
+
+function objectToParams(obj,table){
+	
+	if(dbSchema[table] != undefined) {
+
+		var schemaObj = dbSchema[table];
+
+		schemaObj = _.mapValues(schemaObj, function(o) {
+			 if(!_.isUndefined(o.default) && _.isFunction(o.default))
+			 {
+			 	return o.default();
+			 }
+			 return _.result(o,"default",'');
+		});
+
+		console.log("objectToParams schema object ",schemaObj);
+
+		var defaultObject = _.defaults(obj,schemaObj);
+		
+		console.log("objectToParams default object ",defaultObject);
+
+		defaultObject = _.pick(defaultObject,_.keys(schemaObj));
+
+		console.log("objectToParams finished object ",defaultObject);
+
+		defaultObject = _.mapKeys(defaultObject, function(value, key) {
+		  return "$"+key;
+		});
+
+		return defaultObject;
+	}else{
+		return {};
+	}	
 }
 
 function objectToQueryString(obj,updateFlag){
@@ -108,7 +249,7 @@ function initDatabase(){
 
 // base add query
 function addQuery(table,obj,cb){
-	obj = objectToParams(obj);
+	obj = objectToParams(obj,table);
 	var keys = _.keys(obj);
 	var query = "INSERT INTO "+table+" VALUES("+_.toString(keys)+")";
 	console.log("add query "+table,query);
@@ -179,7 +320,7 @@ function findOne(table,$args,cb){
 
 
 //base find query
-function findQuery(table,$args,cb){
+function findQuery(table,$projection,$args,cb){
 	if(typeof $args != "undefined"){
 		var page = $args['page']?$args['page']:1;
 		var limit =  $args['limit']?$args['limit']:PAGE_LIMIT;
@@ -187,11 +328,13 @@ function findQuery(table,$args,cb){
 		var orderBy = $args['orderBy']?$args['orderBy']:"dateCreated";
 		//convert Object to Query String
 		var queryParse = objectToQueryString($args,false);
+		var projection = ($projection)?$projection:"*";
+
 		if(queryParse){
-			var query = "SELECT * FROM "+table+" WHERE "+objectToQueryString($args,false);
+			var query = "SELECT "+projection+" FROM "+table+" WHERE "+objectToQueryString($args,false);
 		}
 		else{
-			var query = "SELECT * FROM "+table;
+			var query = "SELECT "+projection+" FROM "+table;
 		}
 
 		query += " ORDER BY "+orderBy+" "+order;
@@ -203,7 +346,7 @@ function findQuery(table,$args,cb){
 		//find data
 		async.waterfall([
 			function countQuery(callback){
-				var queryCount = "SELECT count(*) as TOTALNUMBER FROM "+table;
+				var queryCount = "SELECT count(id) as TOTALNUMBER FROM "+table;
 				db.all(queryCount,function(err,rows){
 					if(err){
 						console.error("ERROR find "+table,err);
@@ -287,8 +430,8 @@ var BASEMODEL = function(tableName){
 			deleteQuery(tableName,id,cb);
 
 		},
-		find : function findByArgs($args,cb){
-			findQuery(tableName,$args,cb);
+		find : function findByArgs(projection,$args,cb){
+			findQuery(tableName,projection,$args,cb);
 		},
 		findOne : function findOneByArgs($args,cb){
 			findOne(tableName,$args,cb);
