@@ -91,7 +91,7 @@ var ContentSchema = {
 	tags:"TEXT",
 	datePublish: {
 		type:"NUMERIC",
-		default: function () { 
+		default: function () {
 			return new Date();
 		}
 	},
@@ -99,20 +99,59 @@ var ContentSchema = {
 		type:"NUMERIC",
 		default: function(){
 			return new Date();
-		} 
+		}
 	},
 	status:{
 		type:"INTEGER"
 	}
 };
 
+//tags menu
+var TagsSchema = {
+	id:{
+		type:"TEXT",
+		default: function() {
+			return uuid.v4();
+		}
+	},
+	title:"TEXT",
+	dateCreated:{
+		type:"NUMERIC",
+		default: function(){
+			return new Date();
+		}
+	}
+};
 
+
+//picture
+var PictureSchema = {
+	id:{
+		type:"TEXT",
+		default: function() {
+			return uuid.v4();
+		}
+	},
+	title:"TEXT",
+	description:"TEXT",
+	url:"TEXT",
+	dateCreated:{
+		type:"NUMERIC",
+		default: function(){
+			return new Date();
+		}
+	}
+};
+
+//picture
 
 
 var dbSchema = {
 	menu : MenuSchema,
 	user : UserSchema,
-	content : ContentSchema
+	content : ContentSchema,
+	tag : TagsSchema,
+	picture : PictureSchema
 };
 
 
@@ -145,7 +184,7 @@ function schemaToColumnString(objSchema){
 	//create obj with {key:fieldtype}
 	var objBuff = _.mapValues(objSchema, function(o) {
 		 if(_.isObject(o) && o.type != undefined){
-		 	return o.type || "TEXT"; 
+		 	return o.type || "TEXT";
 		 }else{
 		 	return o;
 		 }
@@ -162,7 +201,7 @@ function schemaToColumnString(objSchema){
 }
 
 function objectToParams(obj,table){
-	
+
 	if(dbSchema[table] != undefined) {
 
 		var schemaObj = dbSchema[table];
@@ -178,7 +217,7 @@ function objectToParams(obj,table){
 		console.log("objectToParams schema object ",schemaObj);
 
 		var defaultObject = _.defaults(obj,schemaObj);
-		
+
 		console.log("objectToParams default object ",defaultObject);
 
 		defaultObject = _.pick(defaultObject,_.keys(schemaObj));
@@ -192,7 +231,7 @@ function objectToParams(obj,table){
 		return defaultObject;
 	}else{
 		return {};
-	}	
+	}
 }
 
 function objectToQueryString(obj,updateFlag){
@@ -460,7 +499,7 @@ exports.close = close;
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();
 

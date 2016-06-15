@@ -1,4 +1,6 @@
 <% layout('admin-layout') -%>
+<%- script('/js/jquery-ui-1.10.4.min.js') %>
+<%- script('/js/plugins/jquery.confirm.min.js') %>
 <script>
     var API_URL = "/admin/api/menu";
     var sortChange = false;
@@ -81,11 +83,11 @@
         if(!isNew){
 
             template += '<span class="margin-top-5px drag-btn"><i class="fa fa-lg fa-arrows-v"></i></span>';
-        
+
 
         }
             template += '</div>';
-       
+
         template += '<div class="col-md-5">';
 
         template += '<input type="text" name="title" placeholder="Title" class="';
@@ -104,7 +106,7 @@
         }else{
             template += '<a class="delete-btn" href="#"> <span class="margin-top-5px"><i class="fa fa-lg fa-trash-o"></i></span></a></div></div>';
         }
-        
+
         return template;
     }
 
@@ -200,17 +202,17 @@
         });
 
         $(document).on("keypress",".item-content",function(event){
-            
+
             //check status of button save
             //change status from disable to enable
             var disableStatus = $("#btn-save").attr("disabled");
             if(disableStatus){
                 $("#btn-save").attr("disabled",false);
             }
-            
+
             //change parent data to change
             var parent = $(this).parents(".ad-list-item");
-            //change parent status 
+            //change parent status
             parent.attr("data-status","changed");
 
             if (event.ctrlKey && event.keyCode == 13) {
