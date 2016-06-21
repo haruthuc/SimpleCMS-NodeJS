@@ -2,11 +2,66 @@
 <%- stylesheet('/css/summernote/summernote.css') %>
 <%- stylesheet('/css/summernote/summernote-bs3.css') %>
 <%- stylesheet('/css/bootstrap-datepicker/bootstrap-datepicker3.min.css') %>
+<%- stylesheet('/css/chosen/chosen.min.css') %>
 
 <%- script('/js/plugins/summernote/summernote.min.js') %>
 <%- script('/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') %>
+<%- script('/js/plugins/chosen/chosen.jquery.min.js') %>
+
 <script>
+
+    function addAPI(API_URL,args,cb){
+        $.post(API_URL,args,function(data){
+            if(data.success){
+                toastr["success"](data.message);
+                cb(null,data);
+            }
+            else{
+                toastr["error"](data.message);
+                cb(data.message);
+            }
+
+        });
+    }
+
+    function getList(API_URL,$args,cb){
+        $.get(API_URL,$args).done(function( data ) {
+                if(data.success === false){
+                    //alert(data.error);
+                    //toastr["error"](data.message);
+                    cb(data.error);
+                }else{
+                    cb(null,data.data);
+                }
+            }).fail(function() {
+                cb("GET LIST ERROR");
+          });
+    }
+
+    function renderTags(){
+      getList("/admin/api/tag",{
+        limit : "none"
+      },function(err,data){
+          if(err){
+            toastr["error"](data.message);
+          }else{
+            //render
+            var strRender = "";
+            for(var i=0;i<data.length;i++){
+                var tag = data[i].title || "";
+                strRender += "<option value='"+tag+"'>"+tag+"</option>";
+            }
+            $("#tag-choice").append(strRender);
+          }
+          $(".chosen-select").chosen();
+
+      });
+
+    }
     $(document).ready(function() {
+      renderTags();
+
+      $("#input-tags-area").hide();
       $('.summernote').summernote();
 
       $('.input-group.date').datepicker({
@@ -14,19 +69,36 @@
           todayHighlight: true
       });
 
+      $('.input-group.date').datepicker('setDate', new Date());
+      $("#add-new-tag").on("click",function(){
+          $("#input-tags-area").toggle();
+          $(this).hide();
+      });
+
+      $("#cancel-add-tag").on("click",function(){
+          $("#input-tags-area").hide();
+          $("#add-new-tag").show();
+      });
+
+      $("#save-tag").on("click",function(){
+          var tagTxt = $("#add-tag-txt").val();
+          if(!tagTxt){
+            $("#add-tag-txt").addClass("error");
+            return;
+          }else{
+            $("#add-tag-txt").removeClass("error");
+          }
+          var args = {};
+          args.title = tagTxt;
+          $("#input-tags-area").hide();
+          $("#add-new-tag").show();
+          addAPI("/admin/api/tag",args,function(err,data){
+              var strRender = "<option value='"+tagTxt+"'>"+tagTxt+"</option>";
+              $("#tag-choice").append(strRender);
+              $("#tag-choice").trigger("chosen:updated");
+          });
+      });
     });
-    var edit = function() {
-        $('.click2edit').summernote({focus: true});
-
-    };
-
-    var save = function() {
-
-        var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
-
-        $('.click2edit').destroy();
-
-    };
 
 </script>
 <div class="row">
@@ -39,15 +111,20 @@
                 </div>
             </div>
              <div class="ibox-content form-horizontal">
-
                         <div class="form-group"><label class="col-lg-2 control-label">Title</label>
 
-                            <div class="col-sm-10"><input type="text" class="form-control"></div>
+                            <div class="col-sm-8"><input type="text" class="form-control"></div>
                         </div>
                         <div class="hr-line-dashed"></div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Tags</label>
-                            <div class="col-sm-8"><input type="text" class="form-control"></div>
-                            <div class="col-sm-2"><button class="btn btn-success"><i class="fa fa-plus"></i></button></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Tags</label>
+                            <div class="col-sm-6">
+                              <select id="tag-choice" data-placeholder="Select Tags" style="width:550px;" multiple class="chosen-select">
+                              </select>
+
+                            </div>
+                            <div class="col-sm-4">
+                              <span id="input-tags-area"><input id="add-tag-txt" type="text" /> <button id="save-tag" class="btn btn-circle btn-primary"><i class="fa fa-check"></i></button>  <button id="cancel-add-tag" class="btn btn-circle btn-danger"><i class="fa fa-times"></i></button></span>
+                              <button id="add-new-tag" class="btn btn-success"><i class="fa fa-plus"></i></button></div>
                         </div>
 
                         <div class="hr-line-dashed"></div>
@@ -63,7 +140,7 @@
                         <div class="form-group"><label class="col-lg-2 control-label">Content</label>
                         <div class="col-sm-10">
                               <div class="mail-box">
-                                      <div id="summernote" class="mail-text h-200"><p></p></div>
+                                      <div id="summernote" class="mail-text"><p></p></div>
                                       <script>
                                         $(document).ready(function() {
                                             $('#summernote').summernote();
@@ -76,7 +153,7 @@
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button class="btn btn-white" type="submit">Cancel</button>
-                                <button class="btn btn-primary" type="submit">Save changes</button>
+                                <button class="btn btn-primary" type="submit">Save</button>
                             </div>
                         </div>
 

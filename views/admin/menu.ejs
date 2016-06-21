@@ -114,7 +114,8 @@
         $(elementID).html("");
         //call get list menu
         getList({
-            orderBy:"sortOrder"
+            orderBy:"sortOrder",
+            limit : "none"
         },function(error,returnData){
             if(!error){
                 var data = returnData.data;

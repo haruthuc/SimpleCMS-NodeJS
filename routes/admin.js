@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../helpers/db.js');
 var MENUMODEL = new db.MENUMODEL();
+var TAGMODEL = new db.TAGMODEL();
 var _ = require('lodash');
 var async =require('async');
 
@@ -101,11 +102,9 @@ module.exports = function(passport){
 				message: "Invalid post data"
 			})
 		}
-
-
 	});
 
-	//add new menu
+	//delte menu
 	router.delete("/api/menu",db.isLoggedIn,function(req,res,next){
 		var id = req.body.id || '';
 		if(id!=''){
@@ -131,15 +130,13 @@ module.exports = function(passport){
 				message:"Can not delete menu"
 			});
 		}
-
-
 	});
 
 	//get list menu
 	router.get("/api/menu",db.isLoggedIn,function(req,res,next){
 		var args = {};
 		console.log("request query",req.query);
-		
+
 		MENUMODEL.find("id,title,link",req.query,function(error,returnData){
 	    	console.log("MENU ",returnData);
 	    	if(!error){
@@ -153,9 +150,84 @@ module.exports = function(passport){
 	    		})
 	    	}
 
-	    });	
+	    });
 	});
 
+	router.get("/api/tag",db.isLoggedIn,function(req,res,next){
+		var args = {};
+		console.log("request query",req.query);
+
+		TAGMODEL.find("title",{},function(error,returnData){
+	    	console.log("TAGS ",returnData);
+	    	if(!error){
+	    		res.json(returnData);
+	    	}
+	    	else {
+	    		console.log("ERROR get api/tag",error);
+	    		res.json({
+	    			success :false,
+	    			error : "Can not get tags"
+	    		})
+	    	}
+
+	    });
+	});
+
+	//add tags
+	//add new menu
+	router.post("/api/tag",db.isLoggedIn,function(req,res,next){
+		if(req.body){
+			if(req.body.title!=''){
+				TAGMODEL.add(req.body,function(error){
+					if(error){
+						res.json({
+							success:false,
+							message:"Can not add tag"
+						});
+						console.log("ERROR add tag api ",error);
+					}else{
+						res.json({
+							success:true,
+							message:"Add tag successfully"
+						});
+					}
+
+				});
+
+			}
+		}else{
+			res.json({
+				success:false,
+				message: "Invalid post data"
+			})
+		}
+	});
+
+	router.delete("/api/tag",db.isLoggedIn,function(req,res,next){
+		var id = req.body.id || '';
+		if(id!=''){
+			TAGMODEL.delete(id,function(error){
+				if(error){
+					res.json({
+						success:false,
+						message:"Can not delete tag"
+					});
+					console.log("ERROR delete tag api ",error);
+				}else{
+					res.json({
+						success:true,
+						message:"Delete tag successfully"
+					});
+				}
+
+			});
+		}else{
+			res.json({
+				success:false,
+				message:"Can not delete tag"
+			});
+		}
+	});
 
 	// =====================================
     // LOGOUT ==============================

@@ -23,7 +23,7 @@ var flash = require('connect-flash');
 app.engine('ejs', engine);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs'); 
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use( session({
   saveUninitialized : true,
-  secret : 'Some Secret' ,
+  secret : 'SADD@D#$#@#@#A' ,
   resave : true,
 }));
 app.use(passport.initialize());
@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('frontend/error', {
       message: err.message,
       error: err
     });
@@ -69,7 +69,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.render('frontend/error', {
     message: err.message,
     error: {}
   });

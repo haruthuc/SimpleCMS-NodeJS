@@ -173,8 +173,13 @@ function initTable(){
 	db.run("CREATE TABLE IF NOT EXISTS menu ("+schemaToColumnString(MenuSchema)+")");
 
 	//create table content
-	db.run("CREATE TABLE IF NOT EXISTS content("+schemaToColumnString(ContentSchema)+")")
+	db.run("CREATE TABLE IF NOT EXISTS content("+schemaToColumnString(ContentSchema)+")");
 
+	//create table tags
+	db.run("CREATE TABLE IF NOT EXISTS tag("+schemaToColumnString(TagsSchema)+")");
+
+	//create table picture
+	db.run("CREATE TABLE IF NOT EXISTS picture("+schemaToColumnString(PictureSchema)+")");
 
 	console.log("INIT TABLE");
 };
@@ -377,8 +382,8 @@ function findQuery(table,$projection,$args,cb){
 		}
 
 		query += " ORDER BY "+orderBy+" "+order;
-
-		query += " LIMIT "+limit+" OFFSET "+limit*(page-1);
+		if(limit!="none")
+			query += " LIMIT "+limit+" OFFSET "+limit*(page-1);
 
 		//count all
 
@@ -493,6 +498,15 @@ exports.CONTENTMODEL = function(){
 	return new BASEMODEL("content");
 }
 
+//tags model
+exports.TAGMODEL = function(){
+	return new BASEMODEL("tag");
+}
+
+//tags model
+exports.PICTURE = function(){
+	return new BASEMODEL("picture");
+}
 exports.init = initDatabase;
 exports.close = close;
 
