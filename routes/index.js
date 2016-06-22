@@ -6,7 +6,7 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'SimpleCMS Login' });
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('login', { title: 'SimpleCMS Login' });
 });
 

@@ -232,6 +232,7 @@
 
         //listen add btn click
         $(document).on("click",'.add-btn', function(event) {
+            event.preventDefault();
             var me = this;
             var parent = $(me).parents(".ad-list-item");
             var link = parent.find("input[name='link']").val();

@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../helpers/db.js');
 var MENUMODEL = new db.MENUMODEL();
 var TAGMODEL = new db.TAGMODEL();
+var CONTENTMODEL = new db.CONTENTMODEL();
 var _ = require('lodash');
 var async =require('async');
 
@@ -79,7 +80,7 @@ module.exports = function(passport){
 	router.post("/api/menu",db.isLoggedIn,function(req,res,next){
 		if(req.body){
 			if(req.body.title!=''&&req.body.link!=''){
-				MENUMODEL.add(req.body,function(error){
+				MENUMODEL.add(req.body,function(error,id){
 					if(error){
 						res.json({
 							success:false,
@@ -153,6 +154,7 @@ module.exports = function(passport){
 	    });
 	});
 
+//begin tag api
 	router.get("/api/tag",db.isLoggedIn,function(req,res,next){
 		var args = {};
 		console.log("request query",req.query);
@@ -178,7 +180,7 @@ module.exports = function(passport){
 	router.post("/api/tag",db.isLoggedIn,function(req,res,next){
 		if(req.body){
 			if(req.body.title!=''){
-				TAGMODEL.add(req.body,function(error){
+				TAGMODEL.add(req.body,function(error,id){
 					if(error){
 						res.json({
 							success:false,
@@ -229,13 +231,74 @@ module.exports = function(passport){
 		}
 	});
 
+//end tag api
+
+//Begin content api
+router.post("/api/content",db.isLoggedIn,function(req,res,next){
+	if(req.body){
+		if(req.body.title!=''){
+			CONTENTMODEL.add(req.body,function(error,id){
+				if(error){
+					res.json({
+						success:false,
+						message:"Can not content tag"
+					});
+					console.log("ERROR add content api ",error);
+				}else{
+					res.json({
+						success:true,
+						id : id,
+						message:"Add content successfully"
+					});
+				}
+
+			});
+		}
+	}else{
+		res.json({
+			success:false,
+			message: "Invalid post data"
+		})
+	}
+});
+
+//Update content
+//update menus
+router.put("/api/content",db.isLoggedIn,function(req,res,next){
+	if(req.body.data){
+		console.log("update menus",req.body.data);
+		var data = JSON.parse(req.body.data);
+		async.map(data, CONTENTMODEL.update, function(err, results){
+				// results is now an array of stats for each file
+				if(err){
+					console.log('update content error ',err);
+					res.json({
+						success:false,
+						message: JSON.stringify(err)
+					})
+				}else{
+					res.json({
+						success:true,
+						message: "Update successfully"
+					});
+				}
+		});
+	}else{
+		console.log("update content invalid data");
+		res.json({
+				success:false,
+				message: "Invalid data"
+			});
+	}
+});
+
 	// =====================================
-    // LOGOUT ==============================
-    // =====================================
-    router.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/admin');
-    });
+	// LOGOUT ==============================
+	// =====================================
+	router.get('/logout', function(req, res) {
+	    req.logout();
+	    res.redirect('/admin');
+	});
 
 	return router;
 };

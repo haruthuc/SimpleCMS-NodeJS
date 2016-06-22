@@ -1,12 +1,12 @@
 <% layout('admin-layout') -%>
-<%- stylesheet('/css/summernote/summernote.css') %>
-<%- stylesheet('/css/summernote/summernote-bs3.css') %>
-<%- stylesheet('/css/bootstrap-datepicker/bootstrap-datepicker3.min.css') %>
-<%- stylesheet('/css/chosen/chosen.min.css') %>
 
-<%- script('/js/plugins/summernote/summernote.min.js') %>
-<%- script('/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') %>
-<%- script('/js/plugins/chosen/chosen.jquery.min.js') %>
+<%stylesheet('/css/summernote/summernote.css') %>
+<%stylesheet('/css/summernote/summernote-bs3.css') %>
+<%stylesheet('/css/bootstrap-datepicker/bootstrap-datepicker3.min.css') %>
+<%stylesheet('/css/chosen/chosen.min.css') %>
+<%script('/js/plugins/summernote/summernote.min.js') %>
+<%script('/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') %>
+<%script('/js/plugins/chosen/chosen.jquery.min.js') %>
 
 <script>
 
@@ -80,6 +80,7 @@
           $("#add-new-tag").show();
       });
 
+      //save tag
       $("#save-tag").on("click",function(){
           var tagTxt = $("#add-tag-txt").val();
           if(!tagTxt){
@@ -98,6 +99,42 @@
               $("#tag-choice").trigger("chosen:updated");
           });
       });
+
+      //save content
+      $("#btn-save-new").on("click",function(){
+        var content = $('#summernote').summernote('code');
+        var title = $("input[name='title']").val();
+        var tags = $("#tag-choice").val();
+        var publishDate =  $("input[name=publishDate]").datepicker('getDate');
+        var timestamp = new Date(publishDate).getTime()/1000;
+        console.log(content,title,tags,publishDate,timestamp);
+        if(title){
+          if(tags)
+            tags = tags.join(",");
+          var postData = {
+            title: title,
+            content: content,
+            datePublish: timestamp,
+            tags: tags
+          };
+          addAPI("/admin/api/content",postData,function(error,res){
+              if(!error&&res.success){
+
+                //update id into hidden field
+                $("input[name='id']").val(res.id);
+                //show upload Picture
+              }else{
+                toastr["error"](res.message);
+              }
+
+          });
+
+        }else{
+          toastr["error"]("Invalid data");
+
+        }
+      });
+
     });
 
 </script>
@@ -113,12 +150,12 @@
              <div class="ibox-content form-horizontal">
                         <div class="form-group"><label class="col-lg-2 control-label">Title</label>
 
-                            <div class="col-sm-8"><input type="text" class="form-control"></div>
+                            <div class="col-sm-8"><input name="id" type="hidden" class="form-control"> <input name="title" type="text" class="form-control"></div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group"><label class="col-sm-2 control-label">Tags</label>
                             <div class="col-sm-6">
-                              <select id="tag-choice" data-placeholder="Select Tags" style="width:550px;" multiple class="chosen-select">
+                              <select name="tags" id="tag-choice" data-placeholder="Select Tags" style="width:550px;" multiple class="chosen-select">
                               </select>
 
                             </div>
@@ -131,7 +168,7 @@
                         <div class="form-group"><label class="col-lg-2 control-label">Publish Date</label>
                             <div class="col-lg-2">
                               <div class="input-group date">
-                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="publishDate" type="text" class="form-control">
                               </div>
 
                             </div>
@@ -153,7 +190,7 @@
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button class="btn btn-white" type="submit">Cancel</button>
-                                <button class="btn btn-primary" type="submit">Save</button>
+                                <button id="btn-save-new" class="btn btn-primary" type="submit">Save</button>
                             </div>
                         </div>
 

@@ -132,6 +132,7 @@ var PictureSchema = {
 			return uuid.v4();
 		}
 	},
+	contentID : "TEXT",
 	title:"TEXT",
 	description:"TEXT",
 	url:"TEXT",
@@ -293,7 +294,9 @@ function initDatabase(){
 
 // base add query
 function addQuery(table,obj,cb){
+
 	obj = objectToParams(obj,table);
+	var id = obj["$id"];
 	var keys = _.keys(obj);
 	var query = "INSERT INTO "+table+" VALUES("+_.toString(keys)+")";
 	console.log("add query "+table,query);
@@ -301,9 +304,12 @@ function addQuery(table,obj,cb){
 	db.run(query,obj,function(error){
 		if(error){
 			console.error("ERROR: INSERT "+table,error);
-
+			cb(error);
+		}else{
+			console.log("Add return id",id);
+			cb(null,id);
 		}
-		cb(error);
+
 	});
 }
 
