@@ -32,6 +32,33 @@ module.exports = function(passport){
 	  res.render('admin/newpage', { title: 'Simple CMS - Add new page',active:"newpage"});
 	});
 
+	router.get('/newpage/:contentID', db.isLoggedIn, function(req, res, next) {
+		var contentID = req.params.contentID;
+		CONTENTMODEL.findOne({"id":contentID},function(error,rows){
+			if(error){
+				console.log("ERROR get one page by content id",contentID);
+				res.redirect("/admin/newpage");
+			}else{
+				if(rows.length>0){
+					var content = rows[0];
+					res.render('admin/newpage', {
+							title: 'Simple CMS - Add new page',
+							active: "newpage",
+							contentID: req.params.contentID,
+							contentTitle: content['title'],
+							picture: content['picture'],
+							datePublish : content['datePublish'],
+							content : content['content'],
+							tags : content['tags']
+							});
+				}else{
+					res.redirect("/newpage");
+				}
+			}
+		});
+
+	});
+
 	router.get('/settings', db.isLoggedIn, function(req, res, next) {
 	  res.render('admin/settings', { title: 'Simple CMS',active:"settings"});
 	});
@@ -265,10 +292,10 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 //Update content
 //update menus
 router.put("/api/content",db.isLoggedIn,function(req,res,next){
-	if(req.body.data){
-		console.log("update menus",req.body.data);
-		var data = JSON.parse(req.body.data);
-		async.map(data, CONTENTMODEL.update, function(err, results){
+	if(req.body){
+		console.log("update menus",req.body);
+		//var data = JSON.parse(req.body);
+		CONTENTMODEL.update(req.body,function(err){
 				// results is now an array of stats for each file
 				if(err){
 					console.log('update content error ',err);
@@ -283,6 +310,7 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 					});
 				}
 		});
+
 	}else{
 		console.log("update content invalid data");
 		res.json({

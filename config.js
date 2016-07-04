@@ -1,10 +1,10 @@
 var path = require('path');
-
-
+var env = process.env.NODE_ENV || process.argv[2] || 'development';
+if(env!="production") env = "development";
 var uploaderOptions = {
-  tmpDir: __dirname + '/../public/uploaded/tmp',
-  uploadDir: __dirname + '/../public/uploaded/files',
-  uploadUrl: '/uploaded/files/',
+  //tmpDir: __dirname + '/public/uploads/tmp',
+  //uploadDir: __dirname + '/public/uploads/files',
+  //uploadUrl: '/uploads/files',
   copyImgAsThumb: true,
   imageVersions: {
     maxWidth: 200,
@@ -13,10 +13,6 @@ var uploaderOptions = {
         width : 600,
         height : 600
     },
-    "medium" : {
-        width : 300,
-        height : 300
-    },
     "small" : {
         width : 150,
         height : 150
@@ -24,42 +20,12 @@ var uploaderOptions = {
   },
   storage: {
     type: 'local'
-  }
-};
-/*
-var uploaderOptions = {
-    tmpDir:  __dirname + '/../public/uploaded/tmp',
-    uploadDir: __dirname + '/../public/uploaded/files',
-    uploadUrl:  '/uploaded/files/',
-    maxPostSize: 11000000000, // 11 GB
-    minFileSize:  1,
-    maxFileSize:  10000000000, // 10 GB
-    acceptFileTypes:  /.+/i,
-    // Files not matched by this regular expression force a download dialog,
-    // to prevent executing any scripts in the context of the service domain:
-    inlineFileTypes:  /\.(gif|jpe?g|png)/i,
-    imageTypes:  /\.(gif|jpe?g|png)/i,
-    copyImgAsThumb : true, // required
-    imageVersions :{
-        maxWidth : 200,
-        maxHeight : 200
-    },
+  },
     accessControl: {
         allowOrigin: '*',
-        allowMethods: 'OPTIONS, HEAD, GET, POST, PUT, DELETE',
-        allowHeaders: 'Content-Type, Content-Range, Content-Disposition'
-    },
-    storage : {
-        type : 'aws',
-        aws : {
-            accessKeyId :  'xxxxxxxxxxxxxxxxx',
-            secretAccessKey : 'xxxxxxxxxxxxxxxxx',
-            region : 'us-east-1',//make sure you know the region, else leave this option out
-            bucketName : 'xxxxxxxxxxxxxxxxx'
-        }
+        allowMethods: 'OPTIONS, HEAD, GET, POST, PUT, DELETE'
     }
 };
-*/
 
 var config = {
 	development : { //enviroment dev
@@ -104,4 +70,8 @@ var config = {
 
 };
 
-module.exports = config;
+console.log("config for environment "+env);
+console.log("configs "+config[env]);
+
+
+module.exports = config[env];

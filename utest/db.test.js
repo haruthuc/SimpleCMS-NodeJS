@@ -18,6 +18,7 @@ describe('SIMPLE CMS USER MODEL TEST', function(){
 	        dateCreated : new Date()
 	    },done);
   });
+	return;
 
    it('update user error should be null', function(done){
     	USERMODEL.update({
@@ -116,4 +117,3 @@ describe('SIMPLE CMS CONTENT MODEL TEST', function(){
     	MENUMODEL.delete(id+'11',done);
     });
 });
-

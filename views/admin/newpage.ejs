@@ -9,19 +9,50 @@
 <%script('/js/plugins/chosen/chosen.jquery.min.js') %>
 
 <script>
+    var content_id = "<%if(typeof contentID != "undefined"){%><%=contentID%><%}else{%><%-'default'%><%}%>";
+    var content_title = "<%if(typeof contentTitle != "undefined"){%><%=contentTitle%><%}%>";
+    var tags =  "<%if(typeof tags != "undefined"){%><%=tags%><%}%>";
+    var datePublish = "<%if(typeof datePublish != "undefined"){%><%=datePublish%><%}%>";
+    var content =  "<%if(typeof content != "undefined"){%><%-content%><%}%>";
+    var picture = "<%if(typeof picture != "undefined"){%><%=picture%><%}%>";
+
+    function updateSelectedElement(strValue,elementID){
+      var str_array = strValue.split(',');
+
+      for (var i = 0; i < str_array.length; i++) {
+          str_array[i] = str_array[i].replace(/^\s*/, "").replace(/\s*$/, "");
+      }
+
+      $(elementID).val(str_array).trigger("chosen:updated");
+    }
 
     function addAPI(API_URL,args,cb){
-        $.post(API_URL,args,function(data){
-            if(data.success){
-                toastr["success"](data.message);
-                cb(null,data);
-            }
-            else{
-                toastr["error"](data.message);
-                cb(data.message);
-            }
+        if(args['id']){
+          $.put(API_URL,args,function(data){
+              if(data.success){
+                  toastr["success"](data.message);
+                  cb(null,data);
+              }
+              else{
+                  toastr["error"](data.message);
+                  cb(data.message);
+              }
+          });
+        }else{
+          $.post(API_URL,args,function(data){
+              if(data.success){
+                  toastr["success"](data.message);
+                  cb(null,data);
+              }
+              else{
+                  toastr["error"](data.message);
+                  cb(data.message);
+              }
 
-        });
+          });
+
+        }
+
     }
 
     function getList(API_URL,$args,cb){
@@ -55,11 +86,23 @@
           }
           $(".chosen-select").chosen();
 
+          if(tags!=""){
+            //update tags
+            updateSelectedElement(tags,"#tag-choice");
+          }
+
       });
 
     }
+
     $(document).ready(function() {
+      $("#uploader-area").hide();
       renderTags();
+      //UPDATE TITLE
+      if(content_title!="")
+        $("input[name='title']").val(content_title);
+
+
 
       $("#input-tags-area").hide();
       $('.summernote').summernote();
@@ -70,6 +113,16 @@
       });
 
       $('.input-group.date').datepicker('setDate', new Date());
+
+      if(datePublish!=""){
+        var $datepicker = $('.input-group.date');
+        //console.log('date datePublish',datePublish);
+        var dateBuff =  new Date(datePublish*1000);
+        var dateStr =  dateBuff.getDate() + '/' + (dateBuff.getMonth() + 1) + '/' +  dateBuff.getFullYear();
+        //console.log('date',dateStr);
+        $datepicker.datepicker('setDate',dateStr);
+      }
+
       $("#add-new-tag").on("click",function(){
           $("#input-tags-area").toggle();
           $(this).hide();
@@ -106,8 +159,9 @@
         var title = $("input[name='title']").val();
         var tags = $("#tag-choice").val();
         var publishDate =  $("input[name=publishDate]").datepicker('getDate');
-        var timestamp = new Date(publishDate).getTime()/1000;
-        console.log(content,title,tags,publishDate,timestamp);
+        //console.log("publishDate",publishDate);
+        //console.log("publishDate",publishDate.getTime());
+        var timestamp = publishDate.getTime()/1000;
         if(title){
           if(tags)
             tags = tags.join(",");
@@ -117,11 +171,18 @@
             datePublish: timestamp,
             tags: tags
           };
+          if(content_id!="default")
+            postData.id = content_id;
+
           addAPI("/admin/api/content",postData,function(error,res){
               if(!error&&res.success){
 
                 //update id into hidden field
                 $("input[name='id']").val(res.id);
+                if(res.id && content_id=="default"){
+                  content_id = res.id;
+                  window.location.href= window.location.href+"/"+content_id;
+                }
                 //show upload Picture
               }else{
                 toastr["error"](res.message);
@@ -168,7 +229,7 @@
                         <div class="form-group"><label class="col-lg-2 control-label">Publish Date</label>
                             <div class="col-lg-2">
                               <div class="input-group date">
-                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="publishDate" type="text" class="form-control">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="publishDate" type="text" class="form-control" data-date-format="dd/mm/yyyy">
                               </div>
 
                             </div>
@@ -180,7 +241,12 @@
                                       <div id="summernote" class="mail-text"><p></p></div>
                                       <script>
                                         $(document).ready(function() {
-                                            $('#summernote').summernote();
+                                            $('#summernote').summernote({
+                                               height: 300
+                                            });
+                                            if(content!=""){
+                                              $("#summernote").summernote("code",content);
+                                            }
                                         });
                                       </script>
                               </div>
@@ -195,6 +261,13 @@
                         </div>
 
                 </div>
+
+
+                 <div id="uploader-area" class="ibox-content form-horizontal" style="display:none;">
+                   <% include ./upload %>
+                 </div>
+
+
                     </div>
                 </div>
             </div>

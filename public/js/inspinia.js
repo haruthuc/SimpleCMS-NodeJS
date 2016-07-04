@@ -2,11 +2,11 @@
 toastr.options = {
   "closeButton": true,
   "debug": false,
-  "progressBar": true,
+  "progressBar": false,
   "positionClass": "toast-top-right",
   "onclick": null,
-  "showDuration": "400",
-  "hideDuration": "1000",
+  "showDuration": 100,
+  "hideDuration": 100,
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -20,7 +20,8 @@ $(document).ready(function () {
     $('#side-menu').metisMenu();
 
     // Collapse ibox function
-    $('.collapse-link').click( function() {
+    $('.collapse-link').click( function(event) {
+        event.preventDefault();
         var ibox = $(this).closest('div.ibox');
         var button = $(this).find('i');
         var content = ibox.find('div.ibox-content');
@@ -165,7 +166,7 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
       callback = data;
       data = undefined;
     }
- 
+
     return jQuery.ajax({
       url: url,
       type: method,

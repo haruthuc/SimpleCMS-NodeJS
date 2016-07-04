@@ -11,6 +11,7 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
+var upload = require('./routes/upload');
 
 var passport = require('./helpers/passport');
 
@@ -43,7 +44,7 @@ app.use(flash());
 
 app.use('/', routes);
 app.use('/admin', admin(passport));
-
+app.use('/file',upload(passport));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
