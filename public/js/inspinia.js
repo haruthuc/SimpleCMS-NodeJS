@@ -50,7 +50,8 @@ $(document).ready(function () {
     });
 
     // minimalize menu
-    $('.navbar-minimalize').click(function () {
+    $('.navbar-minimalize').click(function (event) {
+        event.preventDefault();
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
     })

@@ -320,6 +320,54 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 	}
 });
 
+//get list menu
+router.get("/api/content",db.isLoggedIn,function(req,res,next){
+	var args = {};
+	console.log("request query",req.query);
+
+	CONTENTMODEL.find("id,title,tags,picture,dateCreated,datePublish",req.query,function(error,returnData){
+			console.log("PAGE ",returnData);
+			if(!error){
+				res.json(returnData);
+			}
+			else {
+				console.log("ERROR get api/content",error);
+				res.json({
+					success :false,
+					error : "Can not get contents"
+				})
+			}
+
+		});
+});
+
+router.delete("/api/content",db.isLoggedIn,function(req,res,next){
+	var id = req.body.id || '';
+	if(id!=''){
+		CONTENTMODEL.delete(id,function(error){
+			if(error){
+				res.json({
+					success:false,
+					message:"Can not delete content"
+				});
+				console.log("ERROR delete content api ",error);
+			}else{
+				res.json({
+					success:true,
+					message:"Delete content successfully"
+				});
+			}
+
+		});
+
+	}else{
+		res.json({
+			success:false,
+			message:"Can not delete menu"
+		});
+	}
+});
+
 	// =====================================
 	// LOGOUT ==============================
 	// =====================================

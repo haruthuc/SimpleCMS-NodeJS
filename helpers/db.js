@@ -374,7 +374,7 @@ function findQuery(table,$projection,$args,cb){
 	if(typeof $args != "undefined"){
 		var page = $args['page']?$args['page']:1;
 		var limit =  $args['limit']?$args['limit']:PAGE_LIMIT;
-		var order = $args['order']?$args['order']:"ASC";
+		var order = $args['order']?$args['order']:"DESC";
 		var orderBy = $args['orderBy']?$args['orderBy']:"dateCreated";
 		//convert Object to Query String
 		var queryParse = objectToQueryString($args,false);
