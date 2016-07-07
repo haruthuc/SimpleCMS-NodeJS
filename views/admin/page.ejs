@@ -23,7 +23,7 @@
       if(!$args)
         $args = {};
       getList($args,function(error,res){
-          console.log("renderList Data",res);
+          //console.log("renderList Data",res);
           if(error){
             toastr['error'][error];
           }else{
@@ -33,8 +33,8 @@
             $("#table-content-list").html(tableContent);
             delete res.data;
             selectedPage = res.page;
-            //var pageShowingInfo = renderPaginateShowing(res);
-            //$("#pagenum_info").html(pageShowingInfo);
+            var pageShowingInfo = renderPaginateShowing(res);
+            $("#pagenum_info").html(pageShowingInfo);
             var pagination = renderPaginate(res);
             $("#paginate").html(pagination);
 
@@ -156,7 +156,7 @@
       $.delete(API_URL,args,function(data){
           //TODO : Handle error show message error
           //refresh list menu
-          console.log("delete successfully",data);
+          //console.log("delete successfully",data);
           if(data.success){
             toastr["success"](data.message);
             renderList({});
@@ -184,9 +184,42 @@
       renderList({});
       //listener refresh button
       $("#loading-btn").on("click",function(){
-
+        $("#search-txt").val("");
         renderList({});
       });
+
+      //search button
+      $("#search-btn").on("click",function(){
+        var searchQuery = $("#search-txt").val();
+        renderList({
+          title:"%"+searchQuery+"%"
+        });
+      });
+
+      $("#search-txt").keyup(function() {
+
+          //check status of button save
+          var searchQuery =  $(this).val();
+          if(searchQuery.length > 3){
+            var objSearch = {
+              title:"%"+searchQuery+"%"
+            };
+            if(searchQuery.indexOf("#")==0){
+              searchQuery = searchQuery.replace("#","");
+              objSearch = {
+                tags:"%"+searchQuery+"%"
+              }
+            }
+            renderList(objSearch);
+            return
+          }else if(searchQuery.length == 0){
+            renderList({});
+          }
+
+
+      });
+
+
       //listener delete button
       //listen delete btn click
       $(document).on("click",'.delete-btn', function(event) {
@@ -218,7 +251,18 @@
           reloadPageWithNumber(page);
         }
       });
+      //select-tag
+      $(document).on("click",'.select-tag', function(event) {
+        event.preventDefault();
+        var tag = $(this).data("tag");
+        console.log('tag',tag);
+        $("#search-txt").val("#"+tag);
+        //do search
+        renderList({
+          tags:"%"+tag+"%"
+        });
 
+      });
 
   });
 
@@ -246,8 +290,8 @@
                                     <button type="button" id="loading-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Refresh</button>
                                 </div>
                                 <div class="col-md-11">
-                                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                    <div class="input-group"><input id="search-txt" type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button id="search-btn" type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                                 </div>
                             </div>
 

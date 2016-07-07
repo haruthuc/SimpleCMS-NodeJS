@@ -8,24 +8,24 @@ var crypto = require('crypto');
 passport.use(new LocalStrategy(
   function(username, password, done) {
     console.log("username","password",username,password);
-    USERMODEL.findOne({ username: username }, function (err, users) {
+    USERMODEL.findOne({ username: username }, function (err, user) {
 
-      console.log("user authen",users);
+      console.log("user authen",user);
       if (err) { return done(err); }
-      if (!users || users.length < 1) {
+      if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
 
-      if(users.length >0 ){
-        var pass = users[0]['password'];
+      if(user){
+        var pass = user['password'];
         if (pass != crypto.createHash('md5').update(password).digest('hex')) {
             return done(null, false, { message: 'Incorrect password.' });
           }
-          return done(null, users[0]);
+          return done(null, user);
 
       }
 
-    
+
     });
   }
 ));
@@ -35,8 +35,8 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  USERMODEL.findOne({"id":id}, function(err, users) {
-    done(err, users[0]);
+  USERMODEL.findOne({"id":id}, function(err, user) {
+    done(err, user);
   });
 });
 

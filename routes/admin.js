@@ -4,6 +4,7 @@ var db = require('../helpers/db.js');
 var MENUMODEL = new db.MENUMODEL();
 var TAGMODEL = new db.TAGMODEL();
 var CONTENTMODEL = new db.CONTENTMODEL();
+var USERMODEL = new db.USERMODEL();
 var _ = require('lodash');
 var async =require('async');
 
@@ -25,7 +26,16 @@ module.exports = function(passport){
 	});
 
 	router.get('/profile', db.isLoggedIn, function(req, res, next) {
-	  res.render('admin/profile', { title: 'Simple CMS',active:"profile"});
+		console.log("session",req.session);
+		if(req.session.passport && req.session.passport.user){
+			USERMODEL.findOne({"id":req.session.passport.user}, function(err, user) {
+		  	res.render('admin/profile', { title: 'Simple CMS',active:"profile", profile:user});
+		  });
+
+		}else{
+			res.redirect("/");
+		}
+
 	});
 
 	router.get('/newpage', db.isLoggedIn, function(req, res, next) {
@@ -34,13 +44,12 @@ module.exports = function(passport){
 
 	router.get('/newpage/:contentID', db.isLoggedIn, function(req, res, next) {
 		var contentID = req.params.contentID;
-		CONTENTMODEL.findOne({"id":contentID},function(error,rows){
+		CONTENTMODEL.findOne({"id":contentID},function(error,content){
 			if(error){
 				console.log("ERROR get one page by content id",contentID);
 				res.redirect("/admin/newpage");
 			}else{
-				if(rows.length>0){
-					var content = rows[0];
+				if(content){
 					res.render('admin/newpage', {
 							title: 'Simple CMS - Add new page',
 							active: "newpage",

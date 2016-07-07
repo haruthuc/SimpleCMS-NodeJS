@@ -269,7 +269,12 @@ function objectToQueryString(obj,updateFlag){
 		var value = obj[key];
 		if(typeof value =="string")
 			value = '"'+value+'"';
-		queryString += key+"="+value;
+		if(value.indexOf("%")==1 || value.indexOf("_")==1){
+				queryString += key+" LIKE "+value;
+		}else{
+				queryString += key+"="+value;
+		}
+
 		if(i<keys.length-1){
 			if(updateFlag)
 				queryString+=', ';
@@ -357,8 +362,10 @@ function findOne(table,$args,cb){
 				console.error("ERROR find one"+table,err);
 			}
 			console.log("find one",rows);
-
-			cb(err,rows);
+			if(rows.length >0 )
+				cb(err,rows[0]);
+			else
+				cb(err,null);
 
 		});
 
@@ -372,6 +379,8 @@ function findOne(table,$args,cb){
 //base find query
 function findQuery(table,$projection,$args,cb){
 	if(typeof $args != "undefined"){
+		var arrayKeys = _.without(_.keys($args),"page","limit","order","orderBy");
+		var hasArgs = (arrayKeys.length>0)?true:false;
 		var page = $args['page']?$args['page']:1;
 		var limit =  $args['limit']?$args['limit']:PAGE_LIMIT;
 		var order = $args['order']?$args['order']:"DESC";
@@ -397,6 +406,10 @@ function findQuery(table,$projection,$args,cb){
 		async.waterfall([
 			function countQuery(callback){
 				var queryCount = "SELECT count(id) as TOTALNUMBER FROM "+table;
+				if(hasArgs)
+					queryCount += " WHERE "+objectToQueryString($args,false);
+
+				console.log("query count total number "+table+" by args",queryCount);
 				db.all(queryCount,function(err,rows){
 					if(err){
 						console.error("ERROR find "+table,err);
