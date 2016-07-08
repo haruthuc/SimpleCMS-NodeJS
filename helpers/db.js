@@ -84,6 +84,7 @@ var ContentSchema = {
 		}
 	},
 	title:"TEXT",
+	alias: "TEXT",
 	picture:"TEXT",
 	content:"TEXT",
 	meta_head:"TEXT",
@@ -268,7 +269,7 @@ function objectToQueryString(obj,updateFlag){
 		var key = keys[i];
 		var value = obj[key];
 		if(typeof value =="string")
-			value = '"'+value+'"';
+			value = "'"+value+"'";
 		if(value.indexOf("%")==1 || value.indexOf("_")==1){
 				queryString += key+" LIKE "+value;
 		}else{
@@ -542,3 +543,22 @@ function isLoggedIn(req, res, next) {
 
 exports.isLoggedIn = isLoggedIn;
 exports.PAGE_LIMIT = PAGE_LIMIT;
+
+function randomValueBase64 (len) {
+    return crypto.randomBytes(Math.ceil(len * 3 / 4))
+        .toString('base64')   // convert to base64 format
+        .slice(0, len)        // return required number of characters
+        .replace(/\+/g, '0')  // replace '+' with '0'
+        .replace(/\//g, '0'); // replace '/' with '0'
+}
+
+
+function makeAliasLink(str){
+		var ret = str.replace(/ /g,"-"); // replace spaces
+		// do other replacements that make sense in your case, e.g.:
+		ret = ret.replace(/&/g,"and");
+		ret+="-"+randomValueBase64(2);
+		return encodeURIComponent(ret);
+}
+
+exports.makeAliasLink = makeAliasLink;

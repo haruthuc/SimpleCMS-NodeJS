@@ -2,9 +2,6 @@ var path = require('path');
 var env = process.env.NODE_ENV || process.argv[2] || 'development';
 if(env!="production") env = "development";
 var uploaderOptions = {
-  //tmpDir: __dirname + '/public/uploads/tmp',
-  //uploadDir: __dirname + '/public/uploads/files',
-  //uploadUrl: '/uploads/files',
   copyImgAsThumb: true,
   imageVersions: {
     maxWidth: 200,
@@ -20,11 +17,7 @@ var uploaderOptions = {
   },
   storage: {
     type: 'local'
-  },
-    accessControl: {
-        allowOrigin: '*',
-        allowMethods: 'OPTIONS, HEAD, GET, POST, PUT, DELETE'
-    }
+  }
 };
 
 var config = {

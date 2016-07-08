@@ -1,5 +1,35 @@
 <% layout('admin-layout') -%>
+<script>
 
+$(document).ready(function(){
+  var API_URL = "/admin/api/profile";
+  $("#btn-save").click(function(){
+      var args = {};
+      args.id = $("#id-txt").val();
+      args.fullname = $("#fullname-txt").val();
+      args.email = $("#email-txt").val();
+      if($("#password-txt").val())
+        args.password = $("#password-txt").val();
+      if($("#newpassword-txt").val())
+        args.newpassword = $("#newpassword-txt").val();
+
+      $.put(API_URL,args,function(data){
+          if(data.success){
+              toastr["success"](data.message);
+          }
+          else{
+              toastr["error"](data.message);
+          }
+          $("#newpassword-txt").val("");
+          $("#password-txt").val("");
+      });
+  });
+
+
+});
+
+
+</script>
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
@@ -16,25 +46,26 @@
                        <div class="hr-line-dashed"></div>
 
                         <div class="form-group"><label class="col-lg-2 control-label">Fullname </label>
-                            <div class="col-sm-8"> <input name="fullname" type="text" class="form-control" value="<%- profile.fullname%>"></div>
+                            <div class="col-sm-8"> <input id="id-txt" name="id" type="hidden" class="form-control" value="<%- profile.id%>">
+                              <input id="fullname-txt" name="fullname" type="text" class="form-control" value="<%- profile.fullname%>"></div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group"><label class="col-lg-2 control-label">Email</label>
-                            <div class="col-sm-8"> <input name="email" type="text" class="form-control" value="<%- profile.email%>"></div>
+                            <div class="col-sm-8"> <input id="email-txt" name="email" type="text" class="form-control" value="<%- profile.email%>"></div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group"><label class="col-lg-2 control-label">Current Password</label>
-                            <div class="col-sm-8"><input name="password" type="password" class="form-control"></div>
+                            <div class="col-sm-8"><input id="password-txt" name="password" type="password" class="form-control"></div>
                         </div>
                         <div class="form-group"><label class="col-lg-2 control-label">New Password</label>
-                            <div class="col-sm-8"><input name="newpassword" type="password" class="form-control"></div>
+                            <div class="col-sm-8"><input id="newpassword-txt" name="newpassword" type="password" class="form-control"></div>
                         </div>
 
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button class="btn btn-white" type="submit">Cancel</button>
-                                <button id="btn-save-new" class="btn btn-primary" type="submit">Update Profile</button>
+                                <button id="btn-save" class="btn btn-primary" type="submit">Update Profile</button>
                             </div>
                         </div>
 

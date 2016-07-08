@@ -7,6 +7,8 @@ var CONTENTMODEL = new db.CONTENTMODEL();
 var USERMODEL = new db.USERMODEL();
 var _ = require('lodash');
 var async =require('async');
+var crypto = require('crypto');
+var sanitizeHtml = require('sanitize-html');
 
 module.exports = function(passport){
 	router.get('/', function(req, res, next) {
@@ -273,6 +275,13 @@ module.exports = function(passport){
 router.post("/api/content",db.isLoggedIn,function(req,res,next){
 	if(req.body){
 		if(req.body.title!=''){
+			req.body.alias = db.makeAliasLink(req.body.title);
+
+			if(req.body.content){
+					var clean = sanitizeHtml(req.body.content);
+					req.body.content = clean;
+			}
+
 			CONTENTMODEL.add(req.body,function(error,id){
 				if(error){
 					res.json({
@@ -294,7 +303,7 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 		res.json({
 			success:false,
 			message: "Invalid post data"
-		})
+		});
 	}
 });
 
@@ -302,7 +311,13 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 //update menus
 router.put("/api/content",db.isLoggedIn,function(req,res,next){
 	if(req.body){
-		console.log("update menus",req.body);
+		console.log("update content",req.body);
+		if(req.body.title)
+			req.body.alias = db.makeAliasLink(req.body.title);
+		if(req.body.content){
+				var clean = sanitizeHtml(req.body.content);
+				req.body.content = clean;
+		}
 		//var data = JSON.parse(req.body);
 		CONTENTMODEL.update(req.body,function(err){
 				// results is now an array of stats for each file
@@ -328,6 +343,92 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 			});
 	}
 });
+
+//update profile
+router.put("/api/profile",db.isLoggedIn,function(req,res,next){
+	if(req.body){
+		console.log("update profile",req.body);
+		//var data = JSON.parse(req.body);
+		if(req.body.username)
+			delete req.body.username;
+
+			//check valid password
+			async.waterfall([
+				function passwordCheck(callback){
+					var profile = req.body;
+					if(profile.email){
+						var emailRegrex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+
+						if(!emailRegrex.test(profile.email)){
+							callback("Your email invalid");
+							return;
+						}
+					}
+
+					if(!profile.password && !profile.newpassword){
+						callback(null,profile);
+
+					}else{
+						//find one user compare hash password
+						USERMODEL.findOne({"id":req.session.passport.user}, function(err, user) {
+								var hashPassword = crypto.createHash('md5').update(profile.password).digest('hex');
+								if(hashPassword!=user['password']){
+									callback("Current password incorrect");
+									return;
+								}
+								profile.password = crypto.createHash('md5').update(profile.newpassword).digest('hex');
+								delete profile.newpassword;
+								callback(null,profile);
+
+						});
+
+					}
+
+				},
+				function updateProfile(profile,callback){
+
+					USERMODEL.update(profile,function(err){
+							// results is now an array of stats for each file
+							if(err){
+								console.log('update content error ',err);
+								res.json({
+									success:false,
+									message: JSON.stringify(err)
+								})
+							}else{
+								res.json({
+									success:true,
+									message: "Update successfully"
+								});
+							}
+					});
+
+				}
+			],function (err, result) {
+
+					if(err){
+						console.log("update password error",err);
+						res.json({
+							success:false,
+							message: JSON.stringify(err)
+						});
+					}else{
+						res.json({
+							success:true,
+							message:"Update profile successfully"
+						});
+					}
+			});
+
+	}else{
+		console.log("update content invalid data");
+		res.json({
+				success:false,
+				message: "Invalid data"
+			});
+	}
+});
+
 
 //get list menu
 router.get("/api/content",db.isLoggedIn,function(req,res,next){
