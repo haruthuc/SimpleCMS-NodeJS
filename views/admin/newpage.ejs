@@ -14,7 +14,7 @@
     var content_title = '<%if(typeof contentTitle != "undefined"){%><%-contentTitle%><%}%>';
     var tags =  "<%if(typeof tags != "undefined"){%><%=tags%><%}%>";
     var datePublish = "<%if(typeof datePublish != "undefined"){%><%=datePublish%><%}%>";
-    var content =  '<%if(typeof content != "undefined"){%><%-content%><%}%>';
+
     var picture = "<%if(typeof picture != "undefined"){%><%=picture%><%}%>";
 
     function updateSelectedElement(strValue,elementID){
@@ -241,15 +241,21 @@
                         <div class="col-lg-10">
                             <div>
                                       <div id="content-area" style="height: 300px;">
+                                        <%if(typeof content != "undefined"){%>
+                                          <%-content%>
+                                        <%}%>
                                       </div>
                                       <script>
                                         $(document).ready(function() {
                                             $('#content-area').summernote({
-                                               height: "300px"
+                                                height: 300,                 // set editor height
+                                               minHeight: null,             // set minimum height of editor
+                                               maxHeight: null,             // set maximum height of editor
+                                               focus: true,
+                                               disableDragAndDrop: true,
+                                               shortcuts: false
                                             });
-                                            if(content!=""){
-                                              $("#content-area").summernote("code",content);
-                                            }
+
                                         });
                                       </script>
                             </div>
