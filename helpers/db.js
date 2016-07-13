@@ -13,7 +13,7 @@ var db =null;
 var crypto = require('crypto');
 var PAGE_LIMIT = 10;
 var logger = require("./logger.js");
-
+var Promise = require('promise');
 
 var MenuSchema = {
 	id : {
@@ -566,3 +566,6 @@ function makeAliasLink(str){
 
 exports.makeAliasLink = makeAliasLink;
 exports.randomValueBase64 = randomValueBase64;
+exports.get_content_helper = function(projection,args,callback){
+	
+}

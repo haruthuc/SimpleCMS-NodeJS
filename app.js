@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 // You need session to use connect flash
 var session = require('express-session');
-
+var db = require('./helpers/db.js');
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
 var upload = require('./routes/upload');
@@ -44,6 +44,9 @@ app.use( session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+//register db content helper
+app.locals.content_helper = db.get_content_helper;
 
 app.use('/', routes);
 app.use('/admin', admin(passport));

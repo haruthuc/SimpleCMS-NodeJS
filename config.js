@@ -46,6 +46,7 @@ var config = {
 			port : 2000 //config port web
 		},
 		frontend:{
+      title : "Khai An House - The best real service",
 			template : "khaianhouse"
 		},
 		uploader : uploaderOptions
@@ -75,6 +76,7 @@ var config = {
 			port : 2000
 		},
 		frontend:{
+      title : "Khai An House - The best real service",
 			template : "khaianhouse"
 		},
 		uploader:uploaderOptions
