@@ -29,7 +29,17 @@ var config = {
 			}
 		},
 		mail  : {
-
+      fromName:"Info Dev",
+      fromEmail:"info@simplecms.io",
+      tranport:{
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'simplecmsvietnam@gmail.com',
+            pass: 'LINHthuc123!@#'
+        }
+      }
 		},
 		server : {
 			secret: "#DI#MFPDMff22", // secret key for encrypt
@@ -48,7 +58,17 @@ var config = {
 			}
 		},
 		mail  : {
-
+      fromName:"Info",
+      fromEmail:"info@simplecms.io",
+      tranport:{
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'simplecmsvietnam@gmail.com',
+            pass: 'LINHthuc123!@#'
+        }
+      }
 		},
 		server : {
 			secret: "#DI#MFPDMff22",
