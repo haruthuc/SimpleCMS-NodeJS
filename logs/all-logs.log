@@ -1,0 +1,206 @@
+{"level":"info","message":"INIT TABLE","timestamp":"2016-07-13T19:58:27.157Z"}
+{"email":"haruthuc@gmail.com","level":"info","message":"object to query ","timestamp":"2016-07-13T19:58:39.086Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE email='haruthuc@gmail.com' LIMIT 1","timestamp":"2016-07-13T19:58:39.087Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"w0z7lc","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T19:58:39.088Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T19:58:39.089Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T19:58:39.089Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"object to query ","timestamp":"2016-07-13T19:58:39.089Z"}
+{"level":"info","message":"Message sent: 250 2.0.0 OK 1468439922 ee3sm4652048pac.25 - gsmtp","timestamp":"2016-07-13T19:58:42.937Z"}
+{"level":"info","message":"username password admin admin","timestamp":"2016-07-13T19:58:55.276Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T19:58:55.276Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T19:58:55.276Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T19:58:55.277Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T19:58:55.277Z"}
+{"level":"info","message":"username password admin qcjgfm","timestamp":"2016-07-13T19:59:12.223Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T19:59:12.224Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T19:59:12.224Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T19:59:12.224Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T19:59:12.225Z"}
+{"level":"info","message":"username password admin qcjgfm","timestamp":"2016-07-13T19:59:17.051Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T19:59:17.052Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T19:59:17.052Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T19:59:17.054Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T19:59:17.054Z"}
+{"level":"info","message":"username password admin qcjgfm","timestamp":"2016-07-13T19:59:44.539Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T19:59:44.539Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T19:59:44.539Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T19:59:44.539Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T19:59:44.540Z"}
+{"level":"info","message":"INIT TABLE","timestamp":"2016-07-13T20:00:24.611Z"}
+{"level":"info","message":"username password admin admin","timestamp":"2016-07-13T20:00:30.306Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T20:00:30.307Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T20:00:30.308Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:00:30.309Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T20:00:30.310Z"}
+{"email":"adad@dada.com","level":"info","message":"object to query ","timestamp":"2016-07-13T20:00:39.256Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE email='adad@dada.com' LIMIT 1","timestamp":"2016-07-13T20:00:39.257Z"}
+{"level":"info","message":"find one","timestamp":"2016-07-13T20:00:39.257Z"}
+{"email":"haruthuc@gmail.com","level":"info","message":"object to query ","timestamp":"2016-07-13T20:00:46.759Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE email='haruthuc@gmail.com' LIMIT 1","timestamp":"2016-07-13T20:00:46.759Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"qcjgfm","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:00:46.760Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T20:00:46.760Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T20:00:46.761Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"object to query ","timestamp":"2016-07-13T20:00:46.761Z"}
+{"level":"info","message":"Message sent: 250 2.0.0 OK 1468440049 h8sm5947074pfh.49 - gsmtp","timestamp":"2016-07-13T20:00:49.606Z"}
+{"level":"info","message":"username password admin myfadp","timestamp":"2016-07-13T20:01:06.917Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:06.918Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-13T20:01:06.918Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:06.918Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-13T20:01:06.919Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:06.923Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:06.923Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:06.924Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:10.699Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:10.699Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:10.699Z"}
+{"cookie":{"path":"/","_expires":null,"originalMaxAge":null,"httpOnly":true},"flash":{"error":["Incorrect password."]},"passport":{"user":"bf736855-c94b-41a6-ad00-bdc23e303e52"},"level":"info","message":"session","timestamp":"2016-07-13T20:01:10.700Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:10.700Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:10.701Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:10.701Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:18.664Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:18.664Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:18.665Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","fullname":"JohnDea","email":"haruthuc@gmail.com","password":"myfadp","newpassword":"admin","level":"info","message":"update profile","timestamp":"2016-07-13T20:01:18.666Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:18.666Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:18.666Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"74d73b2e39e6009ce4dff4e7b6f55094","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:18.667Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T20:01:18.667Z"}
+{"level":"info","message":"update user","timestamp":"2016-07-13T20:01:18.668Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","fullname":"JohnDea","email":"haruthuc@gmail.com","password":"21232f297a57a5a743894a0e4a801fc3","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:18.668Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:22.817Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:22.817Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:22.819Z"}
+{"cookie":{"path":"/","_expires":null,"originalMaxAge":null,"httpOnly":true},"flash":{"error":["Incorrect password."]},"passport":{"user":"bf736855-c94b-41a6-ad00-bdc23e303e52"},"level":"info","message":"session","timestamp":"2016-07-13T20:01:22.820Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:22.820Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:22.820Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:22.821Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:23.703Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:23.704Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:23.704Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:23.825Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:23.825Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:23.826Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:23.826Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:23.827Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-13T20:01:23.827Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder DESC","timestamp":"2016-07-13T20:01:23.828Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Home","link":"home"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"House for rent","link":"tags/houseforent"},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"House for sale","link":"tags/houseforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"Department for sale","link":"tags/departmentforsale"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"DESC","level":"info","message":"MENU ","timestamp":"2016-07-13T20:01:23.828Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:25.054Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:25.054Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:25.054Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:25.115Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:25.116Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:25.117Z"}
+{"level":"info","message":"request query","timestamp":"2016-07-13T20:01:25.117Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:25.118Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content","timestamp":"2016-07-13T20:01:25.118Z"}
+{"level":"info","message":"find all content by args SELECT id,title,tags,picture,dateCreated,datePublish FROM content ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:25.119Z"}
+{"success":true,"total":1,"data":[{"id":"2db5b695-c133-4a4d-8f49-2fa87573cb7b","title":"Ember & JS SEO - How to easily implement SEO friendly URLs in 3 steps","tags":"URL FRIENDLY,House for sale,House for rent","picture":"house1.jpg","dateCreated":1468010439176,"datePublish":1467997200}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"PAGE ","timestamp":"2016-07-13T20:01:25.120Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:25.740Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:25.740Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:25.740Z"}
+{"cookie":{"path":"/","_expires":null,"originalMaxAge":null,"httpOnly":true},"flash":{"error":["Incorrect password."]},"passport":{"user":"bf736855-c94b-41a6-ad00-bdc23e303e52"},"level":"info","message":"session","timestamp":"2016-07-13T20:01:25.740Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:25.741Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:25.741Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:25.742Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:26.697Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:26.697Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:26.697Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:26.843Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:26.843Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:26.843Z"}
+{"limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:26.844Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:26.844Z"}
+{"level":"info","message":"query count total number tag by args SELECT count(id) as TOTALNUMBER FROM tag","timestamp":"2016-07-13T20:01:26.844Z"}
+{"level":"info","message":"find all tag by args SELECT title FROM tag ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:26.844Z"}
+{"success":true,"total":5,"data":[{"title":"URL FRIENDLY"},{"title":"SEO URL"},{"title":"House for sale"},{"title":"House for rent"},{"title":"Home"}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"TAGS ","timestamp":"2016-07-13T20:01:26.845Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:26.999Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:26.999Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:27.000Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:27.639Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:27.639Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:27.640Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:27.724Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:27.724Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:27.725Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:27.725Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:27.725Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-13T20:01:27.725Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder DESC","timestamp":"2016-07-13T20:01:27.726Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Home","link":"home"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"House for rent","link":"tags/houseforent"},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"House for sale","link":"tags/houseforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"Department for sale","link":"tags/departmentforsale"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"DESC","level":"info","message":"MENU ","timestamp":"2016-07-13T20:01:27.726Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:28.494Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:28.494Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:28.495Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:28.537Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:28.537Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:28.538Z"}
+{"level":"info","message":"request query","timestamp":"2016-07-13T20:01:28.538Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:28.538Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content","timestamp":"2016-07-13T20:01:28.538Z"}
+{"level":"info","message":"find all content by args SELECT id,title,tags,picture,dateCreated,datePublish FROM content ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:28.538Z"}
+{"success":true,"total":1,"data":[{"id":"2db5b695-c133-4a4d-8f49-2fa87573cb7b","title":"Ember & JS SEO - How to easily implement SEO friendly URLs in 3 steps","tags":"URL FRIENDLY,House for sale,House for rent","picture":"house1.jpg","dateCreated":1468010439176,"datePublish":1467997200}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"PAGE ","timestamp":"2016-07-13T20:01:28.539Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:29.490Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:29.490Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:29.491Z"}
+{"cookie":{"path":"/","_expires":null,"originalMaxAge":null,"httpOnly":true},"flash":{"error":["Incorrect password."]},"passport":{"user":"bf736855-c94b-41a6-ad00-bdc23e303e52"},"level":"info","message":"session","timestamp":"2016-07-13T20:01:29.493Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:29.493Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:29.493Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:29.494Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:30.605Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:30.606Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:30.606Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:30.659Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:30.660Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:30.660Z"}
+{"level":"info","message":"request query","timestamp":"2016-07-13T20:01:30.660Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:30.660Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content","timestamp":"2016-07-13T20:01:30.661Z"}
+{"level":"info","message":"find all content by args SELECT id,title,tags,picture,dateCreated,datePublish FROM content ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:30.661Z"}
+{"success":true,"total":1,"data":[{"id":"2db5b695-c133-4a4d-8f49-2fa87573cb7b","title":"Ember & JS SEO - How to easily implement SEO friendly URLs in 3 steps","tags":"URL FRIENDLY,House for sale,House for rent","picture":"house1.jpg","dateCreated":1468010439176,"datePublish":1467997200}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"PAGE ","timestamp":"2016-07-13T20:01:30.662Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:31.564Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:31.565Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:31.566Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:31.650Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:31.650Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:31.651Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:31.651Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:31.651Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-13T20:01:31.652Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder DESC","timestamp":"2016-07-13T20:01:31.652Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Home","link":"home"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"House for rent","link":"tags/houseforent"},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"House for sale","link":"tags/houseforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"Department for sale","link":"tags/departmentforsale"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"DESC","level":"info","message":"MENU ","timestamp":"2016-07-13T20:01:31.652Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:32.456Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:32.457Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:32.457Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:32.554Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:32.554Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:32.555Z"}
+{"limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:32.555Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:32.555Z"}
+{"level":"info","message":"query count total number tag by args SELECT count(id) as TOTALNUMBER FROM tag","timestamp":"2016-07-13T20:01:32.555Z"}
+{"level":"info","message":"find all tag by args SELECT title FROM tag ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:32.556Z"}
+{"success":true,"total":5,"data":[{"title":"URL FRIENDLY"},{"title":"SEO URL"},{"title":"House for sale"},{"title":"House for rent"},{"title":"Home"}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"TAGS ","timestamp":"2016-07-13T20:01:32.556Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:32.658Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:32.658Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:32.659Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.013Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:34.013Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:34.013Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.092Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:34.093Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:34.093Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"request query","timestamp":"2016-07-13T20:01:34.093Z"}
+{"orderBy":"sortOrder","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.094Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-13T20:01:34.094Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder DESC","timestamp":"2016-07-13T20:01:34.094Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Home","link":"home"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"House for rent","link":"tags/houseforent"},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"House for sale","link":"tags/houseforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"Department for sale","link":"tags/departmentforsale"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"DESC","level":"info","message":"MENU ","timestamp":"2016-07-13T20:01:34.095Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.711Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:34.711Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:34.712Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.754Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-13T20:01:34.754Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-13T20:01:34.755Z"}
+{"level":"info","message":"request query","timestamp":"2016-07-13T20:01:34.755Z"}
+{"level":"info","message":"object to query ","timestamp":"2016-07-13T20:01:34.755Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content","timestamp":"2016-07-13T20:01:34.755Z"}
+{"level":"info","message":"find all content by args SELECT id,title,tags,picture,dateCreated,datePublish FROM content ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-13T20:01:34.755Z"}
+{"success":true,"total":1,"data":[{"id":"2db5b695-c133-4a4d-8f49-2fa87573cb7b","title":"Ember & JS SEO - How to easily implement SEO friendly URLs in 3 steps","tags":"URL FRIENDLY,House for sale,House for rent","picture":"house1.jpg","dateCreated":1468010439176,"datePublish":1467997200}],"page":1,"limit":10,"sortby":"dateCreated","sort":"DESC","level":"info","message":"PAGE ","timestamp":"2016-07-13T20:01:34.756Z"}

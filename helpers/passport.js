@@ -3,14 +3,14 @@ var passport = require('passport')
 var db = require('./db.js');
 var USERMODEL = new db.USERMODEL();
 var crypto = require('crypto');
-
+var logger = require("./logger.js");
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log("username","password",username,password);
+    logger.info("username","password",username,password);
     USERMODEL.findOne({ username: username }, function (err, user) {
 
-      console.log("user authen",user);
+      logger.info("user authen",user);
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
