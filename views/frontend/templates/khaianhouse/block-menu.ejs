@@ -1,0 +1,5 @@
+<ul class="nav navbar-nav navbar-right ">
+   <%if(typeof menu != "undefined"){ for(var i=0; i<menu.length; i++){%>
+       <li ><a href="<%-menu[i].link%>"><%-menu[i].title%></a></li>
+   <%}}%>
+</ul>

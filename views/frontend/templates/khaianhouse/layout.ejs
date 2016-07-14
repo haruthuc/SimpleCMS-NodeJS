@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title><%-title%></title>
+		<link href='https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
+
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
+    <base href="/<%-template%>/">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/responsive.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	</head>
+	<body>
+		<section class="header">
+
+				 <nav class="navbar navbar-default navbar-fixed-top menu-home" role="navigation">
+
+					<div class="container">
+
+					  <div class="navbar-header">
+
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+
+						  <span class="sr-only">Toggle navigation</span>
+
+						  <span class="icon-bar"></span>
+
+						  <span class="icon-bar"></span>
+
+						  <span class="icon-bar"></span>
+
+						</button>
+              <span> LOGO HERE </span>
+
+					  </div>
+
+					  <div class="collapse navbar-collapse" id="collapse">
+
+		            <%-partial('block-menu')%>
+
+					  </div>
+
+					</div>
+
+				 </nav>
+
+				  <div class="container-home">
+						<div id="sledeshow">
+							<img src="images/slider2.png" />
+							<img src="images/slider3.png" />
+							<img src="images/slider4.png" />
+						</div>
+
+				 </div>
+
+		</section>
+
+    <%-body -%>
+
+		<section class="footer">
+		<div class ="footer-copyright"><p><a href="#">Apartment for rent in HCMC</a> are members of <a href="#">Apartment for rent in Saigon</a></p></div>
+
+		</section>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-1.5.min.js"></script>
+		<script src ="js/jquery.cycle.js"></script>
+		<script src ="js/script.js"></script>
+	</body>
+
+</html>
