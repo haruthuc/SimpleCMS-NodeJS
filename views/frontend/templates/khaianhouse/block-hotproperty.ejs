@@ -1,0 +1,18 @@
+<%if(typeof hotproperty != "undefined"){%>
+		<div class="row">
+		<h3 style="color:red;">Hot property</h3>
+
+		<% for(var i=0; i<hotproperty.length; i++){%>
+			<div class="col-xs-6 col-sm-3 content-main">
+
+				<%if(hotproperty[i].picture){%>
+					<img src="/uploads/<%-hotproperty[i].id%>/<%-hotproperty[i].picture%>">
+				<% } else { %>
+					<img src="../img/no-pic.jpg" />
+				<%}%>
+				<p><a href="/content/<%=hotproperty[i].alias.toLowerCase()%>"><%-hotproperty[i].title%></a></p>
+				<div class="price"><strong>Price:</strong> <span><%-(hotproperty[i].price!=0)?hotproperty[i].price+" USD":'Contact'%></span></div>
+			</div>
+  <%}%>
+		</div>
+	<%}%>

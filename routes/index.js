@@ -15,7 +15,10 @@ router.get('/', function(req, res, next) {
   //top of category
   Promise.all([
     _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
-    _utils.get_content_helper("apartforent",'id,title,picture,price',{})
+    _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"}),
+    _utils.get_content_helper("apartforent",'id,alias,title,picture,price',{tags:"%apartforrent%"}),
+    _utils.get_content_helper("apartfosale",'id,alias,title,picture,price',{tags:"%apartforsale%"}),
+    _utils.get_content_helper("houseforsaleandrent",'id,alias,title,picture,price',{tags:"%houseforsalerent%"})
   ]).then(function(values){
     var data = {};
     if(values.length > 0){
@@ -33,5 +36,72 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get("/content/:alias", function(req, res, next){
+  	var alias = req.params.alias;
+    if(alias){
+      Promise.all([
+        _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
+        _utils.get_content_helper("content",'',{alias:"%"+alias+"%"}),
+        _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOT PROPERTY%"})
+      ]).then(function(values){
+        var data = {};
+        if(values.length > 0){
+            data = _.keyBy(values, 'key');
+            data = _.mapValues(data, function(o) { return o.data; });
+        }
+
+        var returnObject = { title: title ,template: template};
+        returnObject = _.assign(returnObject,data);
+        console.log("return object alias query page",returnObject);
+        if(returnObject.content && returnObject.content.length > 0){
+          returnObject.content = returnObject.content[0];
+          res.render('frontend/templates/'+template+'/content',returnObject);
+        }else{
+          res.render('frontend/pagenotfound');
+        }
+
+      }
+    );
+    }else{
+      res.render('frontend/pagenotfound');
+    }
+});
+
+router.get("/tags/:tag", function(req, res, next){
+  	var tag = req.params.tag;
+    if(tag){
+      Promise.all([
+        _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
+        _utils.get_content_helper("content",'',{tags:"%"+tag+"%"})
+      ]).then(function(values){
+        var data = {};
+        if(values.length > 0){
+            data = _.keyBy(values, 'key');
+            //data = _.mapValues(data, function(o) { return o.data; });
+        }
+
+        if(data.menu){
+          data.menu = _.result(data.menu,"data");
+        }
+
+
+
+        var returnObject = { title: title ,template: template};
+
+        var selectedMenu = _.find(data.menu, { 'link':"tags/"+tag});
+        if(selectedMenu)
+            returnObject.selected =  selectedMenu['title'];
+
+        returnObject = _.assign(returnObject,data);
+        console.log("return object alias query page",returnObject);
+
+        res.render('frontend/templates/'+template+'/tags',returnObject);
+
+      }
+    );
+    }else{
+      res.render('frontend/pagenotfound');
+    }
+});
 
 module.exports = router;

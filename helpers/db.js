@@ -571,7 +571,7 @@ function makeAliasLink(str){
 		// do other replacements that make sense in your case, e.g.:
 		ret = ret.replace(/&/g,"and");
 		ret+="-"+randomValueBase64(2);
-		return encodeURIComponent(ret);
+		return ret.toLowerCase();
 }
 
 exports.makeAliasLink = makeAliasLink;
