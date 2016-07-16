@@ -1,5 +1,4 @@
 <% layout('layout') -%>
-<%-partial('block-menu')%>
 
 <%-partial('block-banner')%>
 <section class="content">
@@ -15,7 +14,7 @@
 							<div class="col-xs-6 col-sm-3 content-main">
 
 								<%if(apartforent[i].picture){%>
-									<img src="/uploads/<%-apartforent[i].id%>/<%-apartforent[i].picture%>">
+									<img src="/uploads/<%-apartforent[i].id%>/small/<%-apartforent[i].picture%>">
 								<% } else { %>
 									<img src="../img/no-pic.jpg" />
 								<%}%>
@@ -30,7 +29,7 @@
 							<div class="col-xs-6 col-sm-3 content-main">
 
 								<%if(apartfosale[i].picture){%>
-									<img src="/uploads/<%-apartfosale[i].id%>/<%-apartfosale[i].picture%>">
+									<img src="/uploads/<%-apartfosale[i].id%>/small/<%-apartfosale[i].picture%>">
 								<% } else { %>
 									<img src="../img/no-pic.jpg" />
 								<%}%>
@@ -46,7 +45,7 @@
 							<div class="col-xs-6 col-sm-3 content-main">
 
 								<%if(houseforsaleandrent[i].picture){%>
-									<img src="/uploads/<%-houseforsaleandrent[i].id%>/<%-houseforsaleandrent[i].picture%>">
+									<img src="/uploads/<%-houseforsaleandrent[i].id%>/small/<%-houseforsaleandrent[i].picture%>">
 								<% } else { %>
 									<img src="../img/no-pic.jpg" />
 								<%}%>

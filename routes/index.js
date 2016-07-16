@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
   //top of category
   Promise.all([
     _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
+    _utils.get_content_helper("banners",'id,alias,title,picture',{tags:"%main-banner%"}),
     _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"}),
     _utils.get_content_helper("apartforent",'id,alias,title,picture,price',{tags:"%apartforrent%"}),
     _utils.get_content_helper("apartfosale",'id,alias,title,picture,price',{tags:"%apartforsale%"}),
@@ -42,7 +43,7 @@ router.get("/content/:alias", function(req, res, next){
       Promise.all([
         _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
         _utils.get_content_helper("content",'',{alias:"%"+alias+"%"}),
-        _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOT PROPERTY%"})
+        _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"})
       ]).then(function(values){
         var data = {};
         if(values.length > 0){
@@ -67,12 +68,16 @@ router.get("/content/:alias", function(req, res, next){
     }
 });
 
+
 router.get("/tags/:tag", function(req, res, next){
   	var tag = req.params.tag;
     if(tag){
+      var contentQuery ={tags:"%"+tag+"%"};
+      if(req.query.page)
+          contentQuery.page = req.query.page;
       Promise.all([
         _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
-        _utils.get_content_helper("content",'',{tags:"%"+tag+"%"})
+        _utils.get_content_helper("content",'',contentQuery)
       ]).then(function(values){
         var data = {};
         if(values.length > 0){
@@ -84,14 +89,13 @@ router.get("/tags/:tag", function(req, res, next){
           data.menu = _.result(data.menu,"data");
         }
 
-
-
         var returnObject = { title: title ,template: template};
 
         var selectedMenu = _.find(data.menu, { 'link':"tags/"+tag});
-        if(selectedMenu)
-            returnObject.selected =  selectedMenu['title'];
-
+        if(selectedMenu){
+          returnObject.selected =  selectedMenu['title'];
+        }
+        returnObject.selectedTag = tag;
         returnObject = _.assign(returnObject,data);
         console.log("return object alias query page",returnObject);
 

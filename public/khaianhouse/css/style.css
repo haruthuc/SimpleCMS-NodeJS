@@ -99,6 +99,11 @@ border:#444444 !important
 	margin:auto;
 
 }
+#slideshow a{
+	width:100% !important;
+	height:400px;
+}
+
 #slideshow img{
 	width:100% !important;
 	height:400px;
@@ -147,7 +152,7 @@ padding-left:7px;
 }
 
 .left-content{
-	width:70.703125%;
+	width:70%;
 	float:left;
 	margin-left:10px;
 

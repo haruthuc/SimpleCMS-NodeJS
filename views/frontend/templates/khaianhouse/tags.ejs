@@ -1,5 +1,4 @@
 <% layout('layout') -%>
-<%-partial('block-menu')%>
 
 <%-partial('block-banner')%>
 <section class="content">
@@ -16,7 +15,7 @@
   			<div class="wap-house">
           <div class="img-house"><a href="/content/<%=content.data[i].alias.toLowerCase()%>">
   				<%if(content.data[i].picture){%>
-  					<img src="/uploads/<%-content.data[i].id%>/<%-content.data[i].picture%>">
+  					<img src="/uploads/<%-content.data[i].id%>/small/<%-content.data[i].picture%>">
   				<% } else { %>
   					<img src="../img/no-pic.jpg" />
   				<%}%>
@@ -25,7 +24,7 @@
           <div class="detail-house">
             <p><a href="/content/<%=content.data[i].alias.toLowerCase()%>" > <%-content.data[i].title%> </a></p>
             <dt>Price: <span class="price"><%-(content.data[i].price!=0)?content.data[i].price+" USD":'Contact'%></span><dt>
-            <dt>Currency: <span>/month</span><dt>
+            <dt>Currency: <span>USD/month</span><dt>
           </div>
   			</div>
   	<%}}else{%>
@@ -38,7 +37,7 @@
 
 
       <div class="paging">
-        <div class="pagination">
+        <!-- <div class="pagination">
           <span> << </span>
           <span>Start</span>
           <span>Prev</span>
@@ -48,7 +47,8 @@
           <a href="#">Next</a>
           <a href="#">End</a>
           <span> >></span>
-        </div>
+        </div> -->
+				<%-partial('block-paginate')%>
       </div>
 
 
