@@ -15426,3 +15426,661 @@
 {"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:45:47.722Z"}
 {"level":"info","message":"find all content by args SELECT * FROM content WHERE alias LIKE '%luxury-furniture-apartment-in-central-garden,-district-k0%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:45:47.723Z"}
 {"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:45:47.723Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.281Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:15.281Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.281Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.281Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.281Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE alias LIKE '%luxury-furniture-apartment-in-central-garden,-district-k0%'","timestamp":"2016-07-16T06:47:15.281Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.282Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.282Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:15.282Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:47:15.282Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:15.282Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE alias LIKE '%luxury-furniture-apartment-in-central-garden,-district-k0%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:15.283Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:15.283Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.692Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:18.692Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.692Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.693Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:18.694Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:47:18.695Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:18.695Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:18.695Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:18.695Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:18.695Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:18.696Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:18.696Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:19.397Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:19.397Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:19.397Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:19.397Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:19.397Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:47:19.397Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:19.398Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:19.398Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:20.397Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:20.398Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:20.398Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:20.398Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:20.398Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:47:20.399Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:20.399Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:20.400Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:21.027Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:21.027Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:21.027Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:21.027Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:21.028Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:47:21.028Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:21.028Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:21.029Z"}
+{"level":"info","message":"username password admin admin","timestamp":"2016-07-16T06:47:39.603Z"}
+{"username":"admin","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:39.604Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE username='admin' LIMIT 1","timestamp":"2016-07-16T06:47:39.605Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:39.605Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1,"level":"info","message":"user authen","timestamp":"2016-07-16T06:47:39.606Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:39.610Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:39.610Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:39.611Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:41.540Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:41.540Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:41.540Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:41.645Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:41.646Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:41.646Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"request query","timestamp":"2016-07-16T06:47:41.646Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:41.647Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:41.647Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:41.647Z"}
+{"success":true,"total":5,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Main","link":" "},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"Apart for sale","link":"tags/apartforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"House for sale & rent ","link":"tags/houseforsalerent"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"Apart for rent","link":"tags/apartforrent"},{"id":"ca289e94-c62c-4dcb-8d05-bd48f9367c36","title":"Contact ","link":"contact"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"ASC","level":"info","message":"MENU ","timestamp":"2016-07-16T06:47:41.648Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:45.430Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:45.430Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:45.431Z"}
+{"level":"info","message":"delete menu query  DELETE FROM menu WHERE id='ca289e94-c62c-4dcb-8d05-bd48f9367c36'","timestamp":"2016-07-16T06:47:45.431Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:45.442Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:45.442Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:45.442Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"request query","timestamp":"2016-07-16T06:47:45.443Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:45.443Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:45.443Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:45.443Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Main","link":" "},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"Apart for sale","link":"tags/apartforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"House for sale & rent ","link":"tags/houseforsalerent"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"Apart for rent","link":"tags/apartforrent"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"ASC","level":"info","message":"MENU ","timestamp":"2016-07-16T06:47:45.444Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:49.190Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:49.191Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:49.191Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:49.370Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:49.370Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:49.371Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"request query","timestamp":"2016-07-16T06:47:49.371Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:49.371Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:49.371Z"}
+{"level":"info","message":"find all menu by args SELECT id,title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:49.372Z"}
+{"success":true,"total":4,"data":[{"id":"ccf19def-a20e-4eee-b80a-8290df89f0c3","title":"Main","link":" "},{"id":"3c6fac6d-861f-475e-8ce5-f32c15136e49","title":"Apart for sale","link":"tags/apartforsale"},{"id":"f7eb2dda-6630-4207-9490-a28d6d5cf9de","title":"House for sale & rent ","link":"tags/houseforsalerent"},{"id":"3b365fde-1b41-48f6-80ee-059a21d0fcc0","title":"Apart for rent","link":"tags/apartforrent"}],"page":1,"limit":"none","sortby":"sortOrder","sort":"ASC","level":"info","message":"MENU ","timestamp":"2016-07-16T06:47:49.372Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:52.834Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:52.835Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:52.835Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:52.836Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:52.836Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:52.836Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:52.836Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:52.836Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:47:52.836Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:52.837Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:52.838Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:54.345Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:54.346Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:54.346Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:54.346Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:54.347Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:54.347Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:54.347Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:54.347Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:47:54.347Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:54.348Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:54.348Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:55.404Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:55.404Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:55.405Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:55.405Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:55.405Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:55.406Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:55.406Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:55.406Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:47:55.406Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:55.407Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:55.407Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:56.129Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:47:56.129Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:47:56.130Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:56.130Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:47:56.131Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:56.131Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:56.131Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:47:56.131Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:47:56.131Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:47:56.133Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:47:56.133Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:08.448Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:53:08.448Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:53:08.448Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:08.449Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:53:08.449Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:08.449Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:08.450Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:08.450Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:53:08.450Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:53:08.451Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:08.451Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.084Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:53:10.084Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:53:10.084Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.085Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:53:10.085Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.085Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.085Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.085Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:53:10.085Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:53:10.085Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.086Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.802Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:53:10.802Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:53:10.802Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.803Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:53:10.803Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.804Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:53:10.804Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.805Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.805Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.806Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:53:10.806Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.806Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.806Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.806Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:53:10.807Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.807Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.807Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:53:10.807Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:53:10.807Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:53:10.808Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.808Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.808Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.808Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.808Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:53:10.809Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.951Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:06.952Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:06.952Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.952Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:06.952Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:54:06.953Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.953Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:54:06.954Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.954Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.954Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.954Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:54:06.954Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.954Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.955Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.955Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:54:06.955Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.955Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.955Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:06.955Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:54:06.956Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:06.956Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:06.956Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:06.956Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:06.957Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:06.957Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:06.957Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:08.667Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:08.668Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:08.668Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:08.668Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:08.668Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:08.669Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:08.669Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:08.669Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:54:08.669Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:08.670Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:08.670Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:09.533Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:09.533Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:09.534Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:09.534Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:09.534Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:09.534Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:09.534Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:09.534Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:54:09.535Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:09.535Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:09.535Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:10.201Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:10.201Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:10.202Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:10.202Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:10.202Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:10.203Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:10.204Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:10.204Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:54:10.204Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:10.204Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:10.204Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.451Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:11.451Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:11.452Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.453Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:11.453Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.453Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.454Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.454Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:54:11.454Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.454Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.454Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.454Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:54:11.455Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.455Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.455Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.455Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:54:11.455Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:54:11.456Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:11.456Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:54:11.457Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:11.457Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:11.458Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:11.458Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:11.458Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:11.458Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:11.459Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.723Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:12.723Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:12.724Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.724Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:12.724Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"alias":"%luxury-furniture-apartment-in-central-garden,-district-k0%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE alias LIKE '%luxury-furniture-apartment-in-central-garden,-district-k0%'","timestamp":"2016-07-16T06:54:12.725Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.725Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:54:12.726Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:12.726Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE alias LIKE '%luxury-furniture-apartment-in-central-garden,-district-k0%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:12.726Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:12.726Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:12.769Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:12.769Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:12.769Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.491Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:15.491Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:15.491Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.492Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:15.492Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.492Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.492Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.492Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:54:15.492Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.492Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.493Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.493Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:54:15.493Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.494Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.494Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.494Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:54:15.494Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:54:15.495Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:15.495Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:54:15.496Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:15.496Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:15.496Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:15.497Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:15.497Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:15.497Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:15.497Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.267Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:19.267Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:19.267Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.267Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:19.268Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.268Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.268Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.268Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:54:19.268Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:19.269Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:19.269Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.800Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:19.800Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:19.801Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.801Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:19.801Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.802Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.802Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:19.802Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:54:19.803Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:19.803Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:19.803Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:20.753Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:54:20.753Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:54:20.754Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:20.754Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:54:20.754Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:20.754Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:20.754Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:54:20.754Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:54:20.754Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:54:20.755Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:54:20.755Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:34.897Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:55:34.897Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:55:34.897Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:34.898Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:34.898Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:34.898Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:34.898Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:34.898Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:34.898Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:34.899Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:34.899Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.216Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:55:36.216Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:55:36.216Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.217Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:36.217Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.217Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.217Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.217Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:55:36.217Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:55:36.218Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.218Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:36.219Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:36.220Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:36.221Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:36.221Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:36.221Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:36.221Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:36.221Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:36.221Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:37.412Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:55:37.412Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:55:37.412Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:37.413Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:37.413Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:37.413Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:37.413Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:37.415Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:37.415Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:37.415Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:37.415Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.058Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:55:38.058Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:55:38.059Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.059Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:38.059Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.059Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.059Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.059Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:38.059Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:38.060Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:38.060Z"}
+{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.745Z"}
+{"level":"info","message":"find oneuser by args SELECT * FROM user WHERE id='bf736855-c94b-41a6-ad00-bdc23e303e52' LIMIT 1","timestamp":"2016-07-16T06:55:38.745Z"}
+{"0":{"id":"bf736855-c94b-41a6-ad00-bdc23e303e52","username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","fullname":"JohnDea","email":"haruthuc@gmail.com","role":"ADMIN","dateCreated":1467210402838,"status":1},"level":"info","message":"find one","timestamp":"2016-07-16T06:55:38.745Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.745Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:38.746Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.746Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.746Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:38.746Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:38.746Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:38.746Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:38.747Z"}
+{"level":"info","message":"INIT TABLE","timestamp":"2016-07-16T06:55:46.781Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:49.280Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:49.282Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:49.283Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:49.283Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:49.283Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:49.283Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:49.285Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:49.286Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.468Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:50.469Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.469Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.469Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.469Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:55:50.470Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.470Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.470Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.470Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:55:50.470Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.471Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.471Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.471Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:50.471Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.471Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.472Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.472Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:50.472Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.472Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.472Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:50.472Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:50.473Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:50.473Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:50.474Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:50.474Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:50.474Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:50.474Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:50.475Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:51.656Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:51.656Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:51.657Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:51.657Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:51.658Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:51.658Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:51.658Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:51.659Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:52.641Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:52.641Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:52.641Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:52.642Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:52.642Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:52.642Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:52.642Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:52.642Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.723Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:53.723Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.723Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.723Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.724Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:55:53.724Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.724Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.724Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.724Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:55:53.725Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.725Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.725Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.725Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:53.726Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.727Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.727Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.727Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:53.727Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.727Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.727Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:53.728Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:53.728Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:53.728Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:53.728Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:53.729Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:53.729Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:53.729Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:53.729Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:56.341Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:56.342Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:56.342Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:56.342Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:56.342Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:56.343Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:56.343Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:56.343Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.084Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:57.084Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.084Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.084Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.084Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:57.084Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:57.085Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:57.085Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.809Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:57.809Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.809Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.809Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:57.810Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:57.810Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:57.810Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:57.810Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.793Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:58.793Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.793Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.793Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.793Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:55:58.793Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.793Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.794Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:58.795Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.795Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.795Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:58.795Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:55:58.795Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:58.795Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:58.796Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:58.796Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:58.796Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:58.797Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:58.797Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:59.510Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:55:59.510Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:59.510Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:59.510Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:55:59.511Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:55:59.511Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:55:59.511Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:55:59.511Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:00.219Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:56:00.220Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:00.221Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:00.221Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:00.221Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:56:00.221Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:56:00.222Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:00.222Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.016Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:56:01.016Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.017Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.017Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.017Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:56:01.017Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:56:01.017Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:01.018Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.844Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:56:01.844Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.844Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.844Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:01.844Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:56:01.844Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:56:01.845Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:01.845Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:02.483Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:56:02.483Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:02.484Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:02.484Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:02.484Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:56:02.484Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:56:02.484Z"}
+{"level":"info","message":"find all content by args SELECT * FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:02.485Z"}
+{"orderBy":"sortOrder","order":"ASC","limit":"none","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.137Z"}
+{"level":"info","message":"query count total number menu by args SELECT count(id) as TOTALNUMBER FROM menu","timestamp":"2016-07-16T06:56:14.137Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.138Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.138Z"}
+{"tags":"%main-banner%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.138Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%main-banner%'","timestamp":"2016-07-16T06:56:14.138Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.139Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.139Z"}
+{"tags":"%HOTPROPERTY%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.139Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%HOTPROPERTY%'","timestamp":"2016-07-16T06:56:14.139Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.140Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.140Z"}
+{"tags":"%apartforrent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.140Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforrent%'","timestamp":"2016-07-16T06:56:14.140Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"tags":"%apartforsale%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%apartforsale%'","timestamp":"2016-07-16T06:56:14.141Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"tags":"%houseforsalerent%","level":"info","message":"object to query ","timestamp":"2016-07-16T06:56:14.141Z"}
+{"level":"info","message":"query count total number content by args SELECT count(id) as TOTALNUMBER FROM content WHERE tags LIKE '%houseforsalerent%'","timestamp":"2016-07-16T06:56:14.142Z"}
+{"level":"info","message":"find all menu by args SELECT title,link FROM menu ORDER BY sortOrder ASC","timestamp":"2016-07-16T06:56:14.142Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture FROM content WHERE tags LIKE '%main-banner%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:14.143Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%HOTPROPERTY%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:14.143Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforrent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:14.143Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%apartforsale%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:14.144Z"}
+{"level":"info","message":"find all content by args SELECT id,alias,title,picture,price FROM content WHERE tags LIKE '%houseforsalerent%' ORDER BY dateCreated DESC LIMIT 10 OFFSET 0","timestamp":"2016-07-16T06:56:14.144Z"}

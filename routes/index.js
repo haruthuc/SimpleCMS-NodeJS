@@ -31,6 +31,7 @@ router.get('/', function(req, res, next) {
     var returnObject = { title: title ,template: template};
     returnObject = _.assign(returnObject,data);
     console.log("return object ",returnObject);
+    returnObject.selected = "Main";
     res.render('frontend/templates/'+template+'/index',returnObject);
 
   });
