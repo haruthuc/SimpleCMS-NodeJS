@@ -7,7 +7,7 @@
       <%for(var o=0;o<banners.length;o++){%>
         <a href="/content/<%-banners[o].alias%>" title="<%-banners[o].title%>">
           <%if(banners[o].picture){%>
-  					<img src="/uploads/<%-banners[o].id%>/large/<%-banners[o].picture%>">
+  					<img src="/uploads/<%-banners[o].id%>/<%-banners[o].picture%>">
   				<% } else { %>
   					<img src="../img/no-pic.jpg" />
   				<%}%>
