@@ -5,6 +5,7 @@
 body{
 	font-family: 'Tahoma';
 	font-size:12px;
+	background-color: #cfd1d6 !important;
 }
 .header{
 	margin-bottom:0px;
@@ -67,9 +68,15 @@ border:#444444 !important
 }
 
 .hotline{
-	font-family:comic sans ms,cursive;
+	margin-top: 20px;
+	margin-left: 50px;
+	font-weight: bold;
 	font-size:18px;
 	color:#fff;
+}
+.hotline a{
+	text-decoration: none;
+	color: #FFF;
 }
 .email{
 	font-family:comic sans ms,cursive;
@@ -112,6 +119,9 @@ border:#444444 !important
 .content{
 	width:1024px;
 	margin:auto;
+	background-color: #FFFFFF !important;
+	padding-bottom: 20px;
+	height: 100%;
 }
 .col-xs-6.col-sm-3 img{
 	width:100%;
@@ -122,7 +132,7 @@ border:#444444 !important
 	font-family:Helvetica,Arial,sans-serif;
 	font-size:14px;
 	text-transform:uppercase;
-    font-weight: bold;
+  font-weight: bold;
 }
 p{
 
@@ -155,6 +165,8 @@ padding-left:7px;
 	width:70%;
 	float:left;
 	margin-left:10px;
+	padding-left: 20px;
+	background-color: #FFFFFF
 
 }
 .col-xs-6.col-sm-3.content-main img{
@@ -169,9 +181,11 @@ padding-left:7px;
 }
 /*right content*/
 .right-content{
-	width:24.21875%;
+	width:28%;
 	float:left;
-	margin-left:20px;
+	padding-left: 10px;
+	height: 100%;
+	background-color: #FFFFFF;
 }
 .table-right-content{
  width:100%;
@@ -357,7 +371,6 @@ width: 100%;
 	height:50px;
 	float:left;
 	background:#000;
-	margin-top:20px;
 }
 .footer-copyright{
 	margin:center;
@@ -368,4 +381,12 @@ width: 100%;
 	text-align:center;
 	margin-top:15px;
 
+}
+
+#container
+{
+width:100%;
+height:auto;
+float:left;
+background: #FFF;
 }
