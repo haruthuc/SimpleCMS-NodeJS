@@ -1,0 +1,83 @@
+<% layout('layout') -%>
+<%stylesheet('css/slider.css') %>
+<%script('js/jssor.slider.mini.js') %>
+<%script('js/slider-script.js') %>
+
+<section class="content detail-apart">
+  <div id="container">
+  <div class="left-content apart">
+        <div class="row">
+        <h1><%=content.title%></h1>
+
+
+          <%-partial('block-slider')%>
+
+
+
+          <div class="col-xs-4">
+          <div class="detail-house">
+              <dt>Price: <span class="price">2200 USD/month</span><dt>
+              <dt>Interior: <span><%=content.interior%></span><dt>
+              <dt>Type: <span><a href="/tags/<%=content.tags%>"><%=content.tags%></a></span><dt>
+              <dt>Room: <span><%=content.room%></span><dt>
+              <dt>Bathroom: <span><%=content.bathroom%></span><dt>
+
+          </div>
+          </div>
+
+          <div class="col-xs-6">
+
+            <div class="detail-house">
+              <dt>Code: <span><%=content.code%></span><dt>
+              <dt>Location: <span><a href="#"><%=content.location%></a></span><dt>
+              <dt>Level: <span><%=content.level%></span><dt>
+              <dt>Sqft: <span><%=content.sqft%></span><dt>
+
+            </div>
+
+          </div>
+
+
+    </div>
+    <div class="description">
+      <h1>Description</h1>
+      <p><%-content.content%></p>
+
+      <!-- <h1>Amenities</h1>
+      <table width="100%">
+        <tr width="30%">
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+        </tr>
+
+        <tr width="30%">
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+        </tr>
+
+        <tr width="30%">
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+          <td><img src="images/tick.png">Internet</td>
+        </tr>
+
+      </table> -->
+
+      <!-- <h1>Map</h1>
+      <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d708999.0890410385!2d105.63574958599207!3d10.985728684930676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b2d148b9dcd1f%3A0xf325fa2562fcf1b1!2zQ-G7pyBDaGksIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1466129667108" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div> -->
+
+      <%-partial('block-hotproperty')%>
+
+
+    </div>
+
+  </div>
+
+
+<%-partial('block-right')%>
+</div>
+</section>

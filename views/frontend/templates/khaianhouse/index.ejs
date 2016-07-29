@@ -1,0 +1,63 @@
+<% layout('layout') -%>
+
+<%-partial('block-banner')%>
+<section class="content">
+	<div id="container">
+	<div class="left-content">
+
+		<%-partial('block-hotproperty')%>
+
+
+		<h3>Apart for rent</h3>
+			<div class="row">
+					<%if(typeof apartforent != "undefined"){ for(var i=0; i<apartforent.length; i++){%>
+							<div class="col-xs-6 col-sm-3 content-main">
+
+								<%if(apartforent[i].picture){%>
+									<img src="/uploads/<%-apartforent[i].id%>/small/<%-apartforent[i].picture%>">
+								<% } else { %>
+									<img src="../img/no-pic.jpg" />
+								<%}%>
+								<p><a href="/content/<%=apartforent[i].alias.toLowerCase()%>"><%-apartforent[i].title%></a></p>
+								<div class="price"><strong>Price:</strong> <span><%-(apartforent[i].price!=0)?apartforent[i].price+" USD":'Please contact'%></span></div>
+							</div>
+			    <%}}%>
+			</div>
+			<h3>Apart for sale</h3>
+			<div class="row">
+					<%if(typeof apartfosale != "undefined"){ for(var i=0; i<apartfosale.length; i++){%>
+							<div class="col-xs-6 col-sm-3 content-main">
+
+								<%if(apartfosale[i].picture){%>
+									<img src="/uploads/<%-apartfosale[i].id%>/small/<%-apartfosale[i].picture%>">
+								<% } else { %>
+									<img src="../img/no-pic.jpg" />
+								<%}%>
+								<p><a href="/content/<%=apartfosale[i].alias.toLowerCase()%>"><%-apartfosale[i].title%></a></p>
+								<div class="price"><strong>Price:</strong> <span><%-(apartfosale[i].price!=0)?apartfosale[i].price+" USD":'Please contact'%></span></div>
+							</div>
+			    <%}}%>
+			</div>
+
+			<h3>House for sale & rent</h3>
+			<div class="row">
+					<%if(typeof houseforsaleandrent != "undefined"){ for(var i=0; i<houseforsaleandrent.length; i++){%>
+							<div class="col-xs-6 col-sm-3 content-main">
+
+								<%if(houseforsaleandrent[i].picture){%>
+									<img src="/uploads/<%-houseforsaleandrent[i].id%>/small/<%-houseforsaleandrent[i].picture%>">
+								<% } else { %>
+									<img src="../img/no-pic.jpg" />
+								<%}%>
+								<p><a href="/content/<%=houseforsaleandrent[i].alias.toLowerCase()%>"><%-houseforsaleandrent[i].title%></a></p>
+								<div class="price"><strong>Price:</strong> <span><%-(houseforsaleandrent[i].price!=0)?houseforsaleandrent[i].price+" USD":'Please contact'%></span></div>
+							</div>
+			    <%}}%>
+			</div>
+
+
+	</div>
+
+<%-partial('block-right')%>
+</div>
+</section>

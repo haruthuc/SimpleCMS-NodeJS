@@ -29,13 +29,24 @@ var config = {
 			}
 		},
 		mail  : {
-
+      fromName:"Info Dev",
+      fromEmail:"info@simplecms.io",
+      tranport:{
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'simplecmsvietnam@gmail.com',
+            pass: 'LINHthuc123!@#'
+        }
+      }
 		},
 		server : {
 			secret: "#DI#MFPDMff22", // secret key for encrypt
 			port : 2000 //config port web
 		},
 		frontend:{
+      title : "Khai An House - The best real service",
 			template : "khaianhouse"
 		},
 		uploader : uploaderOptions
@@ -48,13 +59,24 @@ var config = {
 			}
 		},
 		mail  : {
-
+      fromName:"Info",
+      fromEmail:"info@simplecms.io",
+      tranport:{
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'simplecmsvietnam@gmail.com',
+            pass: 'LINHthuc123!@#'
+        }
+      }
 		},
 		server : {
 			secret: "#DI#MFPDMff22",
 			port : 2000
 		},
 		frontend:{
+      title : "Khai An House - The best real service",
 			template : "khaianhouse"
 		},
 		uploader:uploaderOptions

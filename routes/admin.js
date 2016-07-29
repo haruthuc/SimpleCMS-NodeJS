@@ -9,8 +9,43 @@ var _ = require('lodash');
 var async =require('async');
 var crypto = require('crypto');
 var sanitizeHtml = require('sanitize-html');
-
+var mailer = require('../helpers/mailer.js');
+var logger = require("../helpers/logger.js");
 module.exports = function(passport){
+
+	router.get('/forgotpassword', function(req, res, next) {
+	  res.render('admin/forgotpassword', { title: 'Simple CMS - Request new password' });
+	});
+
+
+	router.post('/forgotpassword', function(req, res, next) {
+		//TODO update forgotpassword improve security
+		if(req.body.email){
+			var email = req.body.email;
+			USERMODEL.findOne({email:email},function(error,user){
+				if(user){
+					var newpassword = db.randomValueBase64(6);
+					newpassword = newpassword.toLowerCase();
+					user.password = crypto.createHash('md5').update(newpassword).digest('hex');
+					//update new password
+					USERMODEL.update(user,function(err){
+						if(!err){
+							mailer.sendAsync(email,"Reset password","Your new password is <b>"+newpassword+"</b> .");
+							res.render('admin/forgotpassword', { title: 'Simple CMS' , res : {success : true} });
+						}else{
+							res.render('admin/forgotpassword', { title: 'Simple CMS - Request new password' });
+						}
+					});
+
+				}else{
+					res.render('admin/forgotpassword', { title: 'Simple CMS - Request new password' });
+				}
+			});
+
+		}
+	});
+
+
 	router.get('/', function(req, res, next) {
 	  res.render('login', { title: 'Simple CMS' });
 	});
@@ -28,7 +63,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/profile', db.isLoggedIn, function(req, res, next) {
-		console.log("session",req.session);
+		logger.info("session",req.session);
 		if(req.session.passport && req.session.passport.user){
 			USERMODEL.findOne({"id":req.session.passport.user}, function(err, user) {
 		  	res.render('admin/profile', { title: 'Simple CMS',active:"profile", profile:user});
@@ -41,27 +76,19 @@ module.exports = function(passport){
 	});
 
 	router.get('/newpage', db.isLoggedIn, function(req, res, next) {
-	  res.render('admin/newpage', { title: 'Simple CMS - Add new page',active:"newpage"});
+	  res.render('admin/newpage', { title: '',active:"newpage"});
 	});
 
 	router.get('/newpage/:contentID', db.isLoggedIn, function(req, res, next) {
 		var contentID = req.params.contentID;
 		CONTENTMODEL.findOne({"id":contentID},function(error,content){
 			if(error){
-				console.log("ERROR get one page by content id",contentID);
+				logger.info("ERROR get one page by content id",contentID);
 				res.redirect("/admin/newpage");
 			}else{
 				if(content){
-					res.render('admin/newpage', {
-							title: 'Simple CMS - Add new page',
-							active: "newpage",
-							contentID: req.params.contentID,
-							contentTitle: content['title'],
-							picture: content['picture'],
-							datePublish : content['datePublish'],
-							content : content['content'],
-							tags : content['tags']
-							});
+					content.active = "newpage";
+					res.render('admin/newpage',content);
 				}else{
 					res.redirect("/newpage");
 				}
@@ -85,12 +112,12 @@ module.exports = function(passport){
 	router.put("/api/menu",db.isLoggedIn,function(req,res,next){
 
 		if(req.body.data){
-			console.log("update menus",req.body.data);
+			logger.info("update menus",req.body.data);
 			var data = JSON.parse(req.body.data);
 			async.map(data, MENUMODEL.update, function(err, results){
 			    // results is now an array of stats for each file
 			    if(err){
-			    	console.log('update menu error ',err);
+			    	logger.info('update menu error ',err);
 			    	res.json({
 			    		success:false,
 			    		message: JSON.stringify(err)
@@ -105,7 +132,7 @@ module.exports = function(passport){
 			});
 
 		}else{
-			console.log("update menu invalid data");
+			logger.info("update menu invalid data");
 			res.json({
 	    		success:false,
 	    		message: "Invalid data"
@@ -124,7 +151,7 @@ module.exports = function(passport){
 							success:false,
 							message:"Can not addd menu"
 						});
-						console.log("ERROR add menu api ",error);
+						logger.info("ERROR add menu api ",error);
 					}else{
 						res.json({
 							success:true,
@@ -153,7 +180,7 @@ module.exports = function(passport){
 						success:false,
 						message:"Can not delete menu"
 					});
-					console.log("ERROR delete menu api ",error);
+					logger.info("ERROR delete menu api ",error);
 				}else{
 					res.json({
 						success:true,
@@ -174,15 +201,15 @@ module.exports = function(passport){
 	//get list menu
 	router.get("/api/menu",db.isLoggedIn,function(req,res,next){
 		var args = {};
-		console.log("request query",req.query);
+		logger.info("request query",req.query);
 
 		MENUMODEL.find("id,title,link",req.query,function(error,returnData){
-	    	console.log("MENU ",returnData);
+	    	logger.info("MENU ",returnData);
 	    	if(!error){
 	    		res.json(returnData);
 	    	}
 	    	else {
-	    		console.log("ERROR get api/menu",error);
+	    		logger.info("ERROR get api/menu",error);
 	    		res.json({
 	    			success :false,
 	    			error : "Can not get menus"
@@ -195,15 +222,15 @@ module.exports = function(passport){
 //begin tag api
 	router.get("/api/tag",db.isLoggedIn,function(req,res,next){
 		var args = {};
-		console.log("request query",req.query);
+		logger.info("request query",req.query);
 
 		TAGMODEL.find("title",{},function(error,returnData){
-	    	console.log("TAGS ",returnData);
+	    	logger.info("TAGS ",returnData);
 	    	if(!error){
 	    		res.json(returnData);
 	    	}
 	    	else {
-	    		console.log("ERROR get api/tag",error);
+	    		logger.info("ERROR get api/tag",error);
 	    		res.json({
 	    			success :false,
 	    			error : "Can not get tags"
@@ -224,7 +251,7 @@ module.exports = function(passport){
 							success:false,
 							message:"Can not add tag"
 						});
-						console.log("ERROR add tag api ",error);
+						logger.info("ERROR add tag api ",error);
 					}else{
 						res.json({
 							success:true,
@@ -252,7 +279,7 @@ module.exports = function(passport){
 						success:false,
 						message:"Can not delete tag"
 					});
-					console.log("ERROR delete tag api ",error);
+					logger.info("ERROR delete tag api ",error);
 				}else{
 					res.json({
 						success:true,
@@ -288,7 +315,7 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 						success:false,
 						message:"Can not content tag"
 					});
-					console.log("ERROR add content api ",error);
+					logger.info("ERROR add content api ",error);
 				}else{
 					res.json({
 						success:true,
@@ -311,7 +338,7 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 //update menus
 router.put("/api/content",db.isLoggedIn,function(req,res,next){
 	if(req.body){
-		console.log("update content",req.body);
+		logger.info("update content",req.body);
 		if(req.body.title)
 			req.body.alias = db.makeAliasLink(req.body.title);
 		if(req.body.content){
@@ -322,7 +349,7 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 		CONTENTMODEL.update(req.body,function(err){
 				// results is now an array of stats for each file
 				if(err){
-					console.log('update content error ',err);
+					logger.info('update content error ',err);
 					res.json({
 						success:false,
 						message: JSON.stringify(err)
@@ -336,7 +363,7 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 		});
 
 	}else{
-		console.log("update content invalid data");
+		logger.info("update content invalid data");
 		res.json({
 				success:false,
 				message: "Invalid data"
@@ -347,7 +374,7 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 //update profile
 router.put("/api/profile",db.isLoggedIn,function(req,res,next){
 	if(req.body){
-		console.log("update profile",req.body);
+		logger.info("update profile",req.body);
 		//var data = JSON.parse(req.body);
 		if(req.body.username)
 			delete req.body.username;
@@ -390,7 +417,7 @@ router.put("/api/profile",db.isLoggedIn,function(req,res,next){
 					USERMODEL.update(profile,function(err){
 							// results is now an array of stats for each file
 							if(err){
-								console.log('update content error ',err);
+								logger.info('update content error ',err);
 								res.json({
 									success:false,
 									message: JSON.stringify(err)
@@ -407,7 +434,7 @@ router.put("/api/profile",db.isLoggedIn,function(req,res,next){
 			],function (err, result) {
 
 					if(err){
-						console.log("update password error",err);
+						logger.info("update password error",err);
 						res.json({
 							success:false,
 							message: JSON.stringify(err)
@@ -421,7 +448,7 @@ router.put("/api/profile",db.isLoggedIn,function(req,res,next){
 			});
 
 	}else{
-		console.log("update content invalid data");
+		logger.info("update content invalid data");
 		res.json({
 				success:false,
 				message: "Invalid data"
@@ -433,15 +460,15 @@ router.put("/api/profile",db.isLoggedIn,function(req,res,next){
 //get list menu
 router.get("/api/content",db.isLoggedIn,function(req,res,next){
 	var args = {};
-	console.log("request query",req.query);
+	logger.info("request query",req.query);
 
 	CONTENTMODEL.find("id,title,tags,picture,dateCreated,datePublish",req.query,function(error,returnData){
-			console.log("PAGE ",returnData);
+			logger.info("PAGE ",returnData);
 			if(!error){
 				res.json(returnData);
 			}
 			else {
-				console.log("ERROR get api/content",error);
+				logger.info("ERROR get api/content",error);
 				res.json({
 					success :false,
 					error : "Can not get contents"
@@ -460,7 +487,7 @@ router.delete("/api/content",db.isLoggedIn,function(req,res,next){
 					success:false,
 					message:"Can not delete content"
 				});
-				console.log("ERROR delete content api ",error);
+				logger.info("ERROR delete content api ",error);
 			}else{
 				res.json({
 					success:true,

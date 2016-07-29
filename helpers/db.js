@@ -12,6 +12,8 @@ var exists = fs.existsSync(dbFile);
 var db =null;
 var crypto = require('crypto');
 var PAGE_LIMIT = 10;
+var logger = require("./logger.js");
+
 
 var MenuSchema = {
 	id : {
@@ -107,6 +109,16 @@ var ContentSchema = {
 	}
 };
 
+//extexd for real website
+ContentSchema.price = "INTEGER";
+ContentSchema.interior = "TEXT";
+ContentSchema.room = "INTEGER";
+ContentSchema.bathroom = "INTEGER";
+ContentSchema.code = "TEXT";
+ContentSchema.location = "TEXT";
+ContentSchema.level = "INTEGER";
+ContentSchema.sqft = "TEXT";
+
 //tags menu
 var TagsSchema = {
 	id:{
@@ -183,7 +195,7 @@ function initTable(){
 	//create table picture
 	db.run("CREATE TABLE IF NOT EXISTS picture("+schemaToColumnString(PictureSchema)+")");
 
-	console.log("INIT TABLE");
+	logger.info("INIT TABLE");
 };
 
 function schemaToColumnString(objSchema){
@@ -221,15 +233,15 @@ function objectToParams(obj,table){
 			 return _.result(o,"default",'');
 		});
 
-		console.log("objectToParams schema object ",schemaObj);
+		logger.info("objectToParams schema object ",schemaObj);
 
 		var defaultObject = _.defaults(obj,schemaObj);
 
-		console.log("objectToParams default object ",defaultObject);
+		logger.info("objectToParams default object ",defaultObject);
 
 		defaultObject = _.pick(defaultObject,_.keys(schemaObj));
 
-		console.log("objectToParams finished object ",defaultObject);
+		logger.info("objectToParams finished object ",defaultObject);
 
 		defaultObject = _.mapKeys(defaultObject, function(value, key) {
 		  return "$"+key;
@@ -242,7 +254,7 @@ function objectToParams(obj,table){
 }
 
 function objectToQueryString(obj,updateFlag){
-	console.log("object to query ",obj);
+	logger.info("object to query ",obj);
 	var obj = _.clone(obj);
 	var queryString = '';
 	if(typeof obj == "undefined" || obj == null){
@@ -270,7 +282,8 @@ function objectToQueryString(obj,updateFlag){
 		var value = obj[key];
 		if(typeof value =="string")
 			value = "'"+value+"'";
-		if(value.indexOf("%")==1 || value.indexOf("_")==1){
+
+		if(typeof value =="string" && (value.indexOf("%")==1 || value.indexOf("_")==1)){
 				queryString += key+" LIKE "+value;
 		}else{
 				queryString += key+"="+value;
@@ -290,7 +303,7 @@ function objectToQueryString(obj,updateFlag){
 function initDatabase(){
 	//if dont exist will create file db
 	if(!exists){
-		console.log("Creating DB file.");
+		logger.info("Creating DB file.");
 	 	fs.openSync(dbFile, "w");
 	}
 
@@ -305,14 +318,14 @@ function addQuery(table,obj,cb){
 	var id = obj["$id"];
 	var keys = _.keys(obj);
 	var query = "INSERT INTO "+table+" VALUES("+_.toString(keys)+")";
-	console.log("add query "+table,query);
-	console.log("add query obj "+table,obj);
+	logger.info("add query "+table,query);
+	logger.info("add query obj "+table,obj);
 	db.run(query,obj,function(error){
 		if(error){
 			console.error("ERROR: INSERT "+table,error);
 			cb(error);
 		}else{
-			console.log("Add return id",id);
+			logger.info("Add return id",id);
 			cb(null,id);
 		}
 
@@ -321,7 +334,7 @@ function addQuery(table,obj,cb){
 
 //base update query
 function updateQuery(table,fields,cb){
-	console.log("update "+table);
+	logger.info("update "+table);
 	if(!fields.id)
 	{
 		cb("NO EXIST ID WHEN UPDATE "+table);
@@ -343,7 +356,7 @@ function updateQuery(table,fields,cb){
 //base delete query
 function deleteQuery(table,id,cb){
 	var query = "DELETE FROM "+table+" WHERE id='"+id+"'";
-	console.log("delete "+table+" query ",query);
+	logger.info("delete "+table+" query ",query);
 	db.run(query,function(error){
 		if(error){
 			console.error("ERROR DELETE "+table,error,id);
@@ -357,12 +370,12 @@ function findOne(table,$args,cb){
 	if(typeof $args != "undefined"){
 		var query = "SELECT * FROM "+table+" WHERE "+objectToQueryString($args,false);
 		query += " LIMIT 1";
-		console.log("find one"+table+" by args",query);
+		logger.info("find one"+table+" by args",query);
 		db.all(query,function(err,rows){
 			if(err){
 				console.error("ERROR find one"+table,err);
 			}
-			console.log("find one",rows);
+			logger.info("find one",rows);
 			if(rows.length >0 )
 				cb(err,rows[0]);
 			else
@@ -410,7 +423,7 @@ function findQuery(table,$projection,$args,cb){
 				if(hasArgs)
 					queryCount += " WHERE "+objectToQueryString($args,false);
 
-				console.log("query count total number "+table+" by args",queryCount);
+				logger.info("query count total number "+table+" by args",queryCount);
 				db.all(queryCount,function(err,rows){
 					if(err){
 						console.error("ERROR find "+table,err);
@@ -421,7 +434,7 @@ function findQuery(table,$projection,$args,cb){
 				});
 			},
 			function findAll(total,callback){
-				console.log("find all "+table+" by args",query);
+				logger.info("find all "+table+" by args",query);
 				db.all(query,function(err,rows){
 					if(err){
 						console.error("ERROR find "+table,err);
@@ -446,7 +459,7 @@ function findQuery(table,$projection,$args,cb){
 		],function (err, result) {
 	    // result now equals 'done'
 	    	if(err){
-	    		console.log("Find all query error",err);
+	    		logger.info("Find all query error",err);
 	    		cb({
 	    			success:false,
 	    			error: JSON.stringify(err)
@@ -481,12 +494,12 @@ var BASEMODEL = function(tableName){
 
 	return {
 		add : function add(obj,cb){
-			console.log("insert "+tableName,obj);
+			logger.info("insert "+tableName,obj);
 			addQuery(tableName,obj,cb);
 
 		},
 		update : function update(fields,cb){
-			console.log("update "+tableName);
+			logger.info("update "+tableName);
 			updateQuery(tableName,fields,cb);
 
 		},
@@ -558,7 +571,8 @@ function makeAliasLink(str){
 		// do other replacements that make sense in your case, e.g.:
 		ret = ret.replace(/&/g,"and");
 		ret+="-"+randomValueBase64(2);
-		return encodeURIComponent(ret);
+		return ret.toLowerCase();
 }
 
 exports.makeAliasLink = makeAliasLink;
+exports.randomValueBase64 = randomValueBase64;

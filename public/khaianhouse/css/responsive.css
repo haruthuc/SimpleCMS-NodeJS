@@ -1,0 +1,32 @@
+@media(max-width:1024px){
+	.content{
+		width:100%;
+		background-color: #FFFFFF;
+	}
+}
+
+
+@media(max-width:950px){
+
+	.table-right-content span {
+    color: rgb(255,0,0);
+    font-size: 18px;
+    font-family: tomaho;
+}
+.row{
+	margin-left:-9px !important;
+}
+}
+@media(max-width:780px){
+
+	.right-content{
+		display:none;
+	}
+	.left-content{
+		width:100%;
+	}
+	.footer-copyright p{
+		margin:left;
+	}
+
+}

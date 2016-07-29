@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 // You need session to use connect flash
 var session = require('express-session');
-
+var db = require('./helpers/db.js');
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
 var upload = require('./routes/upload');
@@ -19,6 +19,8 @@ var app = express();
 
 var flash = require('connect-flash');
 
+var helmet = require('helmet');
+app.use(helmet());
 
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
@@ -28,19 +30,23 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+//app.use(logger('dev'));
+app.use(logger('combined'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use( session({
   saveUninitialized : true,
-  secret : 'SADD@D#$#@#@#A' ,
+  secret : 'Scms2ADD@D#$#@#@#A' ,
   resave : true,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+//register db content helper
+app.locals.content_helper = db.get_content_helper;
 
 app.use('/', routes);
 app.use('/admin', admin(passport));
