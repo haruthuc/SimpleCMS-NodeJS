@@ -16,15 +16,14 @@ router.get('/', function(req, res, next) {
   Promise.all([
     _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
     _utils.get_content_helper("banners",'id,alias,title,picture',{tags:"%main-banner%"}),
-    _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"}),
-    _utils.get_content_helper("apartforent",'id,alias,title,picture,price',{tags:"%apartforrent%"}),
-    _utils.get_content_helper("apartfosale",'id,alias,title,picture,price',{tags:"%apartforsale%"}),
-    _utils.get_content_helper("houseforsaleandrent",'id,alias,title,picture,price',{tags:"%houseforsalerent%"})
+    _utils.get_content_helper("hoathinh",'id,alias,title,picture,content,publishYear,imdb',{tags:"%hoathinh%"}),
+    _utils.get_content_helper("hanhdong",'id,alias,title,picture,content,publishYear,imdb',{tags:"%hanhdong%"}),
+    _utils.get_content_helper("tamly",'id,alias,title,picture,content,publishYear,imdb',{tags:"%tamly%"}),
+    _utils.get_content_helper("vientuong",'id,alias,title,picture,content,publishYear,imdb',{tags:"%vientuong%"})
   ]).then(function(values){
     var data = {};
     if(values.length > 0){
         data = _.keyBy(values, 'key');
-
         data = _.mapValues(data, function(o) { return o.data; });
     }
 
@@ -44,7 +43,7 @@ router.get("/content/:alias", function(req, res, next){
       Promise.all([
         _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
         _utils.get_content_helper("content",'',{alias:"%"+alias+"%"}),
-        _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"})
+        _utils.get_content_helper("hotproperty",'id,alias,title,picture',{tags:"%HOTPROPERTY%"})
       ]).then(function(values){
         var data = {};
         if(values.length > 0){

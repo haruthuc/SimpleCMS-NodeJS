@@ -1,0 +1,275 @@
+.slider-pro {
+    font-family: 'Open Sans', Arial;
+	max-width:80% !important;
+}
+
+/* Example 1 */
+
+#example1 .sp-thumbnail {
+	width: 100%;
+	padding: 8px;
+	background-color: #F0F0F0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#example1 .sp-thumbnail-title {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	color: #333;
+}
+
+#example1 .sp-thumbnail-description {
+	font-size: 14px;
+	color: #333;
+}
+@media (max-width: 1290px){
+
+.sp-slide img {
+    width: 100% !important;
+    height: 71% !important;
+     TOP: 0;
+}
+}
+@media (max-width: 1150px){
+
+.content .slider .item .about-film {
+
+    width: 134%;
+    background: #fff;
+    position: relative;
+    z-index: 100;
+    margin-top: -85%;
+    margin-left: 103%;
+    display: none;
+}
+.content .slider .item .about-film-right {
+	display:none;
+    width: 134%;
+    background: #fff;
+    position: relative;
+    z-index: 100;
+    /* margin-right: 28%; */
+    margin-top: -77%;
+    margin-left: -138%;
+    display: none;
+}
+}
+
+@media (max-width: 1114px){
+	.content .slider .item .about-film-right{
+		display:none !important;
+	}
+	.content .slider .item .about-film {
+		display:none !important;
+	}
+	.content .wapper-item .item-content .about-film{
+		display:none !important;
+	}
+	.content .wapper-item .item-content .about-film-right{
+		display:none !important;
+	}
+
+}
+@media (max-width: 1131px){
+
+.sp-slide img {
+    width: 100% !important;
+    height: 65% !important;
+    TOP: 58px;
+}
+
+}
+@media (max-width: 860px) {
+	#example1 .hide-medium-screen {
+		display: none;
+	}
+	.content .wapper-item .item-content {
+		position:relative;
+	}
+	.home-slider {
+    width: 100%;
+    margin-top:27px;
+}
+
+.sp-caption-container {
+    position: absolute;
+    color: #fff;
+    margin-top: -671px;
+}
+.sp-slide img{
+	top:0px !important;
+	width: 100% !important;
+
+
+}
+	.slider-pro {
+    font-family: 'Open Sans', Arial;
+    max-width: 100% !important;
+	height:467px;
+	margin:auto;
+}
+.sp-slides-container {
+    position: relative;
+    height: 380px;
+}
+}
+
+@media (max-width: 640px) {
+	#example1 .sp-layer {
+		font-size: 12px;
+	}
+
+	#example1 .hide-small-screen {
+		display: none;
+	}
+
+
+	.home-slider {
+    width: 100%;
+    margin-top:27px;
+}
+.slider-pro{
+	height:380px;
+	   max-width: 100% !important;
+}
+.sp-slides-container{
+	height: 300px;
+}
+}
+
+@media (max-width: 500px) {
+	#example1 .sp-thumbnail {
+		text-align: center;
+	}
+
+	#example1 .sp-thumbnail-title {
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+
+	#example1 .sp-thumbnail-description {
+		display: none;
+	}
+	.slider-pro{
+	height:350px;
+	   max-width: 100% !important;
+}
+.sp-slides-container{
+	height: 300px;
+}
+.sp-slide img{
+	top:50px !important;
+	width: 100% !important;
+	height: 100%;
+
+
+}
+	.home-slider {
+    width: 100%;
+    margin-top:30px;
+}
+.home-slider .sp-grab {
+	height:300px !important;
+}
+
+.sp-caption-container {
+    position: absolute;
+    color: #fff;
+    margin-top: -490px;
+}
+}
+
+/* Example 3 */
+
+#example3 .sp-selected-thumbnail {
+	border: 4px solid #000;
+}
+
+/* Example 4 */
+
+#example4 .sp-slides-container {
+	background-color: #F4F4F4;
+}
+
+#example4 h3 {
+	margin: 0 0 10px 0;
+}
+
+#example4 p {
+	margin: 0 0 30px 0;
+}
+
+#example4 .sp-thumbnail-container {
+	width: 200px;
+	height: 130px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+#example4 .sp-image-text {
+	background: rgba( 80, 80, 80, 0.5 );
+	color: #FFF;
+	padding: 20px;
+}
+
+.links {
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* Example 5 */
+
+#main-slider .sp-thumbnail-image-container {
+	width: 100px;
+	height: 80px;
+	overflow: hidden;
+	float: left;
+}
+
+#main-slider .sp-thumbnail-image {
+	height: 100%;
+}
+
+#main-slider .sp-thumbnail-text {
+	width: 170px;
+    float: right;
+    padding: 8px;
+    background-color: rgba(0,0,0,0.7);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#main-slider .sp-thumbnail-title {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+#main-slider .sp-thumbnail-description {
+	font-size: 14px;
+	color: #fff;
+}
+
+@media (max-width: 500px) {
+	#main-slider .sp-thumbnail {
+		text-align: center;
+	}
+
+	#main-slider .sp-thumbnail-image-container {
+		display: none;
+	}
+
+	#main-slider .sp-thumbnail-text {
+		width: 120px;
+	}
+
+	#main-slider .sp-thumbnail-title {
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+
+	#main-slider .sp-thumbnail-description {
+		display: none;
+	}
+}

@@ -109,15 +109,9 @@ var ContentSchema = {
 	}
 };
 
-//extexd for real website
-ContentSchema.price = "INTEGER";
-ContentSchema.interior = "TEXT";
-ContentSchema.room = "INTEGER";
-ContentSchema.bathroom = "INTEGER";
-ContentSchema.code = "TEXT";
-ContentSchema.location = "TEXT";
-ContentSchema.level = "INTEGER";
-ContentSchema.sqft = "TEXT";
+ContentSchema.filmSource = "TEXT";
+ContentSchema.publishYear = "NUMERIC";
+ContentSchema.imdb = "NUMERIC";
 
 //tags menu
 var TagsSchema = {
@@ -322,7 +316,7 @@ function addQuery(table,obj,cb){
 	logger.info("add query obj "+table,obj);
 	db.run(query,obj,function(error){
 		if(error){
-			console.error("ERROR: INSERT "+table,error);
+			logger.error("ERROR: INSERT "+table,error);
 			cb(error);
 		}else{
 			logger.info("Add return id",id);
@@ -338,7 +332,7 @@ function updateQuery(table,fields,cb){
 	if(!fields.id)
 	{
 		cb("NO EXIST ID WHEN UPDATE "+table);
-		console.error("NO EXIST ID WHEN UPDATE "+table);
+		logger.error("NO EXIST ID WHEN UPDATE "+table);
 		return;
 	}
 	var id = fields['id'];
@@ -346,7 +340,7 @@ function updateQuery(table,fields,cb){
 	query +=" WHERE id='"+id+"'";
 	db.run(query,function(error){
 		if(error){
-			console.error("ERROR UPDATE "+table,error,query);
+			logger.error("ERROR UPDATE "+table,error,query);
 		}
 		cb(error);
 	});
@@ -359,7 +353,7 @@ function deleteQuery(table,id,cb){
 	logger.info("delete "+table+" query ",query);
 	db.run(query,function(error){
 		if(error){
-			console.error("ERROR DELETE "+table,error,id);
+			logger.error("ERROR DELETE "+table,error,id);
 		}
 		cb(error);
 	});
@@ -373,7 +367,7 @@ function findOne(table,$args,cb){
 		logger.info("find one"+table+" by args",query);
 		db.all(query,function(err,rows){
 			if(err){
-				console.error("ERROR find one"+table,err);
+				logger.error("ERROR find one"+table,err);
 			}
 			logger.info("find one",rows);
 			if(rows.length >0 )
@@ -389,6 +383,18 @@ function findOne(table,$args,cb){
 
 }
 
+function execQuery(query,cb){
+	db.all(query,function(err,rows){
+		if(err){
+			logger.error("ERROR find one"+table,err);
+		}
+		logger.info("find one",rows);
+		if(rows.length >0 )
+			cb(err,row);
+		else
+			cb(err,null);
+	});
+}
 
 //base find query
 function findQuery(table,$projection,$args,cb){
@@ -426,7 +432,7 @@ function findQuery(table,$projection,$args,cb){
 				logger.info("query count total number "+table+" by args",queryCount);
 				db.all(queryCount,function(err,rows){
 					if(err){
-						console.error("ERROR find "+table,err);
+						logger.error("ERROR find "+table,err);
 						callback(err);
 					}else{
 						callback(null,rows[0].TOTALNUMBER);
@@ -437,7 +443,7 @@ function findQuery(table,$projection,$args,cb){
 				logger.info("find all "+table+" by args",query);
 				db.all(query,function(err,rows){
 					if(err){
-						console.error("ERROR find "+table,err);
+						logger.error("ERROR find "+table,err);
 						callback(err);
 					}else{
 						callback(null,total,rows);

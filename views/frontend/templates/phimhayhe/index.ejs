@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+
+<%-partial('block-banner')%>
+
+<section class="content">
+  <%-partial('main-section',{title:"Phim Hoat Hinh",data:hoathinh})%>
+</section>
+<script src="css/slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".center").slick({
+        dots: false,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        //autoplay: true,
+        touchMove: false
+  });
+
+});
+
+</script>

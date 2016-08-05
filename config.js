@@ -4,15 +4,13 @@ if(env!="production") env = "development";
 var uploaderOptions = {
   copyImgAsThumb: true,
   imageVersions: {
-    maxWidth: 200,
-    maxHeight: 'auto',
     "large" : {
         width : 600,
         height : 600
     },
     "small" : {
-        width : 150,
-        height : 150
+        width : 300,
+        height : 430
     }
   },
   storage: {
@@ -29,7 +27,7 @@ var config = {
 			}
 		},
 		mail  : {
-      fromName:"Info Dev",
+      fromName:"PHIMHAYHE Dev",
       fromEmail:"info@simplecms.io",
       tranport:{
         host: 'smtp.gmail.com',
@@ -46,8 +44,8 @@ var config = {
 			port : 2000 //config port web
 		},
 		frontend:{
-      title : "Khai An House - The best real service",
-			template : "khaianhouse"
+      title : "Phim Hay He",
+			template : "phimhayhe"
 		},
 		uploader : uploaderOptions
 	},
@@ -59,7 +57,7 @@ var config = {
 			}
 		},
 		mail  : {
-      fromName:"Info",
+      fromName:"PHIMHAYHE",
       fromEmail:"info@simplecms.io",
       tranport:{
         host: 'smtp.gmail.com',
@@ -76,8 +74,8 @@ var config = {
 			port : 2000
 		},
 		frontend:{
-      title : "Khai An House - The best real service",
-			template : "khaianhouse"
+      title : "Phim Hay He",
+			template : "phimhayhe"
 		},
 		uploader:uploaderOptions
 
