@@ -1,20 +1,24 @@
 <div class="title"><h3><%=title%></h3>
-<strong class="glyphicon glyphicon-chevron-right"><a>xem tât cả</a></strong>
+  <%if(typeof category == "undefined"){%>
+    <strong class="glyphicon glyphicon-chevron-right"><a>xem tât cả</a></strong>
+  <%}%> 
 </div>
 
-<section  class="center slider">
+<section  <%if(typeof category == "undefined"){%> class="center slider" <%}else{%> class="wapper-item"<%}%>>
     <%if(typeof data != "undefined"){ for(var i=0; i<data.length; i++){%>
-      <div class="item">
-          <a href="#"> <img src="/uploads/<%-data[i].id%>/small/<%-data[i].picture%>"></a>
+      <div <%if(typeof category == "undefined"){%> class="item" <%} else{%> class="item-content" <%}%>>
+          <a href="/content/<%=data[i].alias.toLowerCase()%>"> <img src="/uploads/<%-data[i].id%>/small/<%-data[i].picture%>"></a>
           <div class="title-film"><a href="/content/<%=data[i].alias.toLowerCase()%>"><%-data[i].title%></a></div>
-           <div class="icon-play"><a href="#"><img src="img/overlay_rich.png"></a></div>
+           <div class="icon-play"><a href="/content/<%=data[i].alias.toLowerCase()%>"><img src="img/overlay_rich.png"></a></div>
            <div class="about-film">
             <div class="img-icon"><img src="img/arrowleft.png"></div>
             <div class="top-about">
               <h2><%-data[i].title%></h2>
-              <p>Thể loại: <%-data[i].tags%></p>
-              <p>Đánh giá: </p>
-              <p>Sản xuât: 2016</p>
+              <p>Thể loại: <%-data[i].tags = data[i].tags.replace("main-banner,","")%></p>
+              <p>Diễn viên: <%-data[i].actor%></p>
+              <p>Đạo diễn: <%-data[i].director%></p>
+              <p>Đánh giá: <%-data[i].imdb%></p>
+              <p>Sản xuât: <%-data[i].publishYear%></p>
             </div>
              <div class="bottom-about">
              <p><%-(data[i].content.length>0)?data[i].content.split(" ", 50).join(" ")+"":''%></p>

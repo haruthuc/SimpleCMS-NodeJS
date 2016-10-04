@@ -1,9 +1,9 @@
 <ul class="nav navbar-nav menu-home">
-   <%if(typeof menu != "undefined"){ for(var i=0; i<menu.length; i++){%>
+   <%if(typeof menu != "undefined"){ for(var i=0; i<menu.length; i++){ var link =menu[i].link; if(link=="/") link = ""; %>
         <%if(typeof selected !="undefined" && menu[i].title.toLowerCase()==selected.toLowerCase()){%>
-          <li class="active"><a href="/<%-menu[i].link%>"><%-menu[i].title%></a></li>
+          <li class="active"><a href="/<%-link%>"><%-menu[i].title%></a></li>
         <%}else{%>
-          <li><a href="/<%-menu[i].link%>"><%-menu[i].title%></a></li>
+          <li><a href="/<%-link%>"><%-menu[i].title%></a></li>
         <%}%>
    <%}}%>
 </ul>

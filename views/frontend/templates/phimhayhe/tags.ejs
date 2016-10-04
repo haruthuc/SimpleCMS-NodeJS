@@ -1,0 +1,13 @@
+<% layout('layout') -%>
+
+<%-partial('block-banner')%>
+
+<section class="content">
+  <%-partial('main-section',{title:selected,data:content.data,category:true})%>
+
+</section>
+<section class="content">
+  <div class="wapper-item">
+    <%-partial('block-paginate')%>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<% layout('layout') -%>
+<%stylesheet('http://vjs.zencdn.net/5.11.6/video-js.css') %>
+<%script('http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js')%>
+
+<section class="video-play">
+    <div class="wapper-video">
+      <video id="my-video" class="video-js" controls preload="auto" height="560" width="1224" poster="<%=content.picture%>" data-setup="{}">
+            <source src="<%=content.filmSource%>" type='video/mp4'>
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a web browser that
+            </p>
+      </video>
+
+          <script src="http://vjs.zencdn.net/5.11.6/video.js"></script>
+
+    </div>
+
+</section>
+
+
+
+<div class="wapper-content-video">
+<section class="content">
+    <div class="detail">
+      <h2><%=content.title%></h2>
+      <table class="table">
+        <tr>
+          <th><span>Thể loại: </span><%=content.tags  || "" %></th>
+          <th><span>Đạo diễn: </span><%=content.director || "" %></th>
+         <th><span>Đánh giá: </span><%=content.imdb  || "" %></th>
+        </tr>
+
+        <tr>
+          <th><span>Diễn viên: </span> <%=content.actor  || "" %></th>
+
+        </tr>
+      </table>
+      <p><span> Mô tả: </span><%=content.content%></p>
+
+    </div>
+</section>
+
+</div>

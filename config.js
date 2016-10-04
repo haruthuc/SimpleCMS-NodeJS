@@ -3,6 +3,7 @@ var env = process.env.NODE_ENV || process.argv[2] || 'development';
 if(env!="production") env = "development";
 var uploaderOptions = {
   copyImgAsThumb: true,
+  acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
   imageVersions: {
     "large" : {
         width : 600,

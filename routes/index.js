@@ -15,11 +15,11 @@ router.get('/', function(req, res, next) {
   //top of category
   Promise.all([
     _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
-    _utils.get_content_helper("banners",'id,alias,title,picture',{tags:"%main-banner%"}),
-    _utils.get_content_helper("hoathinh",'id,alias,title,picture,content,publishYear,imdb',{tags:"%hoathinh%"}),
-    _utils.get_content_helper("hanhdong",'id,alias,title,picture,content,publishYear,imdb',{tags:"%hanhdong%"}),
-    _utils.get_content_helper("tamly",'id,alias,title,picture,content,publishYear,imdb',{tags:"%tamly%"}),
-    _utils.get_content_helper("vientuong",'id,alias,title,picture,content,publishYear,imdb',{tags:"%vientuong%"})
+    _utils.get_content_helper("banners",'id,alias,title,picture,content',{tags:"%main-banner%"}),
+    _utils.get_content_helper("hoathinh",'id,alias,title,picture,content,publishYear,imdb,tags,actor,director',{tags:"%hoathinh%"}),
+    _utils.get_content_helper("hanhdong",'id,alias,title,picture,content,publishYear,imdb,tags,actor,director',{tags:"%hanhdong%"}),
+    _utils.get_content_helper("tamly",'id,alias,title,picture,content,publishYear,imdb,tags,actor,director',{tags:"%tamly%"}),
+    _utils.get_content_helper("vientuong",'id,alias,title,picture,content,publishYear,imdb,tags,actor,director',{tags:"%vientuong%"})
   ]).then(function(values){
     var data = {};
     if(values.length > 0){

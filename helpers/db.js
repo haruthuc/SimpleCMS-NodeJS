@@ -112,6 +112,8 @@ var ContentSchema = {
 ContentSchema.filmSource = "TEXT";
 ContentSchema.publishYear = "NUMERIC";
 ContentSchema.imdb = "NUMERIC";
+ContentSchema.actor = "TEXT";
+ContentSchema.director = "TEXT";
 
 //tags menu
 var TagsSchema = {
@@ -573,10 +575,13 @@ function randomValueBase64 (len) {
 
 
 function makeAliasLink(str){
-		var ret = str.replace(/ /g,"-"); // replace spaces
+		var re = /(?![\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})./g;
+		ret = str.replace(re,"");
+	 	ret = ret.replace(/ /g,"-"); // replace spaces
 		// do other replacements that make sense in your case, e.g.:
 		ret = ret.replace(/&/g,"and");
 		ret+="-"+randomValueBase64(2);
+
 		return ret.toLowerCase();
 }
 
