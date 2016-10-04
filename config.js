@@ -36,7 +36,7 @@ var config = {
         secure: true, // use SSL
         auth: {
             user: 'simplecmsvietnam@gmail.com',
-            pass: 'LINHthuc123!@#'
+            pass: 'admin123!@#'
         }
       }
 		},
@@ -66,7 +66,7 @@ var config = {
         secure: true, // use SSL
         auth: {
             user: 'simplecmsvietnam@gmail.com',
-            pass: 'LINHthuc123!@#'
+            pass: 'admin123!@#'
         }
       }
 		},
