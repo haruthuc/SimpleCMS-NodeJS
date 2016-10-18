@@ -76,7 +76,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/newpage', db.isLoggedIn, function(req, res, next) {
-	  res.render('admin/newpage', { title: 'Simple CMS - Add new page',active:"newpage"});
+	  res.render('admin/newpage', { title: '',active:"newpage"});
 	});
 
 	router.get('/newpage/:contentID', db.isLoggedIn, function(req, res, next) {
@@ -87,16 +87,8 @@ module.exports = function(passport){
 				res.redirect("/admin/newpage");
 			}else{
 				if(content){
-					res.render('admin/newpage', {
-							title: 'Simple CMS - Add new page',
-							active: "newpage",
-							contentID: req.params.contentID,
-							contentTitle: content['title'],
-							picture: content['picture'],
-							datePublish : content['datePublish'],
-							content : content['content'],
-							tags : content['tags']
-							});
+					content.active = "newpage";
+					res.render('admin/newpage',content);
 				}else{
 					res.redirect("/newpage");
 				}

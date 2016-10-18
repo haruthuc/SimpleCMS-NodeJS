@@ -1,0 +1,28 @@
+<%
+function renderPaginate(){
+  var data = content;
+  var selectedPage = data.page;
+  var total = data.total;
+  var limit = data.limit;
+  var url = "/tags/"+selectedTag+"?page=";
+  var pageNumber = Math.ceil(data.total/data.limit);
+  var next = (parseInt(selectedPage)+1);
+  var prev =(parseInt(selectedPage)-1);
+  var strPaginate = '  <ul class="pagination">';
+  if(prev > 0)
+    strPaginate +=  '<li class="paginate_button previous disabled" aria-controls="editable" tabindex="0" id="editable_previous"><a class="change-page" data-page="'+prev+'" href="'+url+prev+'">Previous</a></li>';
+
+  for(var z=1;z<=pageNumber;z++){
+    strPaginate += '<li class="paginate_button ';
+    if(z==selectedPage)
+      strPaginate += "active";
+    strPaginate +='" aria-controls="editable" tabindex="0"><a class="change-page" href="'+url+z+'" data-page="'+z+'">'+z+'</a></li>';
+  }
+  if(next <= pageNumber)
+    strPaginate +=  '<li class="paginate_button next" aria-controls="editable" tabindex="0" id="editable_next"><a class="change-page" data-page="'+next+'" href="'+url+next+'">Next</a></li>';
+
+  strPaginate += '</ul>';
+  return strPaginate;
+}
+%>
+<%-renderPaginate()%>

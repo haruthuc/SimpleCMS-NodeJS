@@ -1,0 +1,60 @@
+<% layout('layout') -%>
+
+<%-partial('block-banner')%>
+<section class="content">
+<div id="container">
+	<div class="left-content apart">
+    <div class="row">
+    <h1><%-selected.toUpperCase()%></h1>
+    <p></p>
+
+
+
+    <%if(typeof content != "undefined" && content.data.length > 0){%>
+  		<% for(var i=0; i<content.data.length; i++){%>
+  			<div class="wap-house">
+          <div class="img-house"><a href="/content/<%=content.data[i].alias.toLowerCase()%>">
+  				<%if(content.data[i].picture){%>
+  					<img src="/uploads/<%-content.data[i].id%>/small/<%-content.data[i].picture%>">
+  				<% } else { %>
+  					<img src="../img/no-pic.jpg" />
+  				<%}%>
+          </a>
+          </div>
+          <div class="detail-house">
+            <p><a href="/content/<%=content.data[i].alias.toLowerCase()%>" > <%-content.data[i].title%> </a></p>
+            <dt>Price: <span class="price"><%-(content.data[i].price!=0)?content.data[i].price+" USD":'Contact'%></span><dt>
+            <dt>Currency: <span>USD/month</span><dt>
+          </div>
+  			</div>
+  	<%}}else{%>
+        <div>
+          <p>Sorry! No records </p>
+        </div>
+    <%}%>
+
+    </div>
+
+
+      <div class="paging">
+        <!-- <div class="pagination">
+          <span> << </span>
+          <span>Start</span>
+          <span>Prev</span>
+          <strong><a href="#">1</a></strong>
+          <strong><a href="#">2</a></strong>
+          <strong><a href="#">3</a></strong>
+          <a href="#">Next</a>
+          <a href="#">End</a>
+          <span> >></span>
+        </div> -->
+				<%-partial('block-paginate')%>
+      </div>
+
+
+	</div>
+
+<%-partial('block-right')%>
+
+</div>
+</section>

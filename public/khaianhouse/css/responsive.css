@@ -1,6 +1,7 @@
 @media(max-width:1024px){
 	.content{
 		width:100%;
+		background-color: #FFFFFF;
 	}
 }
 
@@ -17,7 +18,7 @@
 }
 }
 @media(max-width:780px){
-	
+
 	.right-content{
 		display:none;
 	}
@@ -27,8 +28,5 @@
 	.footer-copyright p{
 		margin:left;
 	}
-	
+
 }
-
-
-

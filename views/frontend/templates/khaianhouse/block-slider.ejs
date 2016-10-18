@@ -1,0 +1,93 @@
+<script>
+  function activeSlider(){
+
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $ThumbnailNavigatorOptions: {
+        $Class: $JssorThumbnailNavigator$,
+        $Cols: 4,
+        $SpacingX: 4,
+        $SpacingY: 4,
+        $Orientation: 2,
+        $Align: 0
+      }
+    };
+
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizing
+    function ScaleSlider() {
+        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+        if (refSize) {
+            refSize = Math.min(refSize, 810);
+            jssor_1_slider.$ScaleWidth(refSize);
+        }
+        else {
+            window.setTimeout(ScaleSlider, 30);
+        }
+    }
+    ScaleSlider();
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+
+  }
+  function renderSlider(){
+      $.get("/file/upload/<%-content.id%>",{}).done(function( data ) {
+          console.log('data',typeof data);
+            data = JSON.parse(data);
+            if(data['files']){
+                var files = data['files'];
+                var strRenderer = "";
+                for(var z=0 ; z<files.length; z++){
+                  var pic = files[z];
+                  strRenderer += '<div data-p="112.50" style="display: none;">';
+                  strRenderer += '<img data-u="image" src="'+pic.largeUrl+'" />';
+                  strRenderer += '<div data-u="thumb">';
+                  strRenderer += '<img class="i" src="'+pic.smallUrl+'" />';
+                  strRenderer += '</div>';
+                  strRenderer += '</div>';
+                }
+                $("#slider-content").append(strRenderer);
+                activeSlider();
+            }
+
+          }).fail(function() {
+
+          });
+  }
+
+  $(document).ready(function(){
+    //http://localhost:2000/file/upload/ae2eab85-d166-4f7f-81c1-2b71fc574b83
+    renderSlider();
+
+  });
+</script>
+
+<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 810px; height: 470px; overflow: hidden; visibility: hidden; background-color: #fff;">
+  <!-- Loading Screen -->
+  <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+    <div style="position:absolute;display:block;background:url('images/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+  </div>
+  <div id="slider-content" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 470px; overflow: hidden;">
+
+  </div>
+  <!-- Thumbnail Navigator -->
+  <div data-u="thumbnavigator" class="jssort11" style="position:absolute;right:5px;top:0px;font-family:Arial, Helvetica, sans-serif;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:200px;height:300px;" data-autocenter="2">
+    <!-- Thumbnail Item Skin Begin -->
+    <div data-u="slides" style="cursor: default;">
+      <div data-u="prototype" class="p">
+        <div data-u="thumbnailtemplate" class="tp"></div>
+      </div>
+    </div>
+    <!-- Thumbnail Item Skin End -->
+  </div>
+  <!-- Arrow Navigator -->
+  <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+  <span data-u="arrowright" class="jssora02r" style="top:0px;right:218px;width:55px;height:55px;" data-autocenter="2"></span>
+</div>

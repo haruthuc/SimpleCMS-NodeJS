@@ -1,0 +1,28 @@
+<%if(typeof banners !="undefined"){%>
+  <div class="container-home">
+    <div id="slideshow">
+      <!-- <a href="#"><img src="images/slider2.png" /></a>
+      <a href="#"><img src="images/slider3.png" /></a>
+      <a href="#"><img src="images/slider4.png" /></a> -->
+      <%for(var o=0;o<banners.length;o++){%>
+        <a href="/content/<%-banners[o].alias%>" title="<%-banners[o].title%>">
+          <%if(banners[o].picture){%>
+  					<img src="/uploads/<%-banners[o].id%>/<%-banners[o].picture%>">
+  				<% } else { %>
+  					<img src="../img/no-pic.jpg" />
+  				<%}%>
+
+        </a>
+      <%}%>
+    </div>
+
+  </div>
+  <script>
+  $("document").ready(function(){
+  	$("#slideshow").cycle();
+  })
+  </script>
+
+<%}else{%>
+  <div style="margin-top:40px;float:left;height:40px;width:100%;"></div>
+<%}%>

@@ -13,7 +13,7 @@ var db =null;
 var crypto = require('crypto');
 var PAGE_LIMIT = 10;
 var logger = require("./logger.js");
-var Promise = require('promise');
+
 
 var MenuSchema = {
 	id : {
@@ -108,6 +108,16 @@ var ContentSchema = {
 		type:"INTEGER"
 	}
 };
+
+//extexd for real website
+ContentSchema.price = "INTEGER";
+ContentSchema.interior = "TEXT";
+ContentSchema.room = "INTEGER";
+ContentSchema.bathroom = "INTEGER";
+ContentSchema.code = "TEXT";
+ContentSchema.location = "TEXT";
+ContentSchema.level = "INTEGER";
+ContentSchema.sqft = "TEXT";
 
 //tags menu
 var TagsSchema = {
@@ -561,11 +571,8 @@ function makeAliasLink(str){
 		// do other replacements that make sense in your case, e.g.:
 		ret = ret.replace(/&/g,"and");
 		ret+="-"+randomValueBase64(2);
-		return encodeURIComponent(ret);
+		return ret.toLowerCase();
 }
 
 exports.makeAliasLink = makeAliasLink;
 exports.randomValueBase64 = randomValueBase64;
-exports.get_content_helper = function(projection,args,callback){
-	
-}

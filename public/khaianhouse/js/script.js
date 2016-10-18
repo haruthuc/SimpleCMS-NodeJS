@@ -1,5 +1,5 @@
 $("document").ready(function(){
-	
-	$("#sledeshow").cycle();
-	
+
+	$("#slideshow").cycle();
+
 })
