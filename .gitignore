@@ -1,4 +1,8 @@
 /node_modules
 /public/uploads
 *.log
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 logs/all-logs.log
