@@ -4,7 +4,7 @@ var _ = require('lodash');
 var async =require('async');
 var uploaderConfig = require('../config').uploader;
 var uploader = require("jquery-file-upload-middleware");
-
+var db = require('../helpers/db.js');
 
 
 module.exports = function(passport){
@@ -16,11 +16,11 @@ module.exports = function(passport){
         res.redirect('/');
     });
 
-    router.put('/upload', function( req, res ){
+    router.put('/upload',db.isLoggedIn, function( req, res ){
         res.redirect('/');
     });
 
-    router.delete('/upload', function( req, res ){
+    router.delete('/upload',db.isLoggedIn, function( req, res ){
         res.redirect('/');
     });
 
