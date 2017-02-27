@@ -1,7 +1,5 @@
 var sqlite3 = require('sqlite3').verbose();
-
 var dbConfig = require('../config').database;
-
 var dbFile = dbConfig.connection.filename;
 var fs = require('fs');
 var _ = require('lodash');
