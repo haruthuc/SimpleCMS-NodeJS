@@ -3,7 +3,7 @@ var router = express.Router();
 var _ = require('lodash');
 var async =require('async');
 var uploaderConfig = require('../config').uploader;
-var uploader = require("jquery-file-upload-middleware");
+var uploader = require("jquery-file-upload-middleware-fix");
 
 
 

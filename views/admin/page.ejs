@@ -254,7 +254,6 @@
       $(document).on("click",'.select-tag', function(event) {
         event.preventDefault();
         var tag = $(this).data("tag");
-        console.log('tag',tag);
         $("#search-txt").val("#"+tag);
         //do search
         renderList({

@@ -233,15 +233,15 @@ function objectToParams(obj,table){
 			 return _.result(o,"default",'');
 		});
 
-		logger.info("objectToParams schema object ",schemaObj);
+		//logger.info("objectToParams schema object ",schemaObj);
 
 		var defaultObject = _.defaults(obj,schemaObj);
 
-		logger.info("objectToParams default object ",defaultObject);
+		//logger.info("objectToParams default object ",defaultObject);
 
 		defaultObject = _.pick(defaultObject,_.keys(schemaObj));
 
-		logger.info("objectToParams finished object ",defaultObject);
+		//logger.info("objectToParams finished object ",defaultObject);
 
 		defaultObject = _.mapKeys(defaultObject, function(value, key) {
 		  return "$"+key;

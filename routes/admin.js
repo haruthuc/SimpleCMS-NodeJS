@@ -11,6 +11,15 @@ var crypto = require('crypto');
 var sanitizeHtml = require('sanitize-html');
 var mailer = require('../helpers/mailer.js');
 var logger = require("../helpers/logger.js");
+var allowClean = {
+	allowedTags: [ 'b', 'i', 'em', 'strong', 'a', 'img','iframe' ],
+	allowedAttributes: {
+	  'a': [ 'href' ],
+	  'img' : ['src','title','atl']
+	},
+	allowedIframeHostnames: ['www.youtube.com']
+};
+
 module.exports = function(passport){
 
 	router.get('/forgotpassword', function(req, res, next) {
@@ -305,7 +314,7 @@ router.post("/api/content",db.isLoggedIn,function(req,res,next){
 			req.body.alias = db.makeAliasLink(req.body.title);
 
 			if(req.body.content){
-					var clean = sanitizeHtml(req.body.content);
+					var clean = sanitizeHtml(req.body.content, allowClean);
 					req.body.content = clean;
 			}
 
@@ -342,7 +351,7 @@ router.put("/api/content",db.isLoggedIn,function(req,res,next){
 		if(req.body.title)
 			req.body.alias = db.makeAliasLink(req.body.title);
 		if(req.body.content){
-				var clean = sanitizeHtml(req.body.content);
+				var clean = sanitizeHtml(req.body.content, allowClean);
 				req.body.content = clean;
 		}
 		//var data = JSON.parse(req.body);

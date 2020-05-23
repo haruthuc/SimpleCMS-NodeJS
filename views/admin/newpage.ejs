@@ -211,7 +211,10 @@
                 }
                 //show upload Picture
               }else{
-                toastr["error"](res.message);
+                if(res && res.message != undefined){
+                   toastr["error"](res.message);
+                }
+                 
               }
 
           });
@@ -338,14 +341,47 @@
                                         <%}%>
                                       </div>
                                       <script>
+                                      function sendFile(file, editor) {
+                                            data = new FormData();
+                                            data.append("file", file);
+                                            $.ajax({
+                                                data: data,
+                                                type: "POST",
+                                                url: '/file/upload/'+content_id,
+                                                cache: false,
+                                                contentType: false,
+                                                processData: false,
+                                                success: function(res) {
+                                                    console.log("res", typeof res);
+                                                    res = JSON.parse(res);
+                                                    console.log("url", res.files[0].url );
+                                                     if(res != undefined
+                                                       && res.files != undefined 
+                                                       && res.files[0].url != undefined){
+                                                          $(editor).summernote('editor.insertImage', res.files[0].url);
+                                                     }else{
+                                                        toastr["error"]("Can not upload image");
+                                                     }
+                                                   
+                                                }
+                                            });
+                                      }
+
                                         $(document).ready(function() {
                                             $('#content-area').summernote({
-                                                height: 300,                 // set editor height
+                                               height: 300,                 // set editor height
                                                minHeight: null,             // set minimum height of editor
                                                maxHeight: null,             // set maximum height of editor
                                                focus: true,
                                                disableDragAndDrop: true,
-                                               shortcuts: false
+                                               shortcuts: true,
+                                               callbacks: {
+                                                    onImageUpload : function(files, editor, welEditable) {
+                                                        for(var i = files.length - 1; i >= 0; i--) {
+                                                                sendFile(files[i], this);
+                                                        }
+                                                    }
+                                              }
                                             });
 
                                         });
