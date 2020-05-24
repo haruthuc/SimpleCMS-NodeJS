@@ -3,10 +3,18 @@
 <script>
     var menu_unique_id = '<%if(typeof id != "undefined"){%><%=id%><%}else{%><%-'default'%><%}%>';
     var menuid = '<%if(typeof menuid != "undefined"){%><%-menuid%><%}%>';
+    var menulistEntity = false;
+    if(menu_unique_id != 'default') {
+        menulistEntity = JSON.parse('<%if(typeof menulist != "undefined"){%> <%- JSON.stringify(JSON.parse(menulist)) %> <%}%>');
+    }
+    
     var selectURLItem = false;
     var selectedLinkType = "content";
     function addAPI(API_URL,args,cb){
-        if(args['id']){
+        //console.log("addAPI data ",args);
+        if(typeof args['id'] != "undefined"){
+          //console.log("UPDATE args",args);
+
           $.put(API_URL,args,function(data){
               if(data.success){
                   toastr["success"](data.message);
@@ -64,31 +72,72 @@
       renderPageList();
     }
 
-    function addNewMenuItem(menuID){
-      if(!menuID) return;
+    function renderMenulist(menuData) {
+      //menulistEntity
+      var htmlBuffStr = processMenuListData(menuData);
+      if(htmlBuffStr){
+          $("#menu-item-container").html(htmlBuffStr);
+        }
+    }
 
-      var html = '<li class="dd-item row" data-id="1" data-menutype="url">';
+    function processMenuListData(menuData){
+      if(menuData) {
+        var htmlBuff = '<ol class="dd-list">';
+        for (var i=0; i < menuData.length; i++) {
+          var children = false;
+
+          if(typeof menuData[i].children != "undefined") {
+                children = menuData[i].children;
+          }
+
+           htmlBuff += addNewMenuItem(menuData[i].title, menuData[i].url, children);
+           
+        }
+       
+        htmlBuff += '</ol>';
+        return htmlBuff;
+      }
+
+    }
+
+    function addNewMenuItem(title, url, children){
+      if(!title) return;
+
+      var html = '<li class="dd-item row"';
+      if(title != undefined) {
+          html += ' data-title="'+title+'"';
+      }
+
+      if(url != undefined){
+          html += ' data-url="'+url+'"';
+      }
+
+      html +=' >';
       html += '<div class="dd-handle row">';
           html += '<div class="col-sm-4">';
-          html += menuID;
+          html += title;
           html +='</div>';
       html +='</div>';
       html += '<div class="row"> <div class="col-sm-10">';
-          html += '<input type="text" name="url" class="form-control url-field">';
+          html += '<input type="text" name="url" ';
+          if(url != undefined){
+            html += 'value="'+url+'"';
+          }
+          html += ' class="form-control url-field">';
       html +='</div>';
       html +=' <div class="col-sm-2"> <button class="btn btn-sm btn-success"  onClick="openPageDialog(this);"><i class="fa fa-link"></i></button>';
        html +=' <button class="btn btn-sm btn-danger btn-remove-menu" onClick="removeMenuItem(this);"><i class="fa fa-lg fa-trash-o"></i></button> </div>';
       html +=' </div>';
-  
+      if(typeof children != "undefined" && children) {
+         html += processMenuListData(children);
+      }
 
       html += '</li>';
-      $("#menu-item-container").append(html);
+      return html;
     }
     function removeMenuItem(menuEL) {
-      console.log(menuEL);
       var liEl =  $(menuEL).closest( "li" );
       liEl.remove();
-      console.log("remove menu item");
     }
 
     function simpleLoad(btn, state) {
@@ -227,11 +276,11 @@
         $("input[name='menuid']").val(menuid);
 
         // activate Nestable for list 1
-        $('#nestable').nestable({
+        $('#menu-item-container').nestable({
             group: 1
         }).on('change', updateOutput);
 
-      updateOutput($('#nestable').data('output', $('#nestable-output')));
+      //updateOutput($('#menu-item-container').data('output', $('#nestable-output')));
 
     $("#menu-type").on("change",function(){
       selectedLinkType = $(this).val();
@@ -286,7 +335,7 @@
           setMenuItemLink(this);
       });
      
-
+      renderMenulist(menulistEntity);
 
       //save content
       $("#btn-save-new").on("click",function(){
@@ -296,13 +345,11 @@
 
           var postData = {
             menuid: menuidstr,
-            menulist: data
+            menulist: JSON.stringify(data)
           };
-
+          //console.log("postData ",postData);
           if(menu_unique_id!="default")
             postData.id = menu_unique_id;
-          
-          console.log("menu data ",postData);
 
           addAPI("/admin/api/menulist",postData,function(error,res){
               if(!error&&res.success){
@@ -329,7 +376,9 @@
 
       $("#add-new").on("click", function(){
           var menuTitle = $("#menutitle").val();
-          addNewMenuItem(menuTitle);
+          var menuElementStr = addNewMenuItem(menuTitle);
+          //console.log("add new menu item ", menuElementStr);
+          $("#menu-item-container > ol").append(menuElementStr);
           //clear text after added
           $("#menutitle").val("");
       });
@@ -368,11 +417,10 @@
                         </div>
                         <div class="form-group">
                           <div class="col-sm-8">
-                                <div class="dd" id="nestable">
-                                      <ol class="dd-list" id="menu-item-container">
-
-                                      </ol>
-                                  </div>
+                                <div class="dd" id="menu-item-container">
+                                   <ol class="dd-list">
+                                   </ol>
+                                </div>
                           </div>
                         </div>
 

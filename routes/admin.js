@@ -551,12 +551,10 @@ module.exports = function(passport){
 
 	//MENU LIST
 	router.put("/api/menulist",db.isLoggedIn,function(req,res,next){
-
-		if(req.body.data){
-			logger.info("update menulist",req.body.data);
-			var data = JSON.parse(req.body.data);
-			async.map(data, MENULISTMODEL.update, function(err, results){
-			    // results is now an array of stats for each file
+		console.log("update menulist body menuid ",req.body.id);
+		if(req.body.id){
+			console.log("update menulist body data ",req.body);
+			MENULISTMODEL.update(req.body, function(err){
 			    if(err){
 			    	logger.info('update menulist error ',err);
 			    	res.json({
@@ -585,7 +583,8 @@ module.exports = function(passport){
 	//add new menu
 	router.post("/api/menulist",db.isLoggedIn,function(req,res,next){
 		if(req.body){
-			if(req.body.title!=''&&req.body.link!=''){
+			if(req.body.menuid!=''&&req.body.menulist!=''){
+			
 				MENULISTMODEL.add(req.body,function(error,id){
 					if(error){
 						res.json({

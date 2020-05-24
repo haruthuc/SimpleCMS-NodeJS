@@ -357,6 +357,8 @@ function addQuery(table,obj,cb){
 //base update query
 function updateQuery(table,fields,cb){
 	logger.info("update "+table);
+
+	logger.info("update fields ", fields);
 	if(!fields.id)
 	{
 		cb("NO EXIST ID WHEN UPDATE "+table);
