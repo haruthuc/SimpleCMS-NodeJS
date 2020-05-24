@@ -37,7 +37,7 @@ var config = {
         secure: true, // use SSL
         auth: {
             user: 'simplecmsvietnam@gmail.com',
-            pass: 'admin123!@#'
+            pass: 'cMs123$%^'
         }
       }
 		},

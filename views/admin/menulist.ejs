@@ -1,7 +1,7 @@
 <% layout('admin-layout') -%>
 <%- script('/js/plugins/jquery.confirm.min.js') %>
 <script>
-  var API_URL = "/admin/api/content";
+  var API_URL = "/admin/api/menulist";
   var selectedPage = 1;
   function getList($args,cb){
       $.get(API_URL,$args).done(function( data ) {
@@ -48,19 +48,24 @@
     for(var i=0;i<data.length;i++){
         var content = data[i];
         strRenderer += '<tr><td class="project-status">';
-        if(checkPublished(content['datePublish']))
+        if(content['status'])
           strRenderer +='<span class="label label-primary">Published</span>';
         else
           strRenderer +='<span class="label label-default">UnPublished</span>';
 
-        strRenderer += '</td><td class="project-title"><a href="/admin/newpage/'+content['id']+'">'+content['title']+'</a><br>';
-        strRenderer += '<small>Created '+convertTimestampToDate(content['dateCreated'])+'</small>';
-        strRenderer +=  '</td><td>';
-        strRenderer += renderTags(content['tags']);
+        strRenderer += '</td><td class="project-title"><a href="/admin/newmenulist/'+content['id']+'">'+content['menuid']+'</a><br>';
+  
         strRenderer +=  '</td>';
+
+
+        strRenderer += '<td>';
+        strRenderer += '<small>Created '+convertTimestampToDate(content['dateCreated'])+'</small>';
+        strRenderer +=  '</td>';
+
+
+
         strRenderer +=  '<td class="project-people">';
-        if(content['picture'])
-          strRenderer +=  '<img alt="image" class="img-square" src="/uploads/'+content['id']+"/small/"+content['picture']+'">';
+
         strRenderer +=  '</td>';
         strRenderer +=  '<td class="project-actions">';
         strRenderer +=  '<a href="#" class="delete-btn btn btn-danger btn-sm" data-id="'+content['id']+'"><i class="fa fa-trash"></i> Delete </a>';
@@ -69,19 +74,6 @@
     return strRenderer;
   }
 
-  function renderTags(tags){
-    var tagsStr = "";
-    if(tags)
-    {
-      tags = tags.split(',');
-      for(var z=0;z<tags.length;z++){
-        tagsStr +='<span class="label tags"><a href="#" class="select-tag" data-tag="'+tags[z]+'">'+tags[z]+'</a></span> &nbsp;';
-
-      }
-    }
-    return tagsStr;
-
-  }
   function renderPaginateShowing(data){
     //Showing 1 to 10 of 57 entries
     var pageInfoText = "Showing ";
@@ -142,13 +134,6 @@
     return dateStr;
   }
 
-  function checkPublished(timestamp){
-    if(timestamp*1000 < new Date().getTime()){
-      return true;
-    }else {
-      return false;
-    }
-  }
 
   function deleteAPI(id){
       var args ={id:id};
@@ -191,7 +176,7 @@
       $("#search-btn").on("click",function(){
         var searchQuery = $("#search-txt").val();
         renderList({
-          title:"%"+searchQuery+"%"
+          menuid:"%"+searchQuery+"%"
         });
       });
 
@@ -201,7 +186,7 @@
           var searchQuery =  $(this).val();
           if(searchQuery.length > 3){
             var objSearch = {
-              title:"%"+searchQuery+"%"
+              menuid:"%"+searchQuery+"%"
             };
             if(searchQuery.indexOf("#")==0){
               searchQuery = searchQuery.replace("#","");
@@ -218,13 +203,6 @@
 
       });
 
-      $(document).on("click",'.change-page', function(event) {
-        event.preventDefault();
-        var page = $(this).data("page");
-        if(page!=selectedPage){
-          reloadPageWithNumber(page);
-        }
-      });
 
       //listener delete button
       //listen delete btn click
@@ -250,7 +228,13 @@
           });
       });
 
-     
+      $(document).on("click",'.change-page', function(event) {
+        event.preventDefault();
+        var page = $(this).data("page");
+        if(page!=selectedPage){
+          reloadPageWithNumber(page);
+        }
+      });
       //select-tag
       $(document).on("click",'.select-tag', function(event) {
         event.preventDefault();
@@ -270,7 +254,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
       <div class="col-sm-4">
-          <h2>Page list</h2>
+          <h2>Memu list</h2>
       </div>
 </div>
 <div class="row">
@@ -278,9 +262,9 @@
                 <div class="wrapper wrapper-content animated fadeInUp">
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>All pages </h5>
+                            <h5>All menulist </h5>
                             <div class="ibox-tools">
-                                <a href="/admin/newpage" class="btn btn-primary btn-xs">Create new page</a>
+                                <a href="/admin/newmenulist" class="btn btn-primary btn-xs">Create new MenuList</a>
                             </div>
                         </div>
                         <div class="ibox-content">
@@ -318,4 +302,4 @@
                     </div>
                 </div>
             </div>
-</div>
+        </div>

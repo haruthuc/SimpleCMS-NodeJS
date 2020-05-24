@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../helpers/db.js');
+//init models
 var MENUMODEL = new db.MENUMODEL();
 var TAGMODEL = new db.TAGMODEL();
 var CONTENTMODEL = new db.CONTENTMODEL();
 var USERMODEL = new db.USERMODEL();
+var MENULISTMODEL = new db.MENULISTMODEL();
+
 var _ = require('lodash');
 var async =require('async');
 var crypto = require('crypto');
@@ -15,7 +18,7 @@ var allowClean = {
 	allowedTags: [ 'b', 'i', 'em', 'strong', 'a', 'img','iframe' ],
 	allowedAttributes: {
 	  'a': [ 'href' ],
-	  'img' : ['src','title','atl']
+	  'img' : ['src','title','atl','style']
 	},
 	allowedIframeHostnames: ['www.youtube.com']
 };
@@ -67,6 +70,32 @@ module.exports = function(passport){
 	  res.render('admin/menu', { title: 'Simple CMS',active:"menu"});
 	});
 
+	router.get('/menulist', db.isLoggedIn, function(req, res, next) {
+		res.render('admin/menulist', { title: 'Simple CMS', active:"menulist"});
+	});
+
+	router.get('/newmenulist', db.isLoggedIn, function(req, res, next) {
+		res.render('admin/newmenulist', { title: 'Simple CMS', active:"newmenulist"});
+	});
+
+	router.get('/newmenulist/:id', db.isLoggedIn, function(req, res, next) {
+		var menuID = req.params.id;
+		MENULISTMODEL.findOne({"id":menuID},function(error,content){
+			if(error){
+				logger.info("ERROR get one page by content id",menuID);
+				res.redirect("/admin/newmenulist");
+			}else{
+				if(content){
+					content.active = "newmenulist";
+					res.render('admin/newmenulist',content);
+				}else{
+					res.redirect("/newmenulist");
+				}
+			}
+		});
+
+	});
+
 	router.get('/page', db.isLoggedIn, function(req, res, next) {
 	  res.render('admin/page', { title: 'Simple CMS',active:"page"});
 	});
@@ -108,6 +137,11 @@ module.exports = function(passport){
 
 	router.get('/settings', db.isLoggedIn, function(req, res, next) {
 	  res.render('admin/settings', { title: 'Simple CMS',active:"settings"});
+	});
+
+
+	router.get('/tag', db.isLoggedIn, function(req, res, next) {
+		res.render('admin/tag', { title: 'Simple CMS',active:"tag"});
 	});
 
 	router.post('/',
@@ -233,7 +267,7 @@ module.exports = function(passport){
 		var args = {};
 		logger.info("request query",req.query);
 
-		TAGMODEL.find("title",{},function(error,returnData){
+		TAGMODEL.find("title,id",{},function(error,returnData){
 	    	logger.info("TAGS ",returnData);
 	    	if(!error){
 	    		res.json(returnData);
@@ -305,215 +339,326 @@ module.exports = function(passport){
 		}
 	});
 
-//end tag api
+	//end tag api
 
-//Begin content api
-router.post("/api/content",db.isLoggedIn,function(req,res,next){
-	if(req.body){
-		if(req.body.title!=''){
-			req.body.alias = db.makeAliasLink(req.body.title);
+	//Begin content api
+	router.post("/api/content",db.isLoggedIn,function(req,res,next){
+		if(req.body){
+			if(req.body.title!=''){
+				req.body.alias = db.makeAliasLink(req.body.title);
 
+				if(req.body.content){
+						var clean = sanitizeHtml(req.body.content, allowClean);
+						req.body.content = clean;
+				}
+
+				CONTENTMODEL.add(req.body,function(error,id){
+					if(error){
+						res.json({
+							success:false,
+							message:"Can not content tag"
+						});
+						logger.info("ERROR add content api ",error);
+					}else{
+						res.json({
+							success:true,
+							id : id,
+							message:"Add content successfully"
+						});
+					}
+
+				});
+			}
+		}else{
+			res.json({
+				success:false,
+				message: "Invalid post data"
+			});
+		}
+	});
+
+	//Update content
+	//update menus
+	router.put("/api/content",db.isLoggedIn,function(req,res,next){
+		if(req.body){
+			logger.info("update content",req.body);
+			if(req.body.title)
+				req.body.alias = db.makeAliasLink(req.body.title);
 			if(req.body.content){
 					var clean = sanitizeHtml(req.body.content, allowClean);
 					req.body.content = clean;
 			}
-
-			CONTENTMODEL.add(req.body,function(error,id){
-				if(error){
-					res.json({
-						success:false,
-						message:"Can not content tag"
-					});
-					logger.info("ERROR add content api ",error);
-				}else{
-					res.json({
-						success:true,
-						id : id,
-						message:"Add content successfully"
-					});
-				}
-
-			});
-		}
-	}else{
-		res.json({
-			success:false,
-			message: "Invalid post data"
-		});
-	}
-});
-
-//Update content
-//update menus
-router.put("/api/content",db.isLoggedIn,function(req,res,next){
-	if(req.body){
-		logger.info("update content",req.body);
-		if(req.body.title)
-			req.body.alias = db.makeAliasLink(req.body.title);
-		if(req.body.content){
-				var clean = sanitizeHtml(req.body.content, allowClean);
-				req.body.content = clean;
-		}
-		//var data = JSON.parse(req.body);
-		CONTENTMODEL.update(req.body,function(err){
-				// results is now an array of stats for each file
-				if(err){
-					logger.info('update content error ',err);
-					res.json({
-						success:false,
-						message: JSON.stringify(err)
-					})
-				}else{
-					res.json({
-						success:true,
-						message: "Update successfully"
-					});
-				}
-		});
-
-	}else{
-		logger.info("update content invalid data");
-		res.json({
-				success:false,
-				message: "Invalid data"
-			});
-	}
-});
-
-//update profile
-router.put("/api/profile",db.isLoggedIn,function(req,res,next){
-	if(req.body){
-		logger.info("update profile",req.body);
-		//var data = JSON.parse(req.body);
-		if(req.body.username)
-			delete req.body.username;
-
-			//check valid password
-			async.waterfall([
-				function passwordCheck(callback){
-					var profile = req.body;
-					if(profile.email){
-						var emailRegrex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
-
-						if(!emailRegrex.test(profile.email)){
-							callback("Your email invalid");
-							return;
-						}
-					}
-
-					if(!profile.password && !profile.newpassword){
-						callback(null,profile);
-
-					}else{
-						//find one user compare hash password
-						USERMODEL.findOne({"id":req.session.passport.user}, function(err, user) {
-								var hashPassword = crypto.createHash('md5').update(profile.password).digest('hex');
-								if(hashPassword!=user['password']){
-									callback("Current password incorrect");
-									return;
-								}
-								profile.password = crypto.createHash('md5').update(profile.newpassword).digest('hex');
-								delete profile.newpassword;
-								callback(null,profile);
-
-						});
-
-					}
-
-				},
-				function updateProfile(profile,callback){
-
-					USERMODEL.update(profile,function(err){
-							// results is now an array of stats for each file
-							if(err){
-								logger.info('update content error ',err);
-								res.json({
-									success:false,
-									message: JSON.stringify(err)
-								})
-							}else{
-								res.json({
-									success:true,
-									message: "Update successfully"
-								});
-							}
-					});
-
-				}
-			],function (err, result) {
-
+			//var data = JSON.parse(req.body);
+			CONTENTMODEL.update(req.body,function(err){
+					// results is now an array of stats for each file
 					if(err){
-						logger.info("update password error",err);
+						logger.info('update content error ',err);
 						res.json({
 							success:false,
 							message: JSON.stringify(err)
-						});
+						})
 					}else{
 						res.json({
 							success:true,
-							message:"Update profile successfully"
+							message: "Update successfully"
 						});
 					}
 			});
 
-	}else{
-		logger.info("update content invalid data");
-		res.json({
-				success:false,
-				message: "Invalid data"
-			});
-	}
-});
-
-
-//get list menu
-router.get("/api/content",db.isLoggedIn,function(req,res,next){
-	var args = {};
-	logger.info("request query",req.query);
-
-	CONTENTMODEL.find("id,title,tags,picture,dateCreated,datePublish",req.query,function(error,returnData){
-			logger.info("PAGE ",returnData);
-			if(!error){
-				res.json(returnData);
-			}
-			else {
-				logger.info("ERROR get api/content",error);
-				res.json({
-					success :false,
-					error : "Can not get contents"
-				})
-			}
-
-		});
-});
-
-router.delete("/api/content",db.isLoggedIn,function(req,res,next){
-	var id = req.body.id || '';
-	if(id!=''){
-		CONTENTMODEL.delete(id,function(error){
-			if(error){
-				res.json({
+		}else{
+			logger.info("update content invalid data");
+			res.json({
 					success:false,
-					message:"Can not delete content"
+					message: "Invalid data"
 				});
-				logger.info("ERROR delete content api ",error);
-			}else{
-				res.json({
-					success:true,
-					message:"Delete content successfully"
+		}
+	});
+
+	//update profile
+	router.put("/api/profile",db.isLoggedIn,function(req,res,next){
+		if(req.body){
+			logger.info("update profile",req.body);
+			//var data = JSON.parse(req.body);
+			if(req.body.username)
+				delete req.body.username;
+
+				//check valid password
+				async.waterfall([
+					function passwordCheck(callback){
+						var profile = req.body;
+						if(profile.email){
+							var emailRegrex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+
+							if(!emailRegrex.test(profile.email)){
+								callback("Your email invalid");
+								return;
+							}
+						}
+
+						if(!profile.password && !profile.newpassword){
+							callback(null,profile);
+
+						}else{
+							//find one user compare hash password
+							USERMODEL.findOne({"id":req.session.passport.user}, function(err, user) {
+									var hashPassword = crypto.createHash('md5').update(profile.password).digest('hex');
+									if(hashPassword!=user['password']){
+										callback("Current password incorrect");
+										return;
+									}
+									profile.password = crypto.createHash('md5').update(profile.newpassword).digest('hex');
+									delete profile.newpassword;
+									callback(null,profile);
+
+							});
+
+						}
+
+					},
+					function updateProfile(profile,callback){
+
+						USERMODEL.update(profile,function(err){
+								// results is now an array of stats for each file
+								if(err){
+									logger.info('update content error ',err);
+									res.json({
+										success:false,
+										message: JSON.stringify(err)
+									})
+								}else{
+									res.json({
+										success:true,
+										message: "Update successfully"
+									});
+								}
+						});
+
+					}
+				],function (err, result) {
+
+						if(err){
+							logger.info("update password error",err);
+							res.json({
+								success:false,
+								message: JSON.stringify(err)
+							});
+						}else{
+							res.json({
+								success:true,
+								message:"Update profile successfully"
+							});
+						}
 				});
+
+		}else{
+			logger.info("update content invalid data");
+			res.json({
+					success:false,
+					message: "Invalid data"
+				});
+		}
+	});
+
+
+	//get list menu
+	router.get("/api/content",db.isLoggedIn,function(req,res,next){
+		var args = {};
+		logger.info("request query",req.query);
+
+		CONTENTMODEL.find("id,title,tags, alias, picture, dateCreated, datePublish",req.query,function(error,returnData){
+				logger.info("PAGE ",returnData);
+				if(!error){
+					res.json(returnData);
+				}
+				else {
+					logger.info("ERROR get api/content",error);
+					res.json({
+						success :false,
+						error : "Can not get contents"
+					})
+				}
+
+			});
+	});
+
+	router.delete("/api/content",db.isLoggedIn,function(req,res,next){
+		var id = req.body.id || '';
+		if(id!=''){
+			CONTENTMODEL.delete(id,function(error){
+				if(error){
+					res.json({
+						success:false,
+						message:"Can not delete content"
+					});
+					logger.info("ERROR delete content api ",error);
+				}else{
+					res.json({
+						success:true,
+						message:"Delete content successfully"
+					});
+				}
+
+			});
+
+		}else{
+			res.json({
+				success:false,
+				message:"Can not delete menu"
+			});
+		}
+	});
+
+
+	//MENU LIST
+	router.put("/api/menulist",db.isLoggedIn,function(req,res,next){
+
+		if(req.body.data){
+			logger.info("update menulist",req.body.data);
+			var data = JSON.parse(req.body.data);
+			async.map(data, MENULISTMODEL.update, function(err, results){
+			    // results is now an array of stats for each file
+			    if(err){
+			    	logger.info('update menulist error ',err);
+			    	res.json({
+			    		success:false,
+			    		message: JSON.stringify(err)
+			    	})
+			    }else{
+
+			    	res.json({
+			    		success:true,
+			    		message: "Update successfully"
+			    	});
+			    }
+			});
+
+		}else{
+			logger.info("update menulist invalid data");
+			res.json({
+	    		success:false,
+	    		message: "Invalid data"
+	    	});
+		}
+	});
+
+
+	//add new menu
+	router.post("/api/menulist",db.isLoggedIn,function(req,res,next){
+		if(req.body){
+			if(req.body.title!=''&&req.body.link!=''){
+				MENULISTMODEL.add(req.body,function(error,id){
+					if(error){
+						res.json({
+							success:false,
+							message:"Can not addd menulist"
+						});
+						logger.info("ERROR add menu api ",error);
+					}else{
+						res.json({
+							success:true,
+							message:"Add menulist successfully"
+						});
+					}
+
+				});
+
 			}
+		}else{
+			res.json({
+				success:false,
+				message: "Invalid post data"
+			})
+		}
+	});
 
-		});
+	//delte menu
+	router.delete("/api/menulist",db.isLoggedIn,function(req,res,next){
+		var id = req.body.id || '';
+		if(id!=''){
+			MENULISTMODEL.delete(id,function(error){
+				if(error){
+					res.json({
+						success:false,
+						message:"Can not delete menu"
+					});
+					logger.info("ERROR delete menu api ",error);
+				}else{
+					res.json({
+						success:true,
+						message:"Delete menu successfully"
+					});
+				}
 
-	}else{
-		res.json({
-			success:false,
-			message:"Can not delete menu"
-		});
-	}
-});
+			});
 
+		}else{
+			res.json({
+				success:false,
+				message:"Can not delete menu"
+			});
+		}
+	});
+
+	//get list menu
+	router.get("/api/menulist",db.isLoggedIn,function(req,res,next){
+		var args = {};
+		logger.info("request query",req.query);
+
+		MENULISTMODEL.find("id, menuid, menulist, dateCreated, status",req.query,function(error,returnData){
+	    	logger.info("MENU LIST ",returnData);
+	    	if(!error){
+	    		res.json(returnData);
+	    	}
+	    	else {
+	    		logger.info("ERROR get api/menu",error);
+	    		res.json({
+	    			success :false,
+	    			error : "Can not get menus"
+	    		})
+	    	}
+
+	    });
+	});
 	// =====================================
 	// LOGOUT ==============================
 	// =====================================

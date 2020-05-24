@@ -16,10 +16,10 @@ router.get('/', function(req, res, next) {
   Promise.all([
     _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
     _utils.get_content_helper("banners",'id,alias,title,picture',{tags:"%main-banner%"}),
-    _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"}),
-    _utils.get_content_helper("apartforent",'id,alias,title,picture,price',{tags:"%apartforrent%"}),
-    _utils.get_content_helper("apartfosale",'id,alias,title,picture,price',{tags:"%apartforsale%"}),
-    _utils.get_content_helper("houseforsaleandrent",'id,alias,title,picture,price',{tags:"%houseforsalerent%"})
+    _utils.get_content_helper("hotproperty",'id,alias,title,picture',{tags:"%HOTPROPERTY%"}),
+    _utils.get_content_helper("apartforent",'id,alias,title,picture',{tags:"%apartforrent%"}),
+    _utils.get_content_helper("apartfosale",'id,alias,title,picture',{tags:"%apartforsale%"}),
+    _utils.get_content_helper("houseforsaleandrent",'id,alias,title,picture',{tags:"%houseforsalerent%"})
   ]).then(function(values){
     var data = {};
     if(values.length > 0){
@@ -38,13 +38,20 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get("/content/:alias", function(req, res, next){
-  	var alias = req.params.alias;
+
+router.get(["/content/:alias"], function(req, res, next){
+  renderContent(req, res);
+});
+
+
+function renderContent(req,res) {
+
+    var alias = req.params.alias;
     if(alias){
       Promise.all([
         _utils.get_menu_helper("menu",'title,link',{orderBy:"sortOrder",order:"ASC",limit : "none"}),
         _utils.get_content_helper("content",'',{alias:"%"+alias+"%"}),
-        _utils.get_content_helper("hotproperty",'id,alias,title,picture,price',{tags:"%HOTPROPERTY%"})
+        _utils.get_content_helper("hotproperty",'id,alias,title,picture',{tags:"%HOTPROPERTY%"})
       ]).then(function(values){
         var data = {};
         if(values.length > 0){
@@ -67,8 +74,8 @@ router.get("/content/:alias", function(req, res, next){
     }else{
       res.render('frontend/pagenotfound');
     }
-});
 
+}
 
 router.get("/tags/:tag", function(req, res, next){
   	var tag = req.params.tag;

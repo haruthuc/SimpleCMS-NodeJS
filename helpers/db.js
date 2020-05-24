@@ -55,6 +55,27 @@ var MenuSchema = {
 	}
 };
 
+var MenuListSchema = {
+	"id": {
+		type:"TEXT",
+		default: function(){
+			return uuid.v4();
+		}
+	},
+	"menuid": "TEXT",
+	"menulist": "TEXT",
+	"dateCreated": {
+		type:"NUMERIC",
+		default: function (){
+			return new Date();
+		}
+	},
+	"status":{
+		type:"INTEGER",
+		default:1
+	}
+}
+
 var UserSchema = {
 	"id": {
 		type:"TEXT",
@@ -109,15 +130,15 @@ var ContentSchema = {
 	}
 };
 
-//extexd for real website
-ContentSchema.price = "INTEGER";
-ContentSchema.interior = "TEXT";
-ContentSchema.room = "INTEGER";
-ContentSchema.bathroom = "INTEGER";
-ContentSchema.code = "TEXT";
-ContentSchema.location = "TEXT";
-ContentSchema.level = "INTEGER";
-ContentSchema.sqft = "TEXT";
+// //extexd for real website
+// ContentSchema.price = "INTEGER";
+// ContentSchema.interior = "TEXT";
+// ContentSchema.room = "INTEGER";
+// ContentSchema.bathroom = "INTEGER";
+// ContentSchema.code = "TEXT";
+// ContentSchema.location = "TEXT";
+// ContentSchema.level = "INTEGER";
+// ContentSchema.sqft = "TEXT";
 
 //tags menu
 var TagsSchema = {
@@ -157,15 +178,13 @@ var PictureSchema = {
 	}
 };
 
-//picture
-
-
 var dbSchema = {
 	menu : MenuSchema,
 	user : UserSchema,
 	content : ContentSchema,
 	tag : TagsSchema,
-	picture : PictureSchema
+	picture : PictureSchema,
+	menulist : MenuListSchema
 };
 
 
@@ -181,10 +200,10 @@ function initTable(){
 
 	//create table USER
 	//db.run("CREATE TABLE IF NOT EXISTS user (id TEXT,username TEXT, password TEXT, fullname TEXT, email TEXT, role TEXT,dateCreated NUMERIC, status INTEGER)");
-	db.run("CREATE TABLE IF NOT EXISTS user ("+schemaToColumnString(UserSchema)+")");
+	db.run("CREATE TABLE IF NOT EXISTS user("+schemaToColumnString(UserSchema)+")");
 
 	//create table MENU
-	db.run("CREATE TABLE IF NOT EXISTS menu ("+schemaToColumnString(MenuSchema)+")");
+	db.run("CREATE TABLE IF NOT EXISTS menu("+schemaToColumnString(MenuSchema)+")");
 
 	//create table content
 	db.run("CREATE TABLE IF NOT EXISTS content("+schemaToColumnString(ContentSchema)+")");
@@ -194,6 +213,9 @@ function initTable(){
 
 	//create table picture
 	db.run("CREATE TABLE IF NOT EXISTS picture("+schemaToColumnString(PictureSchema)+")");
+
+	//create table picture
+	db.run("CREATE TABLE IF NOT EXISTS menulist("+schemaToColumnString(MenuListSchema)+")");
 
 	logger.info("INIT TABLE");
 };
@@ -536,10 +558,16 @@ exports.TAGMODEL = function(){
 	return new BASEMODEL("tag");
 }
 
-//tags model
+//picture model
 exports.PICTURE = function(){
 	return new BASEMODEL("picture");
 }
+
+exports.MENULISTMODEL = function(){
+	return new BASEMODEL("menulist");
+}
+
+
 exports.init = initDatabase;
 exports.close = close;
 

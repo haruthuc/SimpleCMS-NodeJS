@@ -187,14 +187,14 @@
             tags: tags
           };
 
-          postData.price = $("input[name='price']").val();;
-          postData.interior = $("input[name='interior']").val();;
-          postData.room =  $("input[name='room']").val();;
-          postData.bathroom =  $("input[name='bathroom']").val();;
-          postData.code =  $("input[name='code']").val();;
-          postData.location =  $("input[name='location']").val();;
-          postData.level =  $("input[name='level']").val();;
-          postData.sqft =  $("input[name='sqft']").val();;
+          // postData.price = $("input[name='price']").val();;
+          // postData.interior = $("input[name='interior']").val();;
+          // postData.room =  $("input[name='room']").val();;
+          // postData.bathroom =  $("input[name='bathroom']").val();;
+          // postData.code =  $("input[name='code']").val();;
+          // postData.location =  $("input[name='location']").val();;
+          // postData.level =  $("input[name='level']").val();;
+          // postData.sqft =  $("input[name='sqft']").val();;
 
 
           if(content_id!="default")
@@ -245,8 +245,7 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group"><label class="col-sm-2 control-label">Tags</label>
                             <div class="col-sm-6">
-                              <select name="tags" id="tag-choice" data-placeholder="Select Tags" style="width:550px;" multiple class="chosen-select">
-                              </select>
+                              <select name="tags" id="tag-choice" data-placeholder="Select Tags" multiple class="chosen-select form-control"></select>
 
                             </div>
                             <div class="col-sm-4">
@@ -264,74 +263,6 @@
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Price</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-usd"></i></span><input value="<%if(typeof price != 'undefined'){%><%-price%><%}%>" name="price" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group"><label class="col-lg-2 control-label">Room</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-building-o"></i></span><input value="<%if(typeof room != 'undefined'){%><%-room%><%}%>" name="room" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Bathroom</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-umbrella"></i></span><input value="<%if(typeof bathroom != 'undefined'){%><%-bathroom%><%}%>" name="bathroom" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Code</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-barcode"></i></span><input value="<%if(typeof code != 'undefined'){%><%-code%><%}%>" name="code" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group"><label class="col-lg-2 control-label">Level</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-level-up"></i></span><input value="<%if(typeof level != 'undefined'){%><%-level%><%}%>" name="level" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group"><label class="col-lg-2 control-label">Sqft</label>
-                            <div class="col-sm-2">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-cube"></i></span><input value="<%if(typeof sqft != 'undefined'){%><%-sqft%><%}%>" name="sqft" type="text" class="form-control">
-                              </div>
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Interior</label>
-                            <div class="col-sm-3">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-archive"></i></span><input value="<%if(typeof interior != 'undefined'){%><%=interior%><%}else{%><%-'Fully Furnished'%><%}%>" name="interior" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Location</label>
-                            <div class="col-sm-4">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span><input value="<%if(typeof location != 'undefined'){%><%-location%><%}%>" name="location" type="text" class="form-control">
-                              </div>
-
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-
                         <div class="form-group"><label class="col-lg-2 control-label">Content</label>
                         <div class="col-lg-10">
                             <div>
